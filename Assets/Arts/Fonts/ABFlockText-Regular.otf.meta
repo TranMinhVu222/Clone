@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6f226ab73797b4840af87ec82f5ccffb
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - RovioGame
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: bd2738a66a3aa4e6d92e2eda0310d3c1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

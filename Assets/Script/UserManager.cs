@@ -54,8 +54,6 @@ public class UserManager : MonoBehaviour
             string name = nameArray[rndNum];
             var user = new User("Adorable " + name, (i < 10) ? "0" + i : "" + i, birdImage, randomNumber);
             GameObject instantiate = Instantiate(containerPrefab,layout.transform);
-            
-            // instantiate.transform.localScale = Vector3.one;
             instantiate.GetComponent<ShowUserInfo>().SetUI(user);
         }
     }

@@ -657,6 +657,7 @@ GameObject:
   - component: {fileID: 3313262782894247469}
   - component: {fileID: 3313262782894247467}
   - component: {fileID: 3313262782894247466}
+  - component: {fileID: 4077196525426209618}
   m_Layer: 5
   m_Name: Adorable
   m_TagString: Untagged
@@ -728,6 +729,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.4
+--- !u!114 &4077196525426209618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3313262782894247468}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bbfcd926d1e14241afd3062902b1e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userNameText: {fileID: 3313262781523017009}
+  orderNumberText: {fileID: 3313262781809950002}
+  avatatImage: {fileID: 3313262782476038039}
+  scoreText: {fileID: 3313262782873551601}
 --- !u!1 &3313262783218093946
 GameObject:
   m_ObjectHideFlags: 0

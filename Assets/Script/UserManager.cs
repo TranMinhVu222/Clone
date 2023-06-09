@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UserManager : MonoBehaviour
 {
@@ -13,21 +14,8 @@ public class UserManager : MonoBehaviour
     [SerializeField] private Sprite[] birdArray;
 
     [SerializeField] private string[] nameArray;
-
-    public List<User> userList;
-
-    public static UserManager instance;
     
-    private static UserManager Instance { get => instance; } 
-    
-    void Awake()
-    {
-        if (instance != null)
-        {
-            Debug.LogError("Error !!!");
-        }
-        instance = this;
-    }
+    [SerializeField] private VerticalLayoutGroup layout;
     
     void Start()
     {
@@ -36,8 +24,6 @@ public class UserManager : MonoBehaviour
 
     private void SetUserData()
     {
-        userList = new List<User>();
-        
         for (int i = 1; i <= quantitiesContainer; i++)
         {
             int randomNumber = Random.Range(0, 1000);
@@ -47,14 +33,9 @@ public class UserManager : MonoBehaviour
 
             int rndNum = Random.Range(0, nameArray.Length - 1);
             string name = nameArray[rndNum];
-
-            userList.Add(new User(
-                "Adorable " + name,
-                (i < 10) ? "0" + i : "" + i,
-                birdImage, 
-                randomNumber));
-            
-            // Instantiate(containerPrefab, parentContainer.transform);
+            var user = new User("Adorable " + name, (i < 10) ? "0" + i : "" + i, birdImage, randomNumber);
+            GameObject instantiate = Instantiate(containerPrefab,layout.transform);
+            instantiate.GetComponent<ShowUserInfo>().SetUI(user);
         }
     }
 }

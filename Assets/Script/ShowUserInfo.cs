@@ -8,19 +8,12 @@ using Image = UnityEngine.UI.Image;
 
 public class ShowUserInfo: MonoBehaviour
 {
-    private User user;
-    
     public Text userNameText;
     public Text orderNumberText;
     public Image avatatImage;
     public Text scoreText;
 
-    void Start()
-    {
-        SetUI();    
-    }
-    
-    public void SetUI()
+    public void SetUI(User user)
     {
         userNameText.text = user.UserName;
         avatatImage.sprite = user.UserAvatar;

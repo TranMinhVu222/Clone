@@ -47,7 +47,7 @@ public class EnhancedScrollerController : MonoBehaviour, IEnhancedScrollerDelega
     public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
     {
         // Trả về kích thước của phần tử con tại vị trí dataIndex
-        return 100f;
+        return 200f;
     }
 
     public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)

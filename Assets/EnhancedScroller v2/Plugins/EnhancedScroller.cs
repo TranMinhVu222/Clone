@@ -761,6 +761,7 @@ namespace EnhancedUI.EnhancedScroller
         /// </summary>
         public void ClearActive()
         {
+            
             for (var i = 0; i < _activeCellViews.Count; i++)
             {
                 DestroyImmediate(_activeCellViews[i].gameObject);

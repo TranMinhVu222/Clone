@@ -194,7 +194,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7335076765303609372}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 248413731909389203, guid: 3a3373b3497cb416a81fe5288fc7622e, type: 3}
+        m_TargetAssemblyTypeName: ChestPopup, Assembly-CSharp
+        m_MethodName: OpenPopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7335076765352809947
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,7 +899,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7335076765947824373}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 248413731909389203, guid: 3a3373b3497cb416a81fe5288fc7622e, type: 3}
+        m_TargetAssemblyTypeName: ChestPopup, Assembly-CSharp
+        m_MethodName: OpenPopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7335076765978157007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,7 +1468,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7335076766545795365}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5057702813002803831}
+        m_TargetAssemblyTypeName: ChestScreen, Assembly-CSharp
+        m_MethodName: CloseScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7335076766589893032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2158,7 +2194,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7335076767078780971}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 248413731909389203, guid: 3a3373b3497cb416a81fe5288fc7622e, type: 3}
+        m_TargetAssemblyTypeName: ChestPopup, Assembly-CSharp
+        m_MethodName: OpenPopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7335076767133032519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,6 +2474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7335076767312928227}
+  - component: {fileID: 5057702813002803831}
   m_Layer: 5
   m_Name: ChestScreen
   m_TagString: Untagged
@@ -2454,6 +2503,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5057702813002803831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335076767312928226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3878e4c8e4cf47c98477ed3d7c15afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  identifier: Screen
+  screenPrefab: {fileID: 5057702813002803831}
 --- !u!1 &7335076767328990850
 GameObject:
   m_ObjectHideFlags: 0

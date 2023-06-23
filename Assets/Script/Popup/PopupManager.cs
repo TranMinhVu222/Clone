@@ -7,6 +7,8 @@ public class PopupManager : MonoBehaviour
   
    public List<UserInterface> recycleList = new List<UserInterface>();
 
+   [SerializeField] private GameObject rootPopup;
+   
    private static PopupManager instance;
    public static  PopupManager Instance {get => instance;}
    
@@ -25,8 +27,8 @@ public class PopupManager : MonoBehaviour
       var uiView = GetRecycleList(ui);
       if (uiView == null)
       {
-         var uiObject = Instantiate(ui,gameObject.transform);
-         uiObject.transform.SetSiblingIndex(gameObject.transform.childCount - 2);
+         var uiObject = Instantiate(ui,rootPopup.transform);
+         // uiObject.transform.SetSiblingIndex((rootPopup.transform.childCount == 0) ? 0 : rootPopup.transform.childCount + 1);
          recycleList.Add(uiObject);
       }
       else

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8303613732541185327}
   - component: {fileID: 8303613732541185313}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Progress Of Receivement Treasure Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1.7}
-  m_SizeDelta: {x: 105.45, y: 41.46}
+  m_AnchoredPosition: {x: 0, y: -1.051}
+  m_SizeDelta: {x: 105.45, y: 42.757}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8303613732541185312
 CanvasRenderer:
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 8303613732543741592}
   - component: {fileID: 8303613732543741575}
   m_Layer: 5
-  m_Name: Text
+  m_Name: BINGO Status Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 8303613732568333125}
   - component: {fileID: 8303613732568333124}
   m_Layer: 5
-  m_Name: Inside
+  m_Name: Inside Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,81 +250,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.78
---- !u!1 &8303613732572131845
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8303613732572131846}
-  - component: {fileID: 8303613732572131864}
-  - component: {fileID: 8303613732572131847}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8303613732572131846
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303613732572131845}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8303613734205738935}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 128.51, y: 112.03}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &8303613732572131864
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303613732572131845}
-  m_CullTransparentMesh: 1
---- !u!114 &8303613732572131847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303613732572131845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 619269b6d2e8d46eeb6a3451cbb8bd07, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8303613732589861947
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +262,7 @@ GameObject:
   - component: {fileID: 8303613732589861950}
   - component: {fileID: 8303613732589861949}
   m_Layer: 5
-  m_Name: Loading
+  m_Name: BINGO Status Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,7 +415,7 @@ GameObject:
   - component: {fileID: 8303613732630702140}
   - component: {fileID: 8303613732630702139}
   m_Layer: 5
-  m_Name: Label
+  m_Name: Pig And Gems Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,7 +506,7 @@ GameObject:
   - component: {fileID: 8303613732634561980}
   - component: {fileID: 8303613732634561979}
   m_Layer: 5
-  m_Name: Gift
+  m_Name: Treasure Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -658,7 +583,7 @@ GameObject:
   - component: {fileID: 8303613732653429674}
   - component: {fileID: 8303613732653429677}
   m_Layer: 5
-  m_Name: Label
+  m_Name: Countdown WB Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -765,7 +690,7 @@ GameObject:
   - component: {fileID: 8303613732655165498}
   - component: {fileID: 8303613732655165497}
   m_Layer: 5
-  m_Name: Tag
+  m_Name: Champions Tournament  Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -857,7 +782,7 @@ GameObject:
   - component: {fileID: 8303613732662616308}
   - component: {fileID: 8303613732662616307}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Sleeping Bird Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1091,7 +1016,7 @@ GameObject:
   - component: {fileID: 8303613732694022174}
   - component: {fileID: 8303613732694022173}
   m_Layer: 5
-  m_Name: Noti
+  m_Name: Noti Treasure Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1169,7 +1094,7 @@ GameObject:
   - component: {fileID: 8303613732698305610}
   - component: {fileID: 8303613732698305609}
   m_Layer: 5
-  m_Name: Tag
+  m_Name: League Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1275,7 +1200,7 @@ GameObject:
   - component: {fileID: 8303613732702245976}
   - component: {fileID: 8303613732702245959}
   m_Layer: 5
-  m_Name: Gear
+  m_Name: Gear Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1351,7 +1276,7 @@ GameObject:
   - component: {fileID: 8303613732707950225}
   - component: {fileID: 8303613732707950224}
   m_Layer: 5
-  m_Name: Label
+  m_Name: Coins And Gems Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1442,7 +1367,7 @@ GameObject:
   - component: {fileID: 8303613732722409822}
   - component: {fileID: 8303613732722409821}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Gem Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1680,7 +1605,7 @@ GameObject:
   - component: {fileID: 8303613732773517914}
   - component: {fileID: 8303613732773517915}
   m_Layer: 5
-  m_Name: 201
+  m_Name: Level Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1790,7 +1715,7 @@ GameObject:
   - component: {fileID: 8303613732777679723}
   - component: {fileID: 8303613732777679725}
   m_Layer: 5
-  m_Name: Bird (0)
+  m_Name: 180 Points Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1881,7 +1806,7 @@ GameObject:
   - component: {fileID: 8303613732780604459}
   - component: {fileID: 8303613732780604458}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Season Pass Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2082,7 +2007,7 @@ GameObject:
   - component: {fileID: 8303613732797232018}
   - component: {fileID: 8303613732797232020}
   m_Layer: 5
-  m_Name: Inside
+  m_Name: Inside Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2174,7 +2099,7 @@ GameObject:
   - component: {fileID: 8303613732823771746}
   - component: {fileID: 8303613732823771745}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 240 Points Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2268,7 +2193,7 @@ GameObject:
   - component: {fileID: 8303613732830368218}
   - component: {fileID: 8303613732830368217}
   m_Layer: 5
-  m_Name: Basket  Image
+  m_Name: Gem Basket  Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2344,7 +2269,7 @@ GameObject:
   - component: {fileID: 8303613732840634033}
   - component: {fileID: 8303613732840634032}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Pig Ad Gems Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2424,7 +2349,7 @@ GameObject:
   - component: {fileID: 8303613732867214536}
   - component: {fileID: 8303613732867214538}
   m_Layer: 5
-  m_Name: Label
+  m_Name: Hot Air Balloon Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2516,7 +2441,7 @@ GameObject:
   - component: {fileID: 8303613732869228597}
   - component: {fileID: 8303613732869228599}
   m_Layer: 5
-  m_Name: Bird (3)
+  m_Name: 260 Points Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2776,7 +2701,7 @@ GameObject:
   - component: {fileID: 8303613732892333965}
   - component: {fileID: 8303613732892333964}
   m_Layer: 5
-  m_Name: Right Body
+  m_Name: Right Vertical Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2879,7 +2804,7 @@ GameObject:
   - component: {fileID: 8303613732896403567}
   - component: {fileID: 8303613732896403566}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Status HAB Event Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2959,7 +2884,7 @@ GameObject:
   - component: {fileID: 8303613732902407440}
   - component: {fileID: 8303613732902407455}
   m_Layer: 5
-  m_Name: Right Button (1)
+  m_Name: Hot Air Balloon Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3082,7 +3007,7 @@ GameObject:
   - component: {fileID: 8303613732913987486}
   - component: {fileID: 8303613732913987485}
   m_Layer: 5
-  m_Name: Right Button (2)
+  m_Name: Sliver Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3205,7 +3130,7 @@ GameObject:
   - component: {fileID: 8303613732924949978}
   - component: {fileID: 8303613732924949977}
   m_Layer: 5
-  m_Name: Right Button (2)
+  m_Name: Water Balloon Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3328,7 +3253,7 @@ GameObject:
   - component: {fileID: 8303613732938632326}
   - component: {fileID: 8303613732938632325}
   m_Layer: 5
-  m_Name: Left Button
+  m_Name: Vanilla League Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3442,7 +3367,7 @@ MonoBehaviour:
         m_MethodName: OpenScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8054232832245462035, guid: a7bed7e191ace434492735df0c0ebf35, type: 3}
+          m_ObjectArgument: {fileID: 8139219464965930301, guid: a7bed7e191ace434492735df0c0ebf35, type: 3}
           m_ObjectArgumentAssemblyTypeName: UserInterface, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3459,7 +3384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8303613732959122977}
   m_Layer: 5
-  m_Name: Bingo
+  m_Name: BINGO Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3502,7 +3427,7 @@ GameObject:
   - component: {fileID: 8303613732971431656}
   - component: {fileID: 8303613732971431639}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 180 Points Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3568,7 +3493,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 220
+  m_Text: 180
 --- !u!114 &8303613732971431639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3660,85 +3585,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.5
---- !u!1 &8303613732978300596
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8303613732978300597}
-  - component: {fileID: 8303613732978300599}
-  - component: {fileID: 8303613732978300598}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &8303613732978300597
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303613732978300596}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8303613734287097060}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.2, y: -2.589943}
-  m_SizeDelta: {x: 140.33, y: 43.15}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &8303613732978300599
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303613732978300596}
-  m_CullTransparentMesh: 1
---- !u!114 &8303613732978300598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303613732978300596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.2509804, g: 0.1764706, b: 0.11372549, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 10941e0ba2e3847829ac235a3888bbd9, type: 3}
-    m_FontSize: 24
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Expired
 --- !u!1 &8303613732982750835
 GameObject:
   m_ObjectHideFlags: 0
@@ -3752,7 +3598,7 @@ GameObject:
   - component: {fileID: 8303613732982750838}
   - component: {fileID: 8303613732982750837}
   m_Layer: 5
-  m_Name: Right Button (3)
+  m_Name: Sleeping Bird Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3874,7 +3720,7 @@ GameObject:
   - component: {fileID: 8303613732986691480}
   - component: {fileID: 8303613732986691463}
   m_Layer: 5
-  m_Name: Inside
+  m_Name: Frame Of BINGO Status Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3950,7 +3796,7 @@ GameObject:
   - component: {fileID: 8303613733021244128}
   - component: {fileID: 8303613733021244143}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Season Pass Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4027,7 +3873,7 @@ GameObject:
   - component: {fileID: 8303613733026251650}
   - component: {fileID: 8303613733026251651}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Score Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4111,7 +3957,7 @@ GameObject:
   - component: {fileID: 8303613733050131477}
   - component: {fileID: 8303613733050131476}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Champions Tournament Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4346,7 +4192,7 @@ GameObject:
   - component: {fileID: 8303613733070419015}
   - component: {fileID: 8303613733070419014}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 280 Points Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4440,7 +4286,7 @@ GameObject:
   - component: {fileID: 8303613733071140914}
   - component: {fileID: 8303613733071140913}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Progress Season Pass Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4594,7 +4440,7 @@ GameObject:
   - component: {fileID: 8303613733136196178}
   - component: {fileID: 8303613733136196177}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Close Eyes Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4825,7 +4671,7 @@ GameObject:
   - component: {fileID: 8303613733171271733}
   - component: {fileID: 8303613733171271732}
   m_Layer: 5
-  m_Name: Inside
+  m_Name: Frame Of CE Status Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4902,7 +4748,7 @@ GameObject:
   - component: {fileID: 8303613733196705820}
   - component: {fileID: 8303613733196705822}
   m_Layer: 5
-  m_Name: Bird (2)
+  m_Name: 240 Points Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4993,7 +4839,7 @@ GameObject:
   - component: {fileID: 8303613733197666681}
   - component: {fileID: 8303613733197666680}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Countdown WB Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5072,7 +4918,7 @@ GameObject:
   - component: {fileID: 8303613733223772913}
   - component: {fileID: 8303613733223772912}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Hot Air Balloon Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5546,7 +5392,7 @@ GameObject:
   - component: {fileID: 8303613733320094941}
   - component: {fileID: 8303613733320094940}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Champions Tournament Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5701,7 +5547,7 @@ GameObject:
   - component: {fileID: 8303613733351003419}
   - component: {fileID: 8303613733351003418}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Expired Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5781,7 +5627,7 @@ GameObject:
   - component: {fileID: 8303613733355591591}
   - component: {fileID: 8303613733355591590}
   m_Layer: 5
-  m_Name: Right Button
+  m_Name: Champions Tournament Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5902,7 +5748,7 @@ GameObject:
   - component: {fileID: 8303613733355622719}
   - component: {fileID: 8303613733355622718}
   m_Layer: 5
-  m_Name: Loading
+  m_Name: Sliver Status Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5979,7 +5825,7 @@ GameObject:
   - component: {fileID: 8303613733365686972}
   - component: {fileID: 8303613733365686971}
   m_Layer: 5
-  m_Name: Label
+  m_Name: BINGO Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6071,7 +5917,7 @@ GameObject:
   - component: {fileID: 8303613733365938712}
   - component: {fileID: 8303613733365938695}
   m_Layer: 5
-  m_Name: Label
+  m_Name: Sleeping Bird Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6163,7 +6009,7 @@ GameObject:
   - component: {fileID: 8303613733370566510}
   - component: {fileID: 8303613733370566509}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Gem Basket Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6285,7 +6131,7 @@ GameObject:
   - component: {fileID: 8303613733388092896}
   - component: {fileID: 8303613733388092911}
   m_Layer: 5
-  m_Name: Right Button (4)
+  m_Name: BINGO Button (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6407,7 +6253,7 @@ GameObject:
   - component: {fileID: 8303613733392269682}
   - component: {fileID: 8303613733392269681}
   m_Layer: 5
-  m_Name: Loading
+  m_Name: 'Status HAB Event '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6484,7 +6330,7 @@ GameObject:
   - component: {fileID: 8303613733402039273}
   - component: {fileID: 8303613733402039272}
   m_Layer: 5
-  m_Name: Label
+  m_Name: Countdown HT Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6503,7 +6349,7 @@ RectTransform:
   m_Children:
   - {fileID: 8303613734611155688}
   m_Father: {fileID: 8303613734205738935}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -6575,7 +6421,7 @@ GameObject:
   - component: {fileID: 8303613733410168810}
   - component: {fileID: 8303613733410168809}
   m_Layer: 5
-  m_Name: Slide
+  m_Name: Score Button Scroll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6652,7 +6498,7 @@ GameObject:
   - component: {fileID: 8303613733411721861}
   - component: {fileID: 8303613733411721860}
   m_Layer: 5
-  m_Name: Paper Image
+  m_Name: Expired BG Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6730,7 +6576,7 @@ GameObject:
   - component: {fileID: 8303613733423454934}
   - component: {fileID: 8303613733423454952}
   m_Layer: 5
-  m_Name: Text
+  m_Name: CE Status Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6824,7 +6670,7 @@ GameObject:
   - component: {fileID: 8303613733445308765}
   - component: {fileID: 8303613733445308764}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Pig And Gems Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6900,7 +6746,7 @@ GameObject:
   - component: {fileID: 8303613733464973616}
   - component: {fileID: 8303613733464973618}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Sliver Status Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6995,7 +6841,7 @@ GameObject:
   - component: {fileID: 8303613733504307639}
   - component: {fileID: 8303613733504307637}
   m_Layer: 5
-  m_Name: Bird (1)
+  m_Name: 220 Points Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7161,7 +7007,7 @@ GameObject:
   - component: {fileID: 8303613733584033425}
   - component: {fileID: 8303613733584033424}
   m_Layer: 5
-  m_Name: Inside
+  m_Name: Frame Of SB Status Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7329,7 +7175,7 @@ GameObject:
   - component: {fileID: 8303613733606960138}
   - component: {fileID: 8303613733606960137}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SB Event Status Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7409,7 +7255,7 @@ GameObject:
   - component: {fileID: 8303613733620714806}
   - component: {fileID: 8303613733620714952}
   m_Layer: 5
-  m_Name: Bird (4)
+  m_Name: 280 Points Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7576,7 +7422,7 @@ GameObject:
   - component: {fileID: 8303613733635461230}
   - component: {fileID: 8303613733635461229}
   m_Layer: 5
-  m_Name: New!
+  m_Name: New! Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8001,7 +7847,7 @@ GameObject:
   - component: {fileID: 8303613733668718874}
   - component: {fileID: 8303613733668718873}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Sliver Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8077,7 +7923,7 @@ GameObject:
   - component: {fileID: 8303613733673069961}
   - component: {fileID: 8303613733673069960}
   m_Layer: 5
-  m_Name: Right Button (3)
+  m_Name: Pig And Gems Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8199,7 +8045,7 @@ GameObject:
   - component: {fileID: 8303613733689511054}
   - component: {fileID: 8303613733689511053}
   m_Layer: 5
-  m_Name: Inside
+  m_Name: Inside HAB Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8277,7 +8123,7 @@ GameObject:
   - component: {fileID: 8303613733716143339}
   - component: {fileID: 8303613733716143338}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 100% Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8465,7 +8311,7 @@ GameObject:
   - component: {fileID: 8303613733768253192}
   - component: {fileID: 8303613733768253303}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Claim Gift Season Pass Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8542,7 +8388,7 @@ GameObject:
   - component: {fileID: 8303613733781154095}
   - component: {fileID: 8303613733781154094}
   m_Layer: 5
-  m_Name: Right Button (4)
+  m_Name: Coins And Gems Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8741,7 +8587,7 @@ GameObject:
   - component: {fileID: 8303613733786546665}
   - component: {fileID: 8303613733786546664}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Treasure Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8862,7 +8708,7 @@ GameObject:
   - component: {fileID: 8303613733792947584}
   - component: {fileID: 8303613733792947599}
   m_Layer: 5
-  m_Name: Loading
+  m_Name: Countdown Status HT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8881,7 +8727,7 @@ RectTransform:
   m_Children:
   - {fileID: 8303613732976594571}
   m_Father: {fileID: 8303613734205738935}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -8938,7 +8784,7 @@ GameObject:
   - component: {fileID: 8303613733820873437}
   - component: {fileID: 8303613733820873436}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Status Heart Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9017,7 +8863,7 @@ GameObject:
   - component: {fileID: 8303613733827247430}
   - component: {fileID: 8303613733827247429}
   m_Layer: 5
-  m_Name: Bird
+  m_Name: 200 Points Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9173,7 +9019,7 @@ GameObject:
   - component: {fileID: 8303613733863239326}
   - component: {fileID: 8303613733863239325}
   m_Layer: 5
-  m_Name: Red
+  m_Name: Red Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9522,7 +9368,7 @@ GameObject:
   - component: {fileID: 8303613733927738127}
   - component: {fileID: 8303613733927738126}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Coins And Gems Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9673,7 +9519,7 @@ GameObject:
   - component: {fileID: 8303613733986742854}
   - component: {fileID: 8303613733986742853}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 260 Points Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9767,7 +9613,7 @@ GameObject:
   - component: {fileID: 8303613734001907330}
   - component: {fileID: 8303613734001907329}
   m_Layer: 5
-  m_Name: Present
+  m_Name: Gift Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9842,7 +9688,7 @@ GameObject:
   - component: {fileID: 8303613734021633217}
   - component: {fileID: 8303613734021633216}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Expired SliverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9922,7 +9768,7 @@ GameObject:
   - component: {fileID: 8303613734025661738}
   - component: {fileID: 8303613734025661740}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 200 Points Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10017,7 +9863,7 @@ GameObject:
   - component: {fileID: 8303613734045626635}
   - component: {fileID: 8303613734045626637}
   m_Layer: 5
-  m_Name: Bird (5)
+  m_Name: 300 Points Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10267,7 +10113,7 @@ GameObject:
   - component: {fileID: 8303613734052727154}
   - component: {fileID: 8303613734052727156}
   m_Layer: 5
-  m_Name: Loading
+  m_Name: Close Eyes Status Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10376,11 +10222,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8303613734205738935}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 8}
+  m_AnchoredPosition: {x: 0, y: 14}
   m_SizeDelta: {x: 219.6, y: 156.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8303613734058592080
@@ -10435,7 +10281,7 @@ GameObject:
   - component: {fileID: 8303613734063243190}
   - component: {fileID: 8303613734063242313}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Previus Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10569,7 +10415,7 @@ GameObject:
   - component: {fileID: 8303613734066085466}
   - component: {fileID: 8303613734066085465}
   m_Layer: 5
-  m_Name: Text
+  m_Name: BINGO Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10649,7 +10495,7 @@ GameObject:
   - component: {fileID: 8303613734082735588}
   - component: {fileID: 8303613734082735590}
   m_Layer: 5
-  m_Name: Left Body
+  m_Name: Left Vertical Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10754,7 +10600,7 @@ GameObject:
   - component: {fileID: 8303613734089610426}
   - component: {fileID: 8303613734089610425}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Play Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10949,7 +10795,7 @@ GameObject:
   - component: {fileID: 8303613734130936490}
   - component: {fileID: 8303613734130936489}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Water Balloon Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11099,7 +10945,7 @@ GameObject:
   - component: {fileID: 8303613734169983670}
   - component: {fileID: 8303613734169983669}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Add Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11175,7 +11021,7 @@ GameObject:
   - component: {fileID: 8303613734205738057}
   - component: {fileID: 8303613734205738056}
   m_Layer: 5
-  m_Name: Right Button (1)
+  m_Name: Hammer Treasure Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11192,7 +11038,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8303613732572131846}
   - {fileID: 8303613734058592094}
   - {fileID: 8303613734673519971}
   - {fileID: 8303613733792947598}
@@ -11299,7 +11144,7 @@ GameObject:
   - component: {fileID: 8303613734206593436}
   - component: {fileID: 8303613734206593435}
   m_Layer: 5
-  m_Name: Rate
+  m_Name: Medal Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11375,7 +11220,7 @@ GameObject:
   - component: {fileID: 8303613734223169569}
   - component: {fileID: 8303613734223169571}
   m_Layer: 5
-  m_Name: Text
+  m_Name: League Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11471,7 +11316,7 @@ GameObject:
   - component: {fileID: 8303613734229464501}
   - component: {fileID: 8303613734229464500}
   m_Layer: 5
-  m_Name: Bar
+  m_Name: Progress Bar Of receivement Treasure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11547,7 +11392,7 @@ GameObject:
   - component: {fileID: 8303613734244393781}
   - component: {fileID: 8303613734244393780}
   m_Layer: 5
-  m_Name: Basket  Image
+  m_Name: Play  Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11629,7 +11474,7 @@ GameObject:
   - component: {fileID: 8303613734245771537}
   - component: {fileID: 8303613734245771536}
   m_Layer: 5
-  m_Name: Right Button (5)
+  m_Name: Close Eyes  Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11751,7 +11596,7 @@ GameObject:
   - component: {fileID: 8303613734272979885}
   - component: {fileID: 8303613734272979884}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Champions Tournament Frame Of Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11827,7 +11672,7 @@ GameObject:
   - component: {fileID: 8303613734287097062}
   - component: {fileID: 8303613734287097061}
   m_Layer: 5
-  m_Name: Label
+  m_Name: Close Eyes Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11845,7 +11690,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8303613733136196176}
-  - {fileID: 8303613732978300597}
   m_Father: {fileID: 8303613734245771551}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11921,7 +11765,7 @@ GameObject:
   - component: {fileID: 8303613734312376611}
   - component: {fileID: 8303613734312376610}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Tee Shirt Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12030,7 +11874,7 @@ GameObject:
   - component: {fileID: 8303613734315155227}
   - component: {fileID: 8303613734315155226}
   m_Layer: 5
-  m_Name: Progress
+  m_Name: Process Of Gather Treasure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12109,7 +11953,7 @@ GameObject:
   - component: {fileID: 8303613734317848048}
   - component: {fileID: 8303613734317848063}
   m_Layer: 5
-  m_Name: Loading
+  m_Name: SB Event Status Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12262,7 +12106,7 @@ GameObject:
   - component: {fileID: 8303613734387367634}
   - component: {fileID: 8303613734387367636}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Num Of Heart Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12356,7 +12200,7 @@ GameObject:
   - component: {fileID: 8303613734400354431}
   - component: {fileID: 8303613734400354430}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: FakeScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12506,7 +12350,7 @@ GameObject:
   - component: {fileID: 8303613734458727768}
   - component: {fileID: 8303613734458727751}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Sleeping Bird Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12582,7 +12426,7 @@ GameObject:
   - component: {fileID: 8303613734484632263}
   - component: {fileID: 8303613734484632262}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Shirt Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12704,7 +12548,7 @@ GameObject:
   - component: {fileID: 8303613734487667787}
   - component: {fileID: 8303613734487667786}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 300 Points Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12798,7 +12642,7 @@ GameObject:
   - component: {fileID: 8303613734498514935}
   - component: {fileID: 8303613734498514934}
   m_Layer: 5
-  m_Name: Body
+  m_Name: Season Pass Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12877,7 +12721,7 @@ GameObject:
   - component: {fileID: 8303613734561014311}
   - component: {fileID: 8303613734561014310}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Close Eyes Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12952,7 +12796,7 @@ GameObject:
   - component: {fileID: 8303613734576455862}
   - component: {fileID: 8303613734576455861}
   m_Layer: 5
-  m_Name: Hat
+  m_Name: Hat Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13028,7 +12872,7 @@ GameObject:
   - component: {fileID: 8303613734582532363}
   - component: {fileID: 8303613734582532362}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Num Of Gifts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13050,8 +12894,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.6}
-  m_SizeDelta: {x: 27.9, y: 22.86}
+  m_AnchoredPosition: {x: 0, y: 2.773}
+  m_SizeDelta: {x: 27.9, y: 23.207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8303613734582532364
 CanvasRenderer:
@@ -13122,7 +12966,7 @@ GameObject:
   - component: {fileID: 8303613734586699233}
   - component: {fileID: 8303613734586699232}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Expired  Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13351,7 +13195,7 @@ GameObject:
   - component: {fileID: 8303613734595719348}
   - component: {fileID: 8303613734595719347}
   m_Layer: 5
-  m_Name: Text
+  m_Name: 4 Days Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13430,7 +13274,7 @@ GameObject:
   - component: {fileID: 8303613734611155690}
   - component: {fileID: 8303613734611155689}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Countdown HT Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13509,7 +13353,7 @@ GameObject:
   - component: {fileID: 8303613734615351500}
   - component: {fileID: 8303613734615351499}
   m_Layer: 5
-  m_Name: ' Egg Image'
+  m_Name: Vanilla League Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13586,7 +13430,7 @@ GameObject:
   - component: {fileID: 8303613734617606265}
   - component: {fileID: 8303613734617606264}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Expired Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13722,7 +13566,7 @@ GameObject:
   - component: {fileID: 8303613734619145902}
   - component: {fileID: 8303613734619145901}
   m_Layer: 5
-  m_Name: Label
+  m_Name: Sliver Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13814,7 +13658,7 @@ GameObject:
   - component: {fileID: 8303613734630285580}
   - component: {fileID: 8303613734630285582}
   m_Layer: 5
-  m_Name: Text
+  m_Name: New! Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14151,7 +13995,7 @@ GameObject:
   - component: {fileID: 8303613734669511866}
   - component: {fileID: 8303613734669511868}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ' 220 Points Text'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14245,7 +14089,7 @@ GameObject:
   - component: {fileID: 8303613734673519973}
   - component: {fileID: 8303613734673519972}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Hammer Treasure Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14263,7 +14107,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8303613734205738935}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

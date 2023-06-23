@@ -3,19 +3,28 @@ using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 
-public class EnhancedScrollerController : MonoBehaviour, IEnhancedScrollerDelegate
+public class LeagueScreen :Screen, IEnhancedScrollerDelegate
 {
     public EnhancedScroller scroller;
     public EnhancedScrollerCellView cellViewPrefab;
 
     private AdorableUser[] data;
 
-    [SerializeField] private int setNumOfCell;
-    [SerializeField] private Sprite[] birdArray;
-    [SerializeField] private string[] nameArray;
+    private int setNumOfCell;
+    private Sprite[] birdArray;
+    private string[] nameArray;
 
     private void Start()
     {
+        //Number of cells
+        setNumOfCell = 20;
+        
+        //Name of user + " Adorable"
+        nameArray = new[] { "Lion", "Bird", "Dog", "Cat", "Human", "Monkey", "T-Rex" };
+        
+        //Avatar Images of user
+        birdArray = Resources.LoadAll<Sprite>("AvatarImage/");
+        
         // Thiết lập delegate cho Enhanced Scroller
         scroller.Delegate = this;
 

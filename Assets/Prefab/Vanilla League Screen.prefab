@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1685857515768777153}
   - component: {fileID: 1685857515768777152}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Scroller Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,12 +201,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6866210523975871854, guid: defd556309730427b808068996fea3ff, type: 3}
+      - m_Target: {fileID: 7554004319038281516, guid: dedc4d02fbdf24ee9ab658889152d606, type: 3}
         m_TargetAssemblyTypeName: HomeScreen, Assembly-CSharp
         m_MethodName: CloseScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8054232832245462035}
+          m_ObjectArgument: {fileID: 8139219464965930301}
           m_ObjectArgumentAssemblyTypeName: UserInterface, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 1685857516159165119}
   - component: {fileID: 1685857516159165118}
   m_Layer: 5
-  m_Name: Clouds
+  m_Name: Clouds Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1294,8 +1294,7 @@ GameObject:
   - component: {fileID: 1685857516946173462}
   - component: {fileID: 1685857516946173449}
   - component: {fileID: 1685857516946173461}
-  - component: {fileID: 1685857516946173458}
-  - component: {fileID: 8054232832245462035}
+  - component: {fileID: 8139219464965930301}
   m_Layer: 5
   m_Name: Vanilla League Screen
   m_TagString: Untagged
@@ -1417,7 +1416,7 @@ MonoBehaviour:
   - Bird
   - Snake
   layout: {fileID: 1685857516336654151}
---- !u!114 &1685857516946173458
+--- !u!114 &8139219464965930301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1429,35 +1428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6207563d8e26a4a7c931d41835ea1740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  identifier: LeagueSreen
   scroller: {fileID: 1685857516652022991}
   cellViewPrefab: {fileID: 1566850501944284495, guid: 8916cb54279f545a09441107ebc1c4fc, type: 3}
-  setNumOfCell: 20
-  birdArray:
-  - {fileID: 21300000, guid: c01b69ffeff3148da8251e17f79a3569, type: 3}
-  - {fileID: 21300000, guid: 4068a237b16cc422baf2ffc96c1a0284, type: 3}
-  - {fileID: 21300000, guid: 0cf198a86940240a4ab12a05c763b672, type: 3}
-  - {fileID: 21300000, guid: 15ca991415b724b80a5bb6cf7b7ef570, type: 3}
-  - {fileID: 21300000, guid: 9eb361333956c4f29b2b66b1d4255e7a, type: 3}
-  - {fileID: 21300000, guid: 5a055b81b30dc4d1c8ace00814c88c86, type: 3}
-  - {fileID: 21300000, guid: cc7f84add11714db5bd2219d2667408a, type: 3}
-  nameArray:
-  - Lion
-  - Bird
-  - Elephant
-  - Dog
---- !u!114 &8054232832245462035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685857516946173448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dfe2e92ff0fc49e59762f60323abb8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  identifier: LeagueScreen
 --- !u!1 &1685857516972728910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1779,7 @@ GameObject:
   - component: {fileID: 1685857517129713452}
   - component: {fileID: 1685857517129713455}
   m_Layer: 5
-  m_Name: Image
+  m_Name: X Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

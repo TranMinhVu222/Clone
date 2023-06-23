@@ -9,12 +9,10 @@ public class ChestScreen : Screen
     public void OpenScreen()
     {
         PopupManager.Instance.TurnOnPopup(screenPrefab);
-        ShowScreen();
     }
 
     public void CloseScreen()
     {
         PopupManager.Instance.TurnOffPopup(screenPrefab);
-        HiddenScreen();
     }
 }

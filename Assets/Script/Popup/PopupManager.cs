@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PopupManager : MonoBehaviour
 {
-   [SerializeField] private Camera cameraScreen;
-   
+  
    public List<UserInterface> recycleList = new List<UserInterface>();
 
    private static PopupManager instance;
@@ -20,12 +19,7 @@ public class PopupManager : MonoBehaviour
       instance = this;
       DontDestroyOnLoad(gameObject);
    }
-
-   private void Start()
-   {
-      ScreenCameraController.Instance.SetCamera(cameraScreen);
-   }
-
+   
    public void TurnOnPopup(UserInterface ui)
    {
       var uiView = GetRecycleList(ui);

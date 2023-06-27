@@ -206,7 +206,7 @@ MonoBehaviour:
         m_MethodName: CloseScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1685857516946173458}
+          m_ObjectArgument: {fileID: -2932954957445398640}
           m_ObjectArgumentAssemblyTypeName: UserInterface, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1294,7 +1294,7 @@ GameObject:
   - component: {fileID: 1685857516946173462}
   - component: {fileID: 1685857516946173449}
   - component: {fileID: 1685857516946173461}
-  - component: {fileID: 1685857516946173458}
+  - component: {fileID: -2932954957445398640}
   m_Layer: 5
   m_Name: Vanilla League Screen
   m_TagString: Untagged
@@ -1416,7 +1416,7 @@ MonoBehaviour:
   - Bird
   - Snake
   layout: {fileID: 1685857516336654151}
---- !u!114 &1685857516946173458
+--- !u!114 &-2932954957445398640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1425,7 +1425,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1685857516946173448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6207563d8e26a4a7c931d41835ea1740, type: 3}
+  m_Script: {fileID: 11500000, guid: b92bb42e19ec34376b824d4cc66599ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   identifier: LeagueScreen

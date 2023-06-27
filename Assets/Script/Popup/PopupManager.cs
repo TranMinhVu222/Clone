@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PopupManager : MonoBehaviour
 {
-  
+   [SerializeField] private GameObject rootObject;
    public List<UserInterface> recycleList = new List<UserInterface>();
 
    private static PopupManager instance;
@@ -25,8 +25,8 @@ public class PopupManager : MonoBehaviour
       var uiView = GetRecycleList(ui);
       if (uiView == null)
       {
-         var uiObject = Instantiate(ui,gameObject.transform);
-         uiObject.transform.SetSiblingIndex(gameObject.transform.childCount - 2);
+         var uiObject = Instantiate(ui,rootObject.transform);
+         // uiObject.transform.SetSiblingIndex(gameObject.transform.childCount - 2);
          recycleList.Add(uiObject);
       }
       else

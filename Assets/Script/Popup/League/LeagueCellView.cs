@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 
-public class CellView : EnhancedScrollerCellView
+public class LeagueCellView : EnhancedScrollerCellView
 {
-    protected AdorableUser _adorableUser;
+    protected LeagueUser _adorableUser;
     
-    public virtual void SetData(AdorableUser data)
+    public virtual void SetData(LeagueUser data)
     {
         _adorableUser = data;
     }

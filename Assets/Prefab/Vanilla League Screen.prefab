@@ -39,8 +39,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -397.83}
-  m_SizeDelta: {x: 1230.4, y: 1933.2}
+  m_AnchoredPosition: {x: 24.7913, y: -301.94397}
+  m_SizeDelta: {x: 1130.4175, y: 1741.448}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1685857515768777153
 CanvasRenderer:
@@ -484,10 +484,10 @@ RectTransform:
   m_Father: {fileID: 1685857515768777155}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2, y: 0}
-  m_SizeDelta: {x: 1766.39, y: 416.29}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -7.696289, y: 870.5}
+  m_SizeDelta: {x: 290.94543, y: -1324.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1685857516200337262
 CanvasRenderer:
@@ -937,10 +937,10 @@ RectTransform:
   m_Father: {fileID: 1685857515768777155}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -116.43005}
-  m_SizeDelta: {x: 1230.4, y: -232.91}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -14.97583, y: -116.46002}
+  m_SizeDelta: {x: -29.54773, y: -232.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1685857516652022990
 CanvasRenderer:
@@ -1308,7 +1308,7 @@ RectTransform:
   m_GameObject: {fileID: 1685857516946173448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1685857517241825921}
   - {fileID: 1685857516972728911}
@@ -1317,8 +1317,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1826,10 +1826,10 @@ RectTransform:
   m_Father: {fileID: 1685857515768777155}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 2, y: -123.105225}
-  m_SizeDelta: {x: 1238.94, y: 222.88}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.0017700195, y: 748.19}
+  m_SizeDelta: {x: 0.4000244, y: -1519.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1685857517173780594
 CanvasRenderer:
@@ -2098,8 +2098,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0034943, y: -0.0000029007986}
-  m_SizeDelta: {x: 1230.4, y: 1697.2}
+  m_AnchoredPosition: {x: 15.6357, y: 0.011003936}
+  m_SizeDelta: {x: 1110.3455, y: 1508.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1685857517534096644
 GameObject:
@@ -2613,11 +2613,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3313262782894247469, guid: 8916cb54279f545a09441107ebc1c4fc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1181.46
+      value: 1043.5
       objectReference: {fileID: 0}
     - target: {fileID: 3313262782894247469, guid: 8916cb54279f545a09441107ebc1c4fc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200.80005
+      value: 200.8
       objectReference: {fileID: 0}
     - target: {fileID: 3313262782894247469, guid: 8916cb54279f545a09441107ebc1c4fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2649,7 +2649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3313262782894247469, guid: 8916cb54279f545a09441107ebc1c4fc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 621
+      value: 552.01
       objectReference: {fileID: 0}
     - target: {fileID: 3313262782894247469, guid: 8916cb54279f545a09441107ebc1c4fc, type: 3}
       propertyPath: m_AnchoredPosition.y

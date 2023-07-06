@@ -942,7 +942,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5057702813002803831, guid: 63eb7d49fa542408ba43fa1e133d77f8, type: 3}
+      - m_Target: {fileID: 2657181376642929132, guid: 63eb7d49fa542408ba43fa1e133d77f8, type: 3}
         m_TargetAssemblyTypeName: ChestScreen, Assembly-CSharp
         m_MethodName: OpenScreen
         m_Mode: 1

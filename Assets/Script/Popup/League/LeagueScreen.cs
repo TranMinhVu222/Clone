@@ -8,7 +8,7 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
     public EnhancedScroller scroller;
     public EnhancedScrollerCellView cellViewPrefab;
 
-    private AdorableUser[] data;
+    private LeagueUser[] data;
 
     [SerializeField] private int setNumOfCell;
     [SerializeField] private Sprite[] birdArray;
@@ -20,7 +20,7 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
         scroller.Delegate = this;
 
         // Khởi tạo và nhập dữ liệu vào mảng data
-        data = new AdorableUser[setNumOfCell];
+        data = new LeagueUser[setNumOfCell];
         for (int i = 0; i < data.Length; i++)
         {
             int randomNumber = Random.Range(0, 1000);
@@ -31,7 +31,7 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
             int rndNum = Random.Range(0, nameArray.Length - 1);
             string name = nameArray[rndNum];
             
-            AdorableUser newData = new AdorableUser("Adorable " + name, (i + 1 < 10) ? "0" + (i+1) : "" + (i+1), birdImage, randomNumber);
+            LeagueUser newData = new LeagueUser("Adorable " + name, (i + 1 < 10) ? "0" + (i+1) : "" + (i+1), birdImage, randomNumber);
             data[i] = newData;
         }
         
@@ -53,7 +53,7 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
     public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
     {
         // Tạo một CellView mới từ prefab
-        CellView cellView = scroller.GetCellView(cellViewPrefab) as CellViewRow;
+        LeagueCellView cellView = scroller.GetCellView(cellViewPrefab) as LeagueCellViewContent;
         // Gắn dữ liệu cho CellView
         cellView.SetData(data[dataIndex]);
         // Trả về CellView đã tạo

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdorableUser : MonoBehaviour
+public class LeagueUser : MonoBehaviour
 {
     //The name of user
     public string UserName { get; set; }
@@ -16,7 +16,7 @@ public class AdorableUser : MonoBehaviour
     //The score of user which random number range(0,1000)
     public int ScoreNumber { get; set; }
     
-    public AdorableUser(string name, string order, Sprite avatar , int score)
+    public LeagueUser(string name, string order, Sprite avatar , int score)
     {
         UserName = name;
         OrderNumber = order;

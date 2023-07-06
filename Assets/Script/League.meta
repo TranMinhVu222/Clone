@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Script/Popup/League.meta
-guid: b22a34c710b9c4144b13b4897533aed1
-========
 guid: b14f32fabf8954f76856674b8ea37a4c
->>>>>>>> team_develop_hotfix_vutm:Assets/Script/League.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

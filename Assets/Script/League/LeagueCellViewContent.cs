@@ -6,11 +6,7 @@ using Image = UnityEngine.UI.Image;
 
 public class LeagueCellViewContent : LeagueCellView
 {
-<<<<<<<< HEAD:Assets/Script/Popup/League/LeagueCellViewContent.cs
-    private LeagueUser adorableUser;
-========
     private LeagueUser leagueUser;
->>>>>>>> team_develop_hotfix_vutm:Assets/Script/League/LeagueCellViewContent.cs
     
     public Text userNameText;
     public Text orderNumberText;
@@ -23,11 +19,7 @@ public class LeagueCellViewContent : LeagueCellView
         base.SetData(data);
 
         // cast the data as rowData and store the reference
-<<<<<<<< HEAD:Assets/Script/Popup/League/LeagueCellViewContent.cs
-        adorableUser = data as LeagueUser;
-========
         leagueUser = data as LeagueUser;
->>>>>>>> team_develop_hotfix_vutm:Assets/Script/League/LeagueCellViewContent.cs
 
         // update the UI with the data fields
         

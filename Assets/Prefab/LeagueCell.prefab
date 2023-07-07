@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 3313262782894247466}
   - component: {fileID: 1566850501944284495}
   m_Layer: 5
-  m_Name: Cell
+  m_Name: LeagueCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

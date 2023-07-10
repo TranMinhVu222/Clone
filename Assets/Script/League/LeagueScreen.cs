@@ -34,8 +34,6 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
             LeagueUser newData = new LeagueUser("Adorable " + name, (i + 1 < 10) ? "0" + (i+1) : "" + (i+1), birdImage, randomNumber);
             data[i] = newData;
         }
-        
-        scroller.ReloadData();
     }
 
     public int GetNumberOfCells(EnhancedScroller scroller)

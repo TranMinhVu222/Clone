@@ -5889,19 +5889,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8303613733355591591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7554004319038281516}
-        m_TargetAssemblyTypeName: HomeScreen, Assembly-CSharp
-        m_MethodName: OpenScreen
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 869459160842091277, guid: de02f6b2c266142b0b65822afb78f73a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UserInterface, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8303613733355622716
 GameObject:
   m_ObjectHideFlags: 0

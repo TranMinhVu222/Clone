@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeagueUser
+public class LeagueUser : MonoBehaviour
 {
     //The name of user
     public string UserName { get; set; }

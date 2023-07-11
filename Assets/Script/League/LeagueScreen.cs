@@ -14,8 +14,12 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
     [SerializeField] private Sprite[] birdArray;
     [SerializeField] private string[] nameArray;
 
+    private float heightPrefab;
+
     private void Start()
     {
+        heightPrefab = cellViewPrefab.GetComponent<RectTransform>().rect.height;
+        
         // Thiết lập delegate cho Enhanced Scroller
         scroller.Delegate = this;
 
@@ -34,8 +38,6 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
             LeagueUser newData = new LeagueUser("Adorable " + name, (i + 1 < 10) ? "0" + (i+1) : "" + (i+1), birdImage, randomNumber);
             data[i] = newData;
         }
-        
-        scroller.ReloadData();
     }
 
     public int GetNumberOfCells(EnhancedScroller scroller)
@@ -47,7 +49,7 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
     public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
     {
         // Trả về kích thước của phần tử con tại vị trí dataIndex
-        return 200f;
+        return heightPrefab;
     }
 
     public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)

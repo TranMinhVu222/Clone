@@ -3328,7 +3328,7 @@ GameObject:
   - component: {fileID: 8303613732938632326}
   - component: {fileID: 8303613732938632325}
   m_Layer: 5
-  m_Name: Vallia Laugue Button
+  m_Name: Vanilla League Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3442,7 +3442,7 @@ MonoBehaviour:
         m_MethodName: OpenScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 869459160842091277, guid: de02f6b2c266142b0b65822afb78f73a, type: 3}
+          m_ObjectArgument: {fileID: -2932954957445398640, guid: a7bed7e191ace434492735df0c0ebf35, type: 3}
           m_ObjectArgumentAssemblyTypeName: UserInterface, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0

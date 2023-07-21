@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 2613363577996119710}
   - component: {fileID: 8218917216783345037}
   - component: {fileID: 8218917216783345041}
-  - component: {fileID: 717926533117250528}
+  - component: {fileID: 1386570250143747415}
   m_Layer: 5
   m_Name: PopupManager
   m_TagString: Untagged
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootObject: {fileID: 7318411765166095069}
   recycleList: []
---- !u!114 &717926533117250528
+--- !u!114 &1386570250143747415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HomeScreen : Screen
+public class HomeScreen : ABMScreen
 {
     private void Start()
     {

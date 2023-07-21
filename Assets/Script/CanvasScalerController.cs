@@ -5,7 +5,7 @@ public class CanvasScalerController : MonoBehaviour
 {
     private CanvasScaler canvasScaler;
     private float previousWidthOrientation, previousHeightOrientation ;
-
+#if UNITY_EDITOR
     void Start()
     {
         // Get the CanvasScaler component of the GameObject containing the Canvas
@@ -15,22 +15,22 @@ public class CanvasScalerController : MonoBehaviour
         UpdateMatchMode();
 
         // Listen for screen orientation changes
-        previousHeightOrientation = Screen.height;
-        previousWidthOrientation = Screen.width;
+        previousHeightOrientation = UnityEngine.Screen.height;
+        previousWidthOrientation = UnityEngine.Screen.width;
     }
 
     void Update()
     {
         // Check if the screen orientation has changed
-        if (Screen.height != previousHeightOrientation || 
-            Screen.width != previousWidthOrientation)
+        if (UnityEngine.Screen.height != previousHeightOrientation || 
+            UnityEngine.Screen.width != previousWidthOrientation)
         {
             // Update the match mode when the screen orientation changes
             UpdateMatchMode();
 
             // Save the new screen orientation
-            previousHeightOrientation = Screen.height;
-            previousWidthOrientation = Screen.width;
+            previousHeightOrientation = UnityEngine.Screen.height;
+            previousWidthOrientation = UnityEngine.Screen.width;
         }
     }
 
@@ -38,10 +38,11 @@ public class CanvasScalerController : MonoBehaviour
     void UpdateMatchMode()
     {
         // Calculate the aspect ratio of the screen (height / width)
-        float screenAspectRatio = (float)Screen.height / (float)Screen.width;
+        float screenAspectRatio = (float)UnityEngine.Screen.height / (float)UnityEngine.Screen.width;
 
         // Set the matchWidthOrHeight based on the screen aspect ratio
         // Reference: Match (iPhone 12 Mini) = 0.7 and Match (iPad Pro 9.7") = 1.06
         canvasScaler.matchWidthOrHeight = 1.48f - screenAspectRatio * 0.36f;
     }
+#endif    
 }

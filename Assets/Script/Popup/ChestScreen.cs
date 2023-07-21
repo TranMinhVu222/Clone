@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestScreen : ABMScreen
+public class ChestScreen : Screen
 {
     [SerializeField] private UserInterface screenPrefab;
     

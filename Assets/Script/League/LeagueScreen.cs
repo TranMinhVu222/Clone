@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 
-public class LeagueScreen : ABMScreen, IEnhancedScrollerDelegate
+public class LeagueScreen : Screen, IEnhancedScrollerDelegate
 {
     public EnhancedScroller scroller;
     public EnhancedScrollerCellView cellViewPrefab;

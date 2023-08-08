@@ -9,4 +9,13 @@ public class RaidShopManager : MonoBehaviour
     public static  RaidShopManager Instance {get => instance;}
 
     public List<Sprite> itemIconList = new List<Sprite>();
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("Only 1 Object allow to exist");
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 }

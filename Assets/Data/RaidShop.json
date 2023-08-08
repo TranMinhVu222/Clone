@@ -1,0 +1,42 @@
+[
+    {
+        "item_id": 1,
+        "price": 3000,
+        "quantity": 3
+    },
+    {
+        "item_id": 1,
+        "price": 5000,
+        "quantity": 10
+    },
+    {
+        "item_id": 2,
+        "price": 1200,
+        "quantity": 10
+    },
+    {
+        "item_id": 3,
+        "price": 120,
+        "quantity": 30
+    },
+    {
+        "item_id": 4,
+        "price": 240,
+        "quantity": 30
+    },
+    {
+        "item_id": 5,
+        "price": 300,
+        "quantity": 30
+    },
+    {
+        "item_id": 3,
+        "price": 200,
+        "quantity": 30
+    },
+    {
+        "item_id": 4,
+        "price": 200,
+        "quantity": 30
+    }
+]

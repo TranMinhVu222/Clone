@@ -30,7 +30,7 @@ namespace EnhancedScrollerDemos.GridSimulation
         /// </summary>
         public EnhancedScrollerCellView cellViewPrefab;
 
-        public int numberOfCellsPerRow = 3;
+        public int numberOfCellsPerRow = 2;
 
         /// <summary>
         /// Be sure to set up your references to the scroller after the Awake function. The 

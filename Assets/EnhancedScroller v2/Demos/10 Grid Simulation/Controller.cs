@@ -89,7 +89,7 @@ namespace EnhancedScrollerDemos.GridSimulation
         /// <returns>The size of the cell</returns>
         public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
         {
-            return 602f;
+            return 500f;
         }
 
         /// <summary>

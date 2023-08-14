@@ -1,75 +1,72 @@
+using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
-using UnityEngine;
 
-/// <summary>
-/// This example shows how to simulate a grid with a fixed number of cells per row
-/// The data is stored as normal, but the differences in this example are:
-/// 
-/// 1) The scroller is told the data count is the number of data elements divided by the number of cells per row
-/// 2) The cell view is passed a reference to the data set with the offset index of the first cell in the row
-public class RaidShop : Screen, IEnhancedScrollerDelegate
+namespace EnhancedScrollerDemos.GridSimulation
 {
-
     /// <summary>
-    /// Internal representation of our data. Note that the scroller will never see
-    /// this, so it separates the data from the layout using MVC principles.
-    /// </summary>
-    private SmallList<ItemRaidShop> itemRaidShopData;
-    
-    /// <summary>
-    /// This is our scroller we will be a delegate for
-    /// </summary>
-    public EnhancedScroller scroller;
-    
-    /// <summary>
-    /// This will be the prefab of each cell in our scroller. The cell view will
-    /// hold references to each row sub cell
-    /// </summary>
-    public EnhancedScrollerCellView cellViewPrefab;
-
-    
-    /// <summary>
-    /// Be sure to set up your references to the scroller after the Awake function. The 
-    /// scroller does some internal configuration in its own Awake function. If you need to
-    /// do this in the Awake function, you can set up the script order through the Unity editor.
-    /// In this case, be sure to set the EnhancedScroller's script before your delegate.
+    /// This example shows how to simulate a grid with a fixed number of cells per row
+    /// The data is stored as normal, but the differences in this example are:
     /// 
-    /// In this example, we are calling our initializations in the delegate's Start function,
-    /// but it could have been done later, perhaps in the Update function.
-    /// </summary>
-    public int numberOfCellsPerRow;
-
-    public int numOfCell;
-    
-    void Start()
+    /// 1) The scroller is told the data count is the number of data elements divided by the number of cells per row
+    /// 2) The cell view is passed a reference to the data set with the offset index of the first cell in the row
+    public class RaidShop : Screen, IEnhancedScrollerDelegate
     {
-        // tell the scroller that this script will be its delegate
-        scroller.Delegate = this;
+        /// <summary>
+        /// Internal representation of our data. Note that the scroller will never see
+        /// this, so it separates the data from the layout using MVC principles.
+        /// </summary>
+        private SmallList<Data> _data;
 
-        // load in a large set of data
-        LoadData();
-    }
-    
-    /// <summary>
-    /// Populates the data with a lot of records
-    /// </summary>
-    private void LoadData()
-    {
-        // set up some simple data
-        itemRaidShopData = new SmallList<ItemRaidShop>();
-        for (int i = 0; i < numOfCell; i++)
+        /// <summary>
+        /// This is our scroller we will be a delegate for
+        /// </summary>
+        public EnhancedScroller scroller;
+
+        /// <summary>
+        /// This will be the prefab of each cell in our scroller. The cell view will
+        /// hold references to each row sub cell
+        /// </summary>
+        public EnhancedScrollerCellView cellViewPrefab;
+
+        public int numberOfCellsPerRow = 3;
+
+        /// <summary>
+        /// Be sure to set up your references to the scroller after the Awake function. The 
+        /// scroller does some internal configuration in its own Awake function. If you need to
+        /// do this in the Awake function, you can set up the script order through the Unity editor.
+        /// In this case, be sure to set the EnhancedScroller's script before your delegate.
+        /// 
+        /// In this example, we are calling our initializations in the delegate's Start function,
+        /// but it could have been done later, perhaps in the Update function.
+        /// </summary>
+        void Start()
         {
-            //TODO: get data from database (18:13 11/08) 
+            // tell the scroller that this script will be its delegate
+            scroller.Delegate = this;
+
+            // load in a large set of data
+            LoadData();
         }
 
-        // tell the scroller to reload now that we have the data
-        scroller.ReloadData();
-    }
-    
-    #region EnhancedScroller Handlers
+        /// <summary>
+        /// Populates the data with a lot of records
+        /// </summary>
+        private void LoadData()
+        {
+            // set up some simple data
+            _data = new SmallList<Data>();
+            for (var i = 0; i < 8; i ++)
+            {
+                _data.Add(new Data() { someText = i.ToString() });
+            }
+
+            // tell the scroller to reload now that we have the data
+            scroller.ReloadData();
+        }
+
+        #region EnhancedScroller Handlers
 
         /// <summary>
         /// This tells the scroller the number of cells that should have room allocated.
@@ -79,7 +76,7 @@ public class RaidShop : Screen, IEnhancedScrollerDelegate
         /// <returns>The number of cells</returns>
         public int GetNumberOfCells(EnhancedScroller scroller)
         {
-            return Mathf.CeilToInt((float)itemRaidShopData.Count / (float)numberOfCellsPerRow);
+            return Mathf.CeilToInt((float)_data.Count / (float)numberOfCellsPerRow);
         }
 
         /// <summary>
@@ -92,7 +89,7 @@ public class RaidShop : Screen, IEnhancedScrollerDelegate
         /// <returns>The size of the cell</returns>
         public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
         {
-            return 602f;
+            return 500f;
         }
 
         /// <summary>
@@ -108,16 +105,17 @@ public class RaidShop : Screen, IEnhancedScrollerDelegate
             // first, we get a cell from the scroller by passing a prefab.
             // if the scroller finds one it can recycle it will do so, otherwise
             // it will create a new cell.
-            RaidShopCellView cellView = scroller.GetCellView(cellViewPrefab) as RaidShopCellView;
+            CellView cellView = scroller.GetCellView(cellViewPrefab) as CellView;
 
             cellView.name = "Cell " + (dataIndex * numberOfCellsPerRow).ToString() + " to " + ((dataIndex * numberOfCellsPerRow) + numberOfCellsPerRow - 1).ToString();
 
             // pass in a reference to our data set with the offset for this cell
-            // cellView.SetData(ref _data, dataIndex * numberOfCellsPerRow); //TODO: 11/08
+            cellView.SetData(ref _data, dataIndex * numberOfCellsPerRow);
 
             // return the cell to the scroller
             return cellView;
         }
 
         #endregion
+    }
 }

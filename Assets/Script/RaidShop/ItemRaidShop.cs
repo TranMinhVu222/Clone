@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Script;
 using UnityEngine;
 
-public class ItemRaidShop
+public class ItemRaidShop: Item
 {
     public int itemID { get; }
 

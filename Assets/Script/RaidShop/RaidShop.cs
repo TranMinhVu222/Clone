@@ -33,7 +33,7 @@ public class RaidShop : Screen, IEnhancedScrollerDelegate
     }
     public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
     {
-        return 500f;
+        return 600f;
     }
 
     public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)

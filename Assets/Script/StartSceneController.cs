@@ -21,7 +21,5 @@ public class StartSceneController : MonoBehaviour
         }
         //Init Item Manager
         GameObject itemManager = Instantiate(Resources.Load<GameObject>("ItemManager"));
-        //Load icon item and update data item
-        ItemManager.Instance.LoadData();
     }
 }

@@ -1,24 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-[System.Serializable]
-public class ItemListWrapper
-{
-    public ItemTest[] items;
-}
-
-[System.Serializable]
-public class ItemTest
-{
-    public int id;
-    public string name;
-    public int image_index;
-}
 public class ItemManager: MonoBehaviour
 {
     public List<Sprite> itemIconList = new List<Sprite>();
+    public List<Item> itemList = new List<Item>();
     
     private static ItemManager instance;
     public static  ItemManager Instance {get => instance;}
@@ -32,22 +21,51 @@ public class ItemManager: MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    public void LoadData()
+    
+    public void Start()
     {
         string path = Application.dataPath + "/Data/Item.json";
         if (File.Exists(path))
         {
-            string json = File.ReadAllText(path);
-            Debug.Log(json);
-            ItemListWrapper itemListWrapper = JsonUtility.FromJson<ItemListWrapper>(json);
-                
-            foreach (ItemTest item in itemListWrapper.items)
+            String json = File.ReadAllText(path);
+
+            ItemData[] items = ParseArray<ItemData>(json);
+
+            foreach (ItemData item in items)
             {
-                Debug.Log("Id Item: " + item.id);
-                Debug.Log("Name Item: " + item.name);
-                Debug.Log("Image Item: " + item.image_index);
+                itemList.Add(SetItemData(item.id, item.name, item.image_index));
             }
         }
+        else
+        {
+            Debug.LogError("Không tìm thấy tệp JSON mục tại đường dẫn: " + path);
+        }
+    }
+
+    private Item SetItemData(int id, string name, int imageIndex)
+    {
+        Item item = new Item(id, name, itemIconList[imageIndex]);
+        return item;
+    }
+
+    private T[] ParseArray<T>(string json)
+    {
+        string newJson = "{\"array\":" + json + "}";
+        Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(newJson);
+        return wrapper.array;
+    }
+    
+    [System.Serializable]
+    private class Wrapper<T>
+    {
+        public T[] array;
+    }
+    
+    [System.Serializable]
+    public class ItemData
+    {
+        public int id;
+        public string name;
+        public int image_index;
     }
 }

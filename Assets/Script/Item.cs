@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class Item
 {
-    public int id { get; set; }
-    public string name { get; set; }
-    public Sprite image { get; set; }
+    protected int id { get; set; }
+    protected string name { get; set; }
+    protected Sprite image { get; set; }
     
     public Item(int itemId, string itemName, Sprite itemImg)
     {

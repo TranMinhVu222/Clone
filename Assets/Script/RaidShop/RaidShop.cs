@@ -5,7 +5,7 @@ using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
 public class RaidShop : Screen, IEnhancedScrollerDelegate
 {
-    private SmallList<Data> _data;
+    public SmallList<RaidShopManager.Product> _data;
     public EnhancedScroller scroller;
     public EnhancedScrollerCellView cellViewPrefab;
     public int numberOfCellsPerRow = 2;
@@ -14,25 +14,26 @@ public class RaidShop : Screen, IEnhancedScrollerDelegate
     
     void Awake()
     {
-        Instantiate(rsManagerPrefab);
+        // Instantiate(rsManagerPrefab);
     }
     void Start()
     {
+        
         // tell the scroller that this script will be its delegate
         scroller.Delegate = this;
-
-        //load data raid shop item
-        // RaidShopManager.Instance.LoadData();
         
         // load in a large set of data
-        LoadData();
+        // LoadData();
+        Debug.Log(RaidShopManager.Instance.products.Count);
     }
-    private void LoadData()
+    public void LoadData()
     {
-        _data = new SmallList<Data>();
-        for (var i = 0; i < 8; i ++)
+        Debug.Log(_data);
+
+        _data = new SmallList<RaidShopManager.Product>();
+        foreach (var product in  RaidShopManager.Instance.products)
         {
-            _data.Add(new Data() { someText = i.ToString() });
+            _data.Add(product);
         }
         scroller.ReloadData();
     }
@@ -40,6 +41,7 @@ public class RaidShop : Screen, IEnhancedScrollerDelegate
     public int GetNumberOfCells(EnhancedScroller scroller)
     {
         return Mathf.CeilToInt((float)_data.Count / (float)numberOfCellsPerRow);
+        // return Mathf.CeilToInt((float)8 / (float)numberOfCellsPerRow);
     }
     public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
     {
@@ -48,11 +50,11 @@ public class RaidShop : Screen, IEnhancedScrollerDelegate
 
     public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
     {
-        CellView cellView = scroller.GetCellView(cellViewPrefab) as CellView;
+        RaidShopCellView cellView = scroller.GetCellView(cellViewPrefab) as RaidShopCellView;
 
         cellView.name = "Cell " + (dataIndex * numberOfCellsPerRow).ToString() + " to " + ((dataIndex * numberOfCellsPerRow) + numberOfCellsPerRow - 1).ToString();
         
-        cellView.SetData(ref _data, dataIndex * numberOfCellsPerRow);
+        // cellView.SetData(ref _data, dataIndex * numberOfCellsPerRow);
         return cellView;
     }
 }

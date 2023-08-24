@@ -2,13 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using EnhancedUI;
+using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 
-public class RaidShopManager : MonoBehaviour
+public class RaidShopManager : Screen, IEnhancedScrollerDelegate
 {
+    // public SmallList<RaidShopManager.Product> _data;
+    public EnhancedScroller scroller;
+    public EnhancedScrollerCellView cellViewPrefab;
+    public int numberOfCellsPerRow = 2;
+    
     public List<Item> items;
     public List<RaidShopItem> itemRSList = new List<RaidShopItem>();
-    private List<Product> products = new List<Product>();
+    public List<Product> products = new List<Product>();
     
     private static RaidShopManager instance;
     public static  RaidShopManager Instance {get => instance;}
@@ -32,6 +39,8 @@ public class RaidShopManager : MonoBehaviour
     }
     public void Start()
     {
+        scroller.Delegate = this;
+        
         string path = Application.dataPath + "/Data/RaidShop.json";
         items = ItemManager.Instance.itemList;
         if (File.Exists(path))
@@ -60,7 +69,6 @@ public class RaidShopManager : MonoBehaviour
 
     void SetRaidShopItemInfo(List<Item> items, List<RaidShopItem> raidShopItemData)
     {
-        int count = 0;
         foreach (var raidShopItem in raidShopItemData)
         {
             var item = items.Find(i => i.id == raidShopItem.item_id);
@@ -74,13 +82,28 @@ public class RaidShopManager : MonoBehaviour
                     quantity = raidShopItem.quantity
                 };
                 products.Add(product);
-                // Debug.Log(products[count].name + " " +
-                //           products[count].image.name + " " + 
-                //           products[count].price + " " +
-                //           products[count].quantity);
-                // count++;
             }
         }
+        scroller.ReloadData();
+    }
+    
+    public int GetNumberOfCells(EnhancedScroller scroller)
+    {
+        return Mathf.CeilToInt((float)itemRSList.Count / (float)numberOfCellsPerRow);
+    }
+    public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
+    {
+        return 500f;
+    }
+
+    public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
+    {
+        RaidShopCellView cellView = scroller.GetCellView(cellViewPrefab) as RaidShopCellView;
+
+        cellView.name = "Cell " + (dataIndex * numberOfCellsPerRow).ToString() + " to " + ((dataIndex * numberOfCellsPerRow) + numberOfCellsPerRow - 1).ToString();
+        
+        cellView.SetData(ref products, dataIndex * numberOfCellsPerRow);
+        return cellView;
     }
     private T[] ParseArray<T>(string json)
     {

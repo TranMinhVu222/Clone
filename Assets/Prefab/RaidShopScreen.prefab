@@ -2519,6 +2519,7 @@ MonoBehaviour:
   scroller: {fileID: 3264256681416567910}
   cellViewPrefab: {fileID: 4225488222941601237, guid: 04696c53b762243919bc8d400bdd6488, type: 3}
   numberOfCellsPerRow: 2
+  rsManagerPrefab: {fileID: 3565884495200708766, guid: dba6d4afa701c4363bcd8fef6be0db57, type: 3}
 --- !u!1001 &1724609340989962237
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
 
+[System.Serializable]
 public class Item
 {
-    protected int id { get; set; }
-    protected string name { get; set; }
-    protected Sprite image { get; set; }
+    public int id { get; set; }
+    public string name { get; set; }
+    public Sprite image { get; set; }
     
     public Item(int itemId, string itemName, Sprite itemImg)
     {

@@ -9,11 +9,21 @@ public class RaidShop : Screen, IEnhancedScrollerDelegate
     public EnhancedScroller scroller;
     public EnhancedScrollerCellView cellViewPrefab;
     public int numberOfCellsPerRow = 2;
+
+    public GameObject rsManagerPrefab;
+    
+    void Awake()
+    {
+        Instantiate(rsManagerPrefab);
+    }
     void Start()
     {
         // tell the scroller that this script will be its delegate
         scroller.Delegate = this;
 
+        //load data raid shop item
+        // RaidShopManager.Instance.LoadData();
+        
         // load in a large set of data
         LoadData();
     }

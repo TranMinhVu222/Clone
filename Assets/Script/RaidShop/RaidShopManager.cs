@@ -2,23 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using EnhancedScrollerDemos.KeyControlGrid;
 using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class RaidShopManager : Screen, IEnhancedScrollerDelegate
+public class RaidShopManager : Screen
 {
-    // public SmallList<RaidShopManager.Product> _data;
-    public EnhancedScroller scroller;
-    public EnhancedScrollerCellView cellViewPrefab;
-    public int numberOfCellsPerRow = 2;
+    public GameObject containerPrefab;
+    [SerializeField] private GridLayoutGroup layout;
     
     public List<Item> items;
     public List<RaidShopItem> itemRSList = new List<RaidShopItem>();
     public List<Product> products = new List<Product>();
-    
-    private static RaidShopManager instance;
-    public static  RaidShopManager Instance {get => instance;}
     
     [System.Serializable]
     public class Product
@@ -28,19 +25,9 @@ public class RaidShopManager : Screen, IEnhancedScrollerDelegate
         public int price;
         public int quantity;
     }
-    void Awake()
-    {
-        if (instance != null)
-        {
-            Debug.LogError("Only 1 Object allow to exist");
-        }
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
+    
     public void Start()
     {
-        scroller.Delegate = this;
-        
         string path = Application.dataPath + "/Data/RaidShop.json";
         items = ItemManager.Instance.itemList;
         if (File.Exists(path))
@@ -51,7 +38,7 @@ public class RaidShopManager : Screen, IEnhancedScrollerDelegate
 
             foreach (RaidShopItem item in items)
             {
-                itemRSList.Add(SetItemData(item.item_id, item.price, item.quantity));
+                itemRSList.Add(item);
             }
         }
         else
@@ -60,11 +47,6 @@ public class RaidShopManager : Screen, IEnhancedScrollerDelegate
         }
         
         SetRaidShopItemInfo(items,itemRSList);
-    }
-    private RaidShopItem SetItemData(int id, int price, int quantity)
-    {
-        RaidShopItem item = new RaidShopItem(id, price, quantity);
-        return item;
     }
 
     void SetRaidShopItemInfo(List<Item> items, List<RaidShopItem> raidShopItemData)
@@ -81,30 +63,13 @@ public class RaidShopManager : Screen, IEnhancedScrollerDelegate
                     price = raidShopItem.price,
                     quantity = raidShopItem.quantity
                 };
-                products.Add(product);
+
+                GameObject instantiate = Instantiate(containerPrefab, layout.transform);
+                instantiate.GetComponent<RaidShopCellContent>().SetData(product);
             }
         }
-        scroller.ReloadData();
     }
     
-    public int GetNumberOfCells(EnhancedScroller scroller)
-    {
-        return Mathf.CeilToInt((float)itemRSList.Count / (float)numberOfCellsPerRow);
-    }
-    public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
-    {
-        return 500f;
-    }
-
-    public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
-    {
-        RaidShopCellView cellView = scroller.GetCellView(cellViewPrefab) as RaidShopCellView;
-
-        cellView.name = "Cell " + (dataIndex * numberOfCellsPerRow).ToString() + " to " + ((dataIndex * numberOfCellsPerRow) + numberOfCellsPerRow - 1).ToString();
-        
-        cellView.SetData(ref products, dataIndex * numberOfCellsPerRow);
-        return cellView;
-    }
     private T[] ParseArray<T>(string json)
     {
         string newJson = "{\"array\":" + json + "}";

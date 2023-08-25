@@ -5,9 +5,9 @@
         "quantity": 3
     },
     {
-        "item_id": 4,
-        "price": 200,
-        "quantity": 30
+        "item_id": 1,
+        "price": 5000,
+        "quantity": 10
     },
     {
         "item_id": 2,
@@ -35,8 +35,8 @@
         "quantity": 30
     },
     {
-        "item_id": 1,
-        "price": 5000,
-        "quantity": 10
+        "item_id": 4,
+        "price": 200,
+        "quantity": 30
     }
 ]

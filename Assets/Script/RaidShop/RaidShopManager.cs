@@ -56,7 +56,7 @@ public class RaidShopManager : Screen, IEnhancedScrollerDelegate
         }
         else
         {
-            Debug.LogError("Không tìm thấy tệp JSON mục tại đường dẫn: " + path);
+            Debug.LogError("JSON file not found at the specified path: " + path);
         }
         
         SetRaidShopItemInfo(items,itemRSList);

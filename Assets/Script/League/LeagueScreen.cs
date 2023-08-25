@@ -20,10 +20,8 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
     {
         heightPrefab = cellViewPrefab.GetComponent<RectTransform>().rect.height;
         
-        // Thiết lập delegate cho Enhanced Scroller
         scroller.Delegate = this;
-
-        // Khởi tạo và nhập dữ liệu vào mảng data
+        
         data = new LeagueUser[setNumOfCell];
         for (int i = 0; i < data.Length; i++)
         {
@@ -42,23 +40,18 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
 
     public int GetNumberOfCells(EnhancedScroller scroller)
     {
-        // Trả về số lượng phần tử con trong ScrollView
         return data.Length;
     }
 
     public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
     {
-        // Trả về kích thước của phần tử con tại vị trí dataIndex
         return heightPrefab;
     }
 
     public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
     {
-        // Tạo một CellView mới từ prefab
         LeagueCellView cellView = scroller.GetCellView(cellViewPrefab) as LeagueCellViewContent;
-        // Gắn dữ liệu cho CellView
         cellView.SetData(data[dataIndex]);
-        // Trả về CellView đã tạo
         return cellView;
     }
 }

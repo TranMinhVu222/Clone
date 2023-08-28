@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 6710968583763242548}
   - component: {fileID: 505819175281200556}
   m_Layer: 5
-  m_Name: RaidShopContainer
+  m_Name: RaidShopItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,8 +966,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3, y: -0.8}
-  m_SizeDelta: {x: 85.41, y: 36.08}
+  m_AnchoredPosition: {x: 11.2474, y: -0.8}
+  m_SizeDelta: {x: 66.371, y: 36.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5222516454860958171
 CanvasRenderer:
@@ -1001,9 +1001,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 10941e0ba2e3847829ac235a3888bbd9, type: 3}
     m_FontSize: 23
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 15
+    m_MaxSize: 23
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1

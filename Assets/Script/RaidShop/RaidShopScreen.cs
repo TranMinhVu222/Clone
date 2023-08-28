@@ -8,23 +8,14 @@ using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RaidShopManager : Screen
+public class RaidShopScreen : Screen
 {
-    public GameObject containerPrefab;
+    public GameObject raidShopCellPrefab;
     [SerializeField] private GridLayoutGroup layout;
     
-    public List<Item> items;
+    public List<ItemManager.Item> items;
     public List<RaidShopItem> itemRSList = new List<RaidShopItem>();
     public List<Product> products = new List<Product>();
-    
-    [System.Serializable]
-    public class Product
-    {
-        public string name;
-        public Sprite image;
-        public int price;
-        public int quantity;
-    }
     
     public void Start()
     {
@@ -49,7 +40,7 @@ public class RaidShopManager : Screen
         SetRaidShopItemInfo(items,itemRSList);
     }
 
-    void SetRaidShopItemInfo(List<Item> items, List<RaidShopItem> raidShopItemData)
+    void SetRaidShopItemInfo(List<ItemManager.Item> items, List<RaidShopItem> raidShopItemData)
     {
         foreach (var raidShopItem in raidShopItemData)
         {
@@ -64,7 +55,7 @@ public class RaidShopManager : Screen
                     quantity = raidShopItem.quantity
                 };
 
-                GameObject instantiate = Instantiate(containerPrefab, layout.transform);
+                GameObject instantiate = Instantiate(raidShopCellPrefab, layout.transform);
                 instantiate.GetComponent<RaidShopCellContent>().SetData(product);
             }
         }
@@ -81,5 +72,29 @@ public class RaidShopManager : Screen
     private class Wrapper<T>
     {
         public T[] array;
+    }
+    
+    [System.Serializable]
+    public class Product
+    {
+        public string name;
+        public Sprite image;
+        public int price;
+        public int quantity;
+    }
+    
+    [System.Serializable]
+    public class RaidShopItem
+    {
+        public int item_id;
+        public int price;
+        public int quantity;
+
+        public RaidShopItem(int itemId, int itemPrice, int itemQuantity)
+        {
+            item_id = itemId;
+            price = itemPrice;
+            quantity = itemQuantity;
+        }
     }
 }

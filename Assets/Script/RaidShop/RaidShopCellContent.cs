@@ -10,7 +10,7 @@ public class RaidShopCellContent : MonoBehaviour
     public Text priceItem;
     public Text quantityItem;
 
-    public void SetData(RaidShopManager.Product data)
+    public void SetData(RaidShopScreen.Product data)
     {
         nameItemText.text = data.name;
         imageItem.sprite = data.image;

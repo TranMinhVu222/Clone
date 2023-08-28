@@ -56,7 +56,7 @@ public class RaidShopScreen : Screen
                 };
 
                 GameObject instantiate = Instantiate(raidShopCellPrefab, layout.transform);
-                instantiate.GetComponent<RaidShopCellContent>().SetData(product);
+                instantiate.GetComponent<RaidShopItemContent>().SetData(product);
             }
         }
     }

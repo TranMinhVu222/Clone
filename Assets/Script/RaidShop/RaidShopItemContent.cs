@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RaidShopCellContent : MonoBehaviour
+public class RaidShopItemContent : MonoBehaviour
 {
     public Text nameItemText;
     public Image imageItem;

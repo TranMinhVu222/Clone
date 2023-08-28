@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 6710968583763242549}
   - component: {fileID: 6710968583763242555}
   - component: {fileID: 6710968583763242548}
+  - component: {fileID: 505819175281200556}
   m_Layer: 5
   m_Name: RaidShopContainer
   m_TagString: Untagged
@@ -639,6 +640,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &505819175281200556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6710968583763242550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de0994600eb142a790fc9be57608a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameItemText: {fileID: 3324074403813648403}
+  imageItem: {fileID: 6443988778020359465}
+  priceItem: {fileID: 489454963172413389}
+  quantityItem: {fileID: 8302488389870450707}
 --- !u!1 &6710968584156194751
 GameObject:
   m_ObjectHideFlags: 0

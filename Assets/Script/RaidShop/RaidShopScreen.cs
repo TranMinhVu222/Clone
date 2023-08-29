@@ -1,10 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using EnhancedScrollerDemos.KeyControlGrid;
-using EnhancedUI;
-using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,89 +5,39 @@ public class RaidShopScreen : Screen
 {
     public GameObject raidShopCellPrefab;
     [SerializeField] private GridLayoutGroup layout;
-    
-    public List<ItemManager.Item> items;
-    public List<RaidShopItem> itemRSList = new List<RaidShopItem>();
-    public List<Product> products = new List<Product>();
-    
-    public void Start()
+
+
+    private void Start()
     {
-        string path = Application.dataPath + "/Data/RaidShop.json";
-        items = ItemManager.Instance.itemList;
-        if (File.Exists(path))
+        ShowRaidShopItemInfo();
+    }
+    
+    void  ShowRaidShopItemInfo()
+    {
+        foreach (var raidShopItem in RaidShopDataManager.Instance.raidShopItems)
         {
-            String json = File.ReadAllText(path);
-
-            RaidShopItem[] items = ParseArray<RaidShopItem>(json);
-
-            foreach (RaidShopItem item in items)
+            ItemDataManager.Item itemInfo = ItemDataManager.Instance.GetItem(raidShopItem.item_id);
+            
+            var product = new RaidShopItemInfo
             {
-                itemRSList.Add(item);
-            }
-        }
-        else
-        {
-            Debug.LogError("JSON file not found at the specified path: " + path);
-        }
-        
-        SetRaidShopItemInfo(items,itemRSList);
-    }
+                name = itemInfo.name,
+                image = itemInfo.image,
+                price = raidShopItem.price,
+                quantity = raidShopItem.quantity
+            };
 
-    void SetRaidShopItemInfo(List<ItemManager.Item> items, List<RaidShopItem> raidShopItemData)
-    {
-        foreach (var raidShopItem in raidShopItemData)
-        {
-            var item = items.Find(i => i.id == raidShopItem.item_id);
-            if (item != null)
-            {
-                var product = new Product
-                {
-                    name = item.name,
-                    image = item.image,
-                    price = raidShopItem.price,
-                    quantity = raidShopItem.quantity
-                };
-
-                GameObject instantiate = Instantiate(raidShopCellPrefab, layout.transform);
-                instantiate.GetComponent<RaidShopItemContent>().SetData(product);
-            }
+            GameObject instantiate = Instantiate(raidShopCellPrefab, layout.transform);
+            instantiate.GetComponent<RaidShopItemCell>().SetData(product);
         }
     }
     
-    private T[] ParseArray<T>(string json)
-    {
-        string newJson = "{\"array\":" + json + "}";
-        Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(newJson);
-        return wrapper.array;
-    }
     
     [System.Serializable]
-    private class Wrapper<T>
-    {
-        public T[] array;
-    }
-    
-    [System.Serializable]
-    public class Product
+    public class RaidShopItemInfo
     {
         public string name;
         public Sprite image;
         public int price;
         public int quantity;
-    }
-    
-    [System.Serializable]
-    public class RaidShopItem
-    {
-        public int item_id;
-        public int price;
-        public int quantity;
-
-        public RaidShopItem(int itemId, int itemPrice, int itemQuantity)
-        {
-            item_id = itemId;
-            price = itemPrice;
-            quantity = itemQuantity;
-        }
     }
 }

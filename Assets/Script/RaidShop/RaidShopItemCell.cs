@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RaidShopItemContent : MonoBehaviour
+public class RaidShopItemCell : MonoBehaviour
 {
     public Text nameItemText;
     public Image imageItem;
     public Text priceItem;
     public Text quantityItem;
 
-    public void SetData(RaidShopScreen.Product data)
+    public void SetData(RaidShopScreen.RaidShopItemInfo data)
     {
         nameItemText.text = data.name;
         imageItem.sprite = data.image;

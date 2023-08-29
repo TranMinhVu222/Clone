@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class ItemManager: MonoBehaviour
+public class ItemDataManager: MonoBehaviour
 {
     public List<Sprite> itemIconList = new List<Sprite>();
     public List<Item> itemList = new List<Item>();
     
-    private static ItemManager instance;
-    public static  ItemManager Instance {get => instance;}
+    private static ItemDataManager instance;
+    public static  ItemDataManager Instance {get => instance;}
     
     void Awake()
     {
@@ -22,7 +22,7 @@ public class ItemManager: MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     
-    public void Start()
+    private void Start()
     {
         string path = Application.dataPath + "/Data/Item.json";
         if (File.Exists(path))
@@ -33,7 +33,8 @@ public class ItemManager: MonoBehaviour
 
             foreach (ItemData item in items)
             {
-                itemList.Add(SetItemData(item.id, item.name, item.image_index));
+                Item subItem = new Item(item.id, item.name, itemIconList[item.image_index]);
+                itemList.Add(subItem);
             }
         }
         else
@@ -42,9 +43,9 @@ public class ItemManager: MonoBehaviour
         }
     }
 
-    private Item SetItemData(int id, string name, int imageIndex)
+    public Item GetItem(int id)
     {
-        Item item = new Item(id, name, itemIconList[imageIndex]);
+        Item item = itemList.Find(i => i.id == id);
         return item;
     }
 

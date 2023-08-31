@@ -12,12 +12,15 @@ public class StartSceneController : MonoBehaviour
         
         //Init UI
         //1. Init PopupManager len scene
-        GameObject popupManager = Instantiate(Resources.Load<GameObject>("PopupManager"));
-        
+        Instantiate(Resources.Load<GameObject>("PopupManager"));
+
         //2. PopupManager.Instance.OpenPopup(HomeScreen)
-        if (popupManager != null)
-        {
-            PopupManager.Instance.TurnOnPopup(homeScreen);    
-        }
+        PopupManager.Instance.TurnOnPopup(homeScreen);  
+        
+        //Init Item Manager
+        Instantiate(Resources.Load<GameObject>("ItemManager"));
+        
+        //Init Raid Shop Item Manager
+        Instantiate(Resources.Load<GameObject>("RaidShopDataManager"));
     }
 }

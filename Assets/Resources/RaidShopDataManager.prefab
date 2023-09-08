@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d21cff074bb44478f4d6c6c020e3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidShopItems: []
+  a: 7

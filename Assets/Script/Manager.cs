@@ -19,7 +19,7 @@ public class Manager<T> : MonoBehaviour where T : Manager<T>
     {
         return new List<TData>();
     }
-    protected List<TypeData> Initialize<TypeData>(string path) where TypeData : new()
+    protected List<TypeData> Initialize<TypeData>(string path)
     {
         List<TypeData> dataList = InitializeList<TypeData>();
         if (File.Exists(path))

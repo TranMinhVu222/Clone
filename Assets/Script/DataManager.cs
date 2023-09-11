@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class Manager<T> : MonoBehaviour where T : Manager<T>
+public class DataManager<T> : MonoBehaviour where T : DataManager<T>
 {
     private bool isDontDestroyOnLoadSet = false;
 
     private static T instance;
     public static T Instance { get => instance; }
     
-    protected Manager()
+    protected DataManager()
     {
         instance = this as T;
     }

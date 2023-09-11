@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaidShopDataManager : Manager<RaidShopDataManager>
+public class RaidShopDataManager : DataManager<RaidShopDataManager>
 {
     public List<RaidShopItem> raidShopItems;
     void Start()

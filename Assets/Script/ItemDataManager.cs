@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDataManager: Manager<ItemDataManager>
+public class ItemDataManager: DataManager<ItemDataManager>
 {
     public List<Sprite> itemIconList = new List<Sprite>();
     public List<Item> itemList = new List<Item>();

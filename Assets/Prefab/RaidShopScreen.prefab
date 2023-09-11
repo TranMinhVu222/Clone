@@ -1913,10 +1913,10 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 4
     m_Bottom: -17
-  m_ChildAlignment: 0
+  m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 552.9, y: 565.5}
+  m_CellSize: {x: 552.91, y: 565.5}
   m_Spacing: {x: -37.8, y: -74.8}
   m_Constraint: 1
   m_ConstraintCount: 2

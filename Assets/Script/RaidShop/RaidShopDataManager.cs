@@ -10,6 +10,7 @@ public class RaidShopDataManager : Manager<RaidShopDataManager>
         
         raidShopItems = Initialize<RaidShopItem>(path);
     }
+    
     [System.Serializable]
     public class RaidShopItem
     {

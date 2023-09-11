@@ -9,6 +9,8 @@ public class RaidShopItemCell : MonoBehaviour
     public Image imageItem;
     public Text priceItem;
     public Text quantityItem;
+    public GameObject chestInfoBt;
+    public Text countDownText;
 
     public void SetData(RaidShopScreen.RaidShopItemInfo data)
     {
@@ -16,5 +18,15 @@ public class RaidShopItemCell : MonoBehaviour
         imageItem.sprite = data.image;
         priceItem.text = "" + data.price;
         quantityItem.text = data.quantity + " Left";
+        if (!data.name.Contains("Chest"))
+        {
+            chestInfoBt.SetActive(false);
+        }
+
+        if (data.image.name.StartsWith("G_"))
+        {
+            countDownText.gameObject.SetActive(true);
+        }
+        
     }
 }

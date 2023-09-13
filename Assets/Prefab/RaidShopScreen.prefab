@@ -2507,3 +2507,7 @@ MonoBehaviour:
   identifier: RaidShopScreen
   raidShopCellPrefab: {fileID: 6710968583763242550, guid: 280ad9a867347403889db6561b827b7a, type: 3}
   layout: {fileID: 930139822338156248}
+  items: []
+  itemRSList: []
+  products: []
+  

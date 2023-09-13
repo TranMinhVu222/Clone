@@ -1162,8 +1162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.41236463, y: 0}
   m_AnchorMax: {x: 0.60488546, y: 0.84874225}
-  m_AnchoredPosition: {x: -16.850006, y: -78.5}
-  m_SizeDelta: {x: 836.7, y: -156.9}
+  m_AnchoredPosition: {x: -16.899994, y: -78.5}
+  m_SizeDelta: {x: 836.8, y: -156.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3264256681416567897
 CanvasRenderer:
@@ -2507,3 +2507,6 @@ MonoBehaviour:
   identifier: RaidShopScreen
   raidShopCellPrefab: {fileID: 6710968583763242550, guid: 280ad9a867347403889db6561b827b7a, type: 3}
   layout: {fileID: 930139822338156248}
+  items: []
+  itemRSList: []
+  products: []

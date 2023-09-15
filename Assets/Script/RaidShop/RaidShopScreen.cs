@@ -4,12 +4,16 @@ using UnityEngine.UI;
 public class RaidShopScreen : Screen
 {
     public GameObject raidShopCellPrefab;
+    public GameObject budgetInfo;
+    
     [SerializeField] private GridLayoutGroup layout;
 
 
     private void Start()
     {
         ShowRaidShopItemInfo();
+        
+        ShowRaidToken();
     }
     
     void  ShowRaidShopItemInfo()
@@ -29,6 +33,11 @@ public class RaidShopScreen : Screen
             GameObject instantiate = Instantiate(raidShopCellPrefab, layout.transform);
             instantiate.GetComponent<RaidShopItemCell>().SetData(product);
         }
+    }
+
+    void ShowRaidToken()
+    {
+        budgetInfo.GetComponent<ShowBudgetInfo>().CurrentRaidToken(RaidUserManager.Instance.SetData());
     }
     
     

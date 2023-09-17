@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 3264256680703926852}
   - component: {fileID: 3264256680703926850}
   - component: {fileID: 3264256680703926851}
+  - component: {fileID: 3572664934589233122}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -156,6 +157,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3572664934589233122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3264256680703926853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151c5d4d5e8ae449783d53c7716be39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raidTokenText: {fileID: 3264256680916273204}
 --- !u!1 &3264256680723238519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,7 +1688,7 @@ GameObject:
   - component: {fileID: 3264256681994833429}
   - component: {fileID: 3264256681994833430}
   - component: {fileID: 3264256681994833431}
-  - component: {fileID: 2455876667951835670}
+  - component: {fileID: 5969409090363986623}
   m_Layer: 5
   m_Name: InfoButton
   m_TagString: Untagged
@@ -1783,9 +1797,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2455876667951835670}
-        m_TargetAssemblyTypeName: AddRaidToken, Assembly-CSharp
-        m_MethodName: Add
+      - m_Target: {fileID: 5969409090363986623}
+        m_TargetAssemblyTypeName: RaidShopFeature, Assembly-CSharp
+        m_MethodName: AddToken
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1795,7 +1809,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2455876667951835670
+      - m_Target: {fileID: 6273089607589177849}
+        m_TargetAssemblyTypeName: RaidShopScreen, Assembly-CSharp
+        m_MethodName: ShowRaidToken
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5969409090363986623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1804,7 +1830,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3264256681994833417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8a566bd58c44146b68db3cc20bfed7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2adc4120a55ba4a2eb27a9c67c3b5572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3264256682077615508
@@ -2531,4 +2557,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifier: RaidShopScreen
   raidShopCellPrefab: {fileID: 6710968583763242550, guid: 280ad9a867347403889db6561b827b7a, type: 3}
+  budgetInfo: {fileID: 3264256680703926853}
   layout: {fileID: 930139822338156248}

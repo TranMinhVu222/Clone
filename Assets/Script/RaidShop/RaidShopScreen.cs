@@ -35,7 +35,7 @@ public class RaidShopScreen : Screen
         }
     }
 
-    void ShowRaidToken()
+    public void ShowRaidToken()
     {
         budgetInfo.GetComponent<ShowBudgetInfo>().CurrentRaidToken(RaidUserManager.Instance.SetData());
     }

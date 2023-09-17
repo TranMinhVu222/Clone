@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RaidUserManager: MonoBehaviour
 {
-    public RaidUser raidUser;
+    private RaidUser raidUser;
 
     private static RaidUserManager instance;
     public static RaidUserManager Instance { get => instance; }
@@ -38,6 +38,8 @@ public class RaidUserManager: MonoBehaviour
         token = PlayerPrefs.GetInt("RaidToken");
 
         raidUser = new RaidUser(name, token);
+
+        Debug.Log(raidUser.raidToken);
         
         return raidUser;
     }

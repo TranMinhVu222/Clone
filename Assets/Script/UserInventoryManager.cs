@@ -22,11 +22,7 @@ public class UserInventoryManager: MonoBehaviour
     
     public string GetUserName()
     {
-        if (!PlayerPrefs.HasKey(userNameKey))
-        {
-            PlayerPrefs.GetString(userNameKey, "Adorable");
-        }
-        
+        PlayerPrefs.GetString(userNameKey, "Adorable");
         return PlayerPrefs.GetString(userNameKey);
     }
 
@@ -37,11 +33,7 @@ public class UserInventoryManager: MonoBehaviour
     
     public int GetToken()
     {
-        if (!PlayerPrefs.HasKey(tokenKey))
-        {
-            PlayerPrefs.GetInt(tokenKey, 0);
-        }
-        
+        PlayerPrefs.GetInt(tokenKey, 0);
         return PlayerPrefs.GetInt(tokenKey);
     }
     

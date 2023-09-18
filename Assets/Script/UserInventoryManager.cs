@@ -22,8 +22,7 @@ public class UserInventoryManager: MonoBehaviour
     
     public string GetUserName()
     {
-        PlayerPrefs.GetString(userNameKey, "Adorable");
-        return PlayerPrefs.GetString(userNameKey);
+        return PlayerPrefs.GetString(userNameKey, "Adorable");
     }
 
     public void SetUserName(string name)
@@ -33,8 +32,7 @@ public class UserInventoryManager: MonoBehaviour
     
     public int GetToken()
     {
-        PlayerPrefs.GetInt(tokenKey, 0);
-        return PlayerPrefs.GetInt(tokenKey);
+        return PlayerPrefs.GetInt(tokenKey, 0);
     }
     
     public void SetToken(int numToken)

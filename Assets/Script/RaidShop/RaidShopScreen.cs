@@ -7,8 +7,7 @@ public class RaidShopScreen : Screen
     [SerializeField] private GameObject raidShopCellPrefab;
 
     [SerializeField] private GridLayoutGroup layout;
-
-
+    
     private void Start()
     {
         ShowRaidShopItemInfo();
@@ -35,10 +34,14 @@ public class RaidShopScreen : Screen
         }
     }
 
-    public void ShowRaidToken() => raidTokenText.text = "" + UserInventoryManager.Instance.SetData().raidToken;
+    private void ShowRaidToken() => raidTokenText.text = "" + UserInventoryManager.Instance.GetToken();
 
-    public void AddToken() => PlayerPrefs.SetInt("RaidToken", PlayerPrefs.GetInt("RaidToken") + 1000);
-    
+    public void OnClickInfoBtn()
+    {
+        int token = UserInventoryManager.Instance.GetToken();
+        UserInventoryManager.Instance.SetToken(token + 1000);
+        ShowRaidToken();
+    } 
     
     [System.Serializable]
     public class RaidShopItemInfo

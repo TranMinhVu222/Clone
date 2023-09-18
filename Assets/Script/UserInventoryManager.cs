@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class UserInventoryManager: MonoBehaviour
 {
+    private UserInfo userInfo;
+    
+    private const string userNameKey = "UserName";
+    private const string tokenKey = "RaidToken";
     
     private static UserInventoryManager instance;
     public static UserInventoryManager Instance { get => instance; }
@@ -15,40 +19,45 @@ public class UserInventoryManager: MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    void Start()
-    {
-        SetData();
-    }
     
-    public RaidUser SetData()
+    public string GetUserName()
     {
-        string name;
-        int token;
-
-        if (!PlayerPrefs.HasKey("RaidToken") && !PlayerPrefs.HasKey("RaidUserName"))
+        if (!PlayerPrefs.HasKey(userNameKey))
         {
-            
-            PlayerPrefs.SetString("RaidUserName", "Adorable Dog");
-            PlayerPrefs.SetInt("RaidToken", 0);
-            
-            return SetData();
+            PlayerPrefs.GetString(userNameKey, "Adorable");
         }
         
-        name = PlayerPrefs.GetString("RaidUserName");
-        token = PlayerPrefs.GetInt("RaidToken");
+        return PlayerPrefs.GetString(userNameKey);
+    }
+
+    public void SetUserName(string name)
+    {
+        PlayerPrefs.SetString(userNameKey, name);
+    }
+    
+    public int GetToken()
+    {
+        if (!PlayerPrefs.HasKey(tokenKey))
+        {
+            PlayerPrefs.GetInt(tokenKey, 0);
+        }
         
-        return new RaidUser(name, token);
+        return PlayerPrefs.GetInt(tokenKey);
+    }
+    
+    public void SetToken(int numToken)
+    {
+        PlayerPrefs.SetInt(tokenKey, numToken);
     }
     
     [System.Serializable]
-    public class RaidUser
+    public class UserInfo
     {
-        public string raidUserName;
+        public string userName;
         public int raidToken;
-        public RaidUser(string name, int token)
+        public UserInfo(string name, int token)
         {
-            raidUserName = name;
+            userName = name;
             raidToken = token;
         }
     }

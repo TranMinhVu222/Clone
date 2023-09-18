@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class RaidShopScreen : Screen
 {
-    public GameObject raidShopCellPrefab;
-    public GameObject budgetInfo;
-    
+    [SerializeField] private Text raidTokenText;
+    [SerializeField] private GameObject raidShopCellPrefab;
+
     [SerializeField] private GridLayoutGroup layout;
 
 
@@ -13,7 +13,7 @@ public class RaidShopScreen : Screen
     {
         ShowRaidShopItemInfo();
         
-        ShowRaidToken();
+        AddRaidToken();
     }
     
     void  ShowRaidShopItemInfo()
@@ -35,9 +35,11 @@ public class RaidShopScreen : Screen
         }
     }
 
-    public void ShowRaidToken()
+    public void AddRaidToken()
     {
-        budgetInfo.GetComponent<ShowBudgetInfo>().CurrentRaidToken(RaidUserManager.Instance.SetData());
+        PlayerPrefs.SetInt("RaidToken", PlayerPrefs.GetInt("RaidToken") + 1000);
+        
+        raidTokenText.text = "" + UserInventoryManager.Instance.SetData().raidToken;
     }
     
     

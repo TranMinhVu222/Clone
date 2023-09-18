@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class RaidUserManager: MonoBehaviour
+public class UserInventoryManager: MonoBehaviour
 {
-    private RaidUser raidUser;
-
-    private static RaidUserManager instance;
-    public static RaidUserManager Instance { get => instance; }
+    
+    private static UserInventoryManager instance;
+    public static UserInventoryManager Instance { get => instance; }
 
     void Awake()
     {
@@ -26,7 +25,7 @@ public class RaidUserManager: MonoBehaviour
     {
         string name;
         int token;
-        
+
         if (!PlayerPrefs.HasKey("RaidToken") && !PlayerPrefs.HasKey("RaidUserName"))
         {
             
@@ -38,14 +37,10 @@ public class RaidUserManager: MonoBehaviour
         
         name = PlayerPrefs.GetString("RaidUserName");
         token = PlayerPrefs.GetInt("RaidToken");
-
-        raidUser = new RaidUser(name, token);
-
-        return raidUser;
+        
+        return new RaidUser(name, token);
     }
     
-    
-
     [System.Serializable]
     public class RaidUser
     {

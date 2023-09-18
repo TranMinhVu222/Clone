@@ -23,7 +23,7 @@ public class StartSceneController : MonoBehaviour
         //Init Raid Shop Item Manager
         Instantiate(Resources.Load<GameObject>("RaidShopDataManager"));
         
-        //Init Raid User Manager
-        Instantiate(Resources.Load<GameObject>("RaidUserManager"));
+        //Init User Inventory Manager
+        Instantiate(Resources.Load<GameObject>("UserInventoryManager"));
     }
 }

@@ -13,7 +13,7 @@ public class RaidShopScreen : Screen
     {
         ShowRaidShopItemInfo();
         
-        AddRaidToken();
+        ShowRaidToken();
     }
     
     void  ShowRaidShopItemInfo()
@@ -35,12 +35,9 @@ public class RaidShopScreen : Screen
         }
     }
 
-    public void AddRaidToken()
-    {
-        PlayerPrefs.SetInt("RaidToken", PlayerPrefs.GetInt("RaidToken") + 1000);
-        
-        raidTokenText.text = "" + UserInventoryManager.Instance.SetData().raidToken;
-    }
+    public void ShowRaidToken() => raidTokenText.text = "" + UserInventoryManager.Instance.SetData().raidToken;
+
+    public void AddToken() => PlayerPrefs.SetInt("RaidToken", PlayerPrefs.GetInt("RaidToken") + 1000);
     
     
     [System.Serializable]

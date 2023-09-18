@@ -29,8 +29,10 @@ public class RaidUserManager: MonoBehaviour
         
         if (!PlayerPrefs.HasKey("RaidToken") && !PlayerPrefs.HasKey("RaidUserName"))
         {
+            
             PlayerPrefs.SetString("RaidUserName", "Adorable Dog");
             PlayerPrefs.SetInt("RaidToken", 0);
+            
             return SetData();
         }
         
@@ -39,8 +41,6 @@ public class RaidUserManager: MonoBehaviour
 
         raidUser = new RaidUser(name, token);
 
-        Debug.Log(raidUser.raidToken);
-        
         return raidUser;
     }
     

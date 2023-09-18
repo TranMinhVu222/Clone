@@ -3,13 +3,16 @@ using UnityEngine.UI;
 
 public class RaidShopScreen : Screen
 {
-    public GameObject raidShopCellPrefab;
+    [SerializeField] private Text raidTokenText;
+    [SerializeField] private GameObject raidShopCellPrefab;
+
     [SerializeField] private GridLayoutGroup layout;
-
-
+    
     private void Start()
     {
         ShowRaidShopItemInfo();
+        
+        ShowRaidToken();
     }
     
     void  ShowRaidShopItemInfo()
@@ -30,7 +33,15 @@ public class RaidShopScreen : Screen
             instantiate.GetComponent<RaidShopItemCell>().SetData(product);
         }
     }
-    
+
+    private void ShowRaidToken() => raidTokenText.text = "" + UserInventoryManager.Instance.GetToken();
+
+    public void OnClickInfoBtn()
+    {
+        int token = UserInventoryManager.Instance.GetToken();
+        UserInventoryManager.Instance.SetToken(token + 1000);
+        ShowRaidToken();
+    } 
     
     [System.Serializable]
     public class RaidShopItemInfo

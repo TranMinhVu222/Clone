@@ -1781,7 +1781,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3264256681994833430}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6273089607589177849}
+        m_TargetAssemblyTypeName: RaidShopScreen, Assembly-CSharp
+        m_MethodName: OnClickInfoBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3264256682077615508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,8 +2517,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifier: RaidShopScreen
+  raidTokenText: {fileID: 3264256680916273204}
   raidShopCellPrefab: {fileID: 6710968583763242550, guid: 280ad9a867347403889db6561b827b7a, type: 3}
   layout: {fileID: 930139822338156248}
-  items: []
-  itemRSList: []
-  products: []

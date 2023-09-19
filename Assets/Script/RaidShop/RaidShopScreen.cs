@@ -7,7 +7,7 @@ public class RaidShopScreen : Screen
     [SerializeField] private GameObject raidShopCellPrefab;
 
     [SerializeField] private GridLayoutGroup layout;
-    
+
     private void Start()
     {
         ShowRaidShopItemInfo();
@@ -23,6 +23,7 @@ public class RaidShopScreen : Screen
             
             var product = new RaidShopItemInfo
             {
+                id = itemInfo.id,
                 name = itemInfo.name,
                 image = itemInfo.image,
                 price = raidShopItem.price,
@@ -41,11 +42,17 @@ public class RaidShopScreen : Screen
         int token = UserInventoryManager.Instance.GetToken();
         UserInventoryManager.Instance.SetToken(token + 1000);
         ShowRaidToken();
-    } 
+    }
+
+    public void OnClickBuyItemBtn()
+    {
+        Debug.Log(gameObject.GetComponent<RaidShopItemCell>().id.ToString());
+    }
     
     [System.Serializable]
     public class RaidShopItemInfo
     {
+        public int id;
         public string name;
         public Sprite image;
         public int price;

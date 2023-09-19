@@ -11,6 +11,7 @@ public class RaidShopItemCell : MonoBehaviour
     public Text quantityItem;
     public GameObject chestInfoBt;
     public Text countDownText;
+    public int id;
 
     public void SetData(RaidShopScreen.RaidShopItemInfo data)
     {
@@ -27,6 +28,8 @@ public class RaidShopItemCell : MonoBehaviour
         {
             countDownText.gameObject.SetActive(true);
         }
-        
+
+        id = data.id;
     }
+    
 }

@@ -30,24 +30,10 @@ public class UserInventoryManager: MonoBehaviour
     
     public void SetToken(int numToken) { PlayerPrefs.SetInt(tokenKey, numToken); }
 
-    public int GetInventoryUser(int id) { return PlayerPrefs.GetInt(itemInventoryKey + id); }
+    public int GetInventoryUser(int id) { return PlayerPrefs.GetInt(itemInventoryKey + id,0); }
 
     public void SetInventoryUser(int id, int quantityPurchased) { PlayerPrefs.SetInt(itemInventoryKey + id, quantityPurchased);}
-
-    // public List<InventoryUser> InitInventoryUserList()
-    // {
-    //     foreach (var raidShopItem in RaidShopDataManager.Instance.raidShopItems)
-    //     {
-    //         int quantity = PlayerPrefs.GetInt(itemInventoryKey + raidShopItem.item_id,0);
-    //
-    //         InventoryUser inventoryUser = new InventoryUser(raidShopItem.item_id, quantity);
-    //         
-    //         inventoryUserList.Add(inventoryUser);
-    //     }
-    //
-    //     return inventoryUserList;
-    // }
-
+    
     [System.Serializable]
     public class UserInfo
     {
@@ -57,17 +43,6 @@ public class UserInventoryManager: MonoBehaviour
         {
             userName = name;
             raidToken = token;
-        }
-    }
-    
-    public class InventoryUser
-    {
-        public int itemId;
-        public int itemQuantity;
-        public InventoryUser(int id, int quantity)
-        {
-            itemId = id;
-            itemQuantity = quantity;
         }
     }
 }

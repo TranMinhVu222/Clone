@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,11 +9,14 @@ public class RaidShopScreen : Screen
 
     [SerializeField] private GridLayoutGroup layout;
 
+    private List<GameObject> rsItemCellList = new List<GameObject>();
     private void Start()
     {
         ShowRaidShopItemInfo();
         
         ShowRaidToken();
+        
+        ChangeColor();
     }
     
     void  ShowRaidShopItemInfo()
@@ -32,23 +36,34 @@ public class RaidShopScreen : Screen
 
             GameObject instantiate = Instantiate(raidShopCellPrefab, layout.transform);
             instantiate.GetComponent<RaidShopItemCell>().SetData(product);
+            rsItemCellList.Add(instantiate);
         }
     }
-
-    private void ShowRaidToken() => raidTokenText.text = "" + UserInventoryManager.Instance.GetToken();
-
+    
+    public void ShowRaidToken()
+    {
+        int token = UserInventoryManager.Instance.GetToken();
+        raidTokenText.text = "" + token.ToString();
+        Debug.Log( raidTokenText.text + " " + token);
+    }
+    
     public void OnClickInfoBtn()
     {
         int token = UserInventoryManager.Instance.GetToken();
         UserInventoryManager.Instance.SetToken(token + 1000);
         ShowRaidToken();
+        ChangeColor();
     }
 
-    public void OnClickBuyItemBtn()
+    public void ChangeColor()
     {
-        Debug.Log(gameObject.GetComponent<RaidShopItemCell>().id.ToString());
+        Debug.Log(string.Join(", ", rsItemCellList));
+        foreach (var item in rsItemCellList)
+        {
+            item.GetComponent<RaidShopItemCell>().ChangeColorPriceText();
+        }
     }
-    
+
     [System.Serializable]
     public class RaidShopItemInfo
     {

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,13 +42,6 @@ public class RaidShopScreen : Screen
         }
     }
     
-    public void ShowRaidToken()
-    {
-        int token = UserInventoryManager.Instance.GetToken();
-        raidTokenText.text = "" + token.ToString();
-        Debug.Log( raidTokenText.text + " " + token);
-    }
-    
     public void OnClickInfoBtn()
     {
         int token = UserInventoryManager.Instance.GetToken();
@@ -54,10 +49,15 @@ public class RaidShopScreen : Screen
         ShowRaidToken();
         ChangeColor();
     }
-
+    
+    public void ShowRaidToken()
+    {
+        int token = UserInventoryManager.Instance.GetToken();
+        raidTokenText.text = "" + token.ToString();
+    }
+    
     public void ChangeColor()
     {
-        Debug.Log(string.Join(", ", rsItemCellList));
         foreach (var item in rsItemCellList)
         {
             item.GetComponent<RaidShopItemCell>().ChangeColorPriceText();

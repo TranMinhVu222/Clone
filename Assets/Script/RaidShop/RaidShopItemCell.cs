@@ -12,7 +12,7 @@ public class RaidShopItemCell : MonoBehaviour
     public GameObject chestInfoBt;
     public Text countDownText;
     public Text inventoryText;
-    public GameObject rsScreenPrefab;
+    private GameObject rsScreenPrefab;
 
     private int id, price;
 
@@ -49,10 +49,12 @@ public class RaidShopItemCell : MonoBehaviour
             UserInventoryManager.Instance.SetToken(purchasedToken);
             
             inventoryText.text = "" + UserInventoryManager.Instance.GetInventoryUser(id);
+
+
+            RaidShopScreen raidShopScreen = FindObjectOfType<RaidShopScreen>();
+            raidShopScreen.ShowRaidToken();
+            raidShopScreen.ChangeColor();
         }
-        
-        rsScreenPrefab.GetComponent<RaidShopScreen>().ShowRaidToken();
-        rsScreenPrefab.GetComponent<RaidShopScreen>().ChangeColor();
     }
     
     public void ChangeColorPriceText()

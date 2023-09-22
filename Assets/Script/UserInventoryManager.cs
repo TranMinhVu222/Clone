@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UserInventoryManager: MonoBehaviour
@@ -6,9 +5,7 @@ public class UserInventoryManager: MonoBehaviour
     private const string userNameKey = "UserName";
     private const string tokenKey = "RaidToken";
     private const string itemInventoryKey = "ItemInventory";
-
-    // private List<InventoryUser> inventoryUserList = new List<InventoryUser>();
-
+    
     private static UserInventoryManager instance;
     public static UserInventoryManager Instance { get => instance; }
 

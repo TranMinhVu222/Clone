@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,7 +27,6 @@ public class RaidShopScreen : Screen
             
             var product = new RaidShopItemInfo
             {
-                id = itemInfo.id,
                 name = itemInfo.name,
                 image = itemInfo.image,
                 price = raidShopItem.price,
@@ -50,11 +47,7 @@ public class RaidShopScreen : Screen
         ChangeColor();
     }
     
-    public void ShowRaidToken()
-    {
-        int token = UserInventoryManager.Instance.GetToken();
-        raidTokenText.text = "" + token.ToString();
-    }
+    public void ShowRaidToken() => raidTokenText.text = "" + UserInventoryManager.Instance.GetToken();
     
     public void ChangeColor()
     {

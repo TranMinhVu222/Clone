@@ -13,8 +13,10 @@ public class RaidShopItemCell : MonoBehaviour
     public Text countDownText;
     public Text inventoryText;
     private GameObject rsScreenPrefab;
-
+    private UserInventoryManager uimInstance = UserInventoryManager.Instance;
+    
     private int id, price;
+    private string rsId;
 
     public void SetData(RaidShopScreen.RaidShopItemInfo data)
     {
@@ -32,23 +34,24 @@ public class RaidShopItemCell : MonoBehaviour
             countDownText.gameObject.SetActive(true);
         }
 
-        inventoryText.text = "" + UserInventoryManager.Instance.GetInventoryUser(data.id); 
+        inventoryText.text = "" + uimInstance.GetInventoryUser(data.id); 
 
         id = data.id;
         price = data.price;
+        rsId = data.rsId;
     }
     
     public void OnClickBuyItemBtn()
     {
-        if (UserInventoryManager.Instance.GetToken() >= price)
+        if (uimInstance.GetToken() >= price && RaidShopDataManager.Instance.GetItemQuantity(rsId) >= uimInstance.GetPurchasedItem(rsId))
         {
-            int quantity = UserInventoryManager.Instance.GetInventoryUser(id) + 1;
-            UserInventoryManager.Instance.SetInventoryUser(id,quantity);
+            int quantity = uimInstance.GetInventoryUser(id) + 1;
+            uimInstance.SetUserData(uimInstance.inventoryItems,new UserInventoryManager.InventoryItem(id, quantity));
 
-            int purchasedToken = UserInventoryManager.Instance.GetToken() - price;
-            UserInventoryManager.Instance.SetToken(purchasedToken);
+            int purchasedToken = uimInstance.GetToken() - price;
+            uimInstance.SetToken(purchasedToken);
             
-            inventoryText.text = "" + UserInventoryManager.Instance.GetInventoryUser(id);
+            inventoryText.text = "" + uimInstance.GetInventoryUser(id);
 
 
             RaidShopScreen raidShopScreen = FindObjectOfType<RaidShopScreen>();

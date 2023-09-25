@@ -719,7 +719,6 @@ MonoBehaviour:
   chestInfoBt: {fileID: 2788447915637095398}
   countDownText: {fileID: 6710968584156194749}
   inventoryText: {fileID: 2028639780108436534}
-  rsScreenPrefab: {fileID: 6781697119772347097, guid: 83c820c076c7e4195adf2f4ff784f228, type: 3}
 --- !u!1 &6710968584156194751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,13 +1174,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 20
     m_MaxSize: 23
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 32
+  m_Text: 0
 --- !u!1 &8710052069556813762
 GameObject:
   m_ObjectHideFlags: 0

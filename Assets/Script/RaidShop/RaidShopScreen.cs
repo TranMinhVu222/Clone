@@ -30,7 +30,8 @@ public class RaidShopScreen : Screen
                 name = itemInfo.name,
                 image = itemInfo.image,
                 price = raidShopItem.price,
-                quantity = raidShopItem.quantity
+                quantity = raidShopItem.quantity,
+                rsId = raidShopItem.raidshop_id
             };
 
             GameObject instantiate = Instantiate(raidShopCellPrefab, layout.transform);
@@ -65,5 +66,6 @@ public class RaidShopScreen : Screen
         public Sprite image;
         public int price;
         public int quantity;
+        public string rsId;
     }
 }

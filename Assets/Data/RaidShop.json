@@ -2,41 +2,49 @@
     {
         "item_id": 1,
         "price": 3000,
-        "quantity": 3
+        "quantity": 3,
+        "raidshop_id":"rs_1"
     },
     {
         "item_id": 1,
         "price": 5000,
-        "quantity": 10
+        "quantity": 10,
+        "raidshop_id":"rs_2"
     },
     {
         "item_id": 2,
         "price": 1200,
-        "quantity": 10
+        "quantity": 10,
+        "raidshop_id":"rs_3"
     },
     {
         "item_id": 3,
         "price": 120,
-        "quantity": 30
+        "quantity": 30,
+        "raidshop_id":"rs_4"
     },
     {
         "item_id": 4,
         "price": 240,
-        "quantity": 30
+        "quantity": 30,
+        "raidshop_id":"rs_5"
     },
     {
         "item_id": 5,
         "price": 300,
-        "quantity": 30
+        "quantity": 30,
+        "raidshop_id":"rs_6"
     },
     {
         "item_id": 6,
         "price": 200,
-        "quantity": 30
+        "quantity": 30,
+        "raidshop_id":"rs_7"
     },
     {
         "item_id": 7,
         "price": 200,
-        "quantity": 30
+        "quantity": 30,
+        "raidshop_id":"rs_8"
     }
 ]

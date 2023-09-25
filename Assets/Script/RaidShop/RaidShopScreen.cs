@@ -27,6 +27,7 @@ public class RaidShopScreen : Screen
             
             var product = new RaidShopItemInfo
             {
+                id = itemInfo.id,
                 name = itemInfo.name,
                 image = itemInfo.image,
                 price = raidShopItem.price,

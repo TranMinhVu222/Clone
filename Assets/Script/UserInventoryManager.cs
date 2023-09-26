@@ -11,11 +11,9 @@ public class UserInventoryManager: MonoBehaviour
     private const string purchasedItemKey = "PurchasedItem";
 
     public List<InventoryItem> inventoryItems = new List<InventoryItem>();
-    public List<PurchasedItem> purchasedItems = new List<PurchasedItem>();
-    
-    private LoadAndSetPlayerPrefs<InventoryItem> inventoryManager = new LoadAndSetPlayerPrefs<InventoryItem>();
-    private LoadAndSetPlayerPrefs<PurchasedItem> purchasedItemManager = new LoadAndSetPlayerPrefs<PurchasedItem>();
 
+    private HandleUserData handleUserData = new HandleUserData();
+    
     private static UserInventoryManager instance;
     public static UserInventoryManager Instance { get => instance; }
 
@@ -31,8 +29,8 @@ public class UserInventoryManager: MonoBehaviour
 
     private void Start()
     {
-        inventoryManager.LoadUserData(inventoryItems, itemInventoryKey);
-        purchasedItemManager.LoadUserData(purchasedItems, purchasedItemKey);
+        handleUserData.LoadInventoryUserData(inventoryItems, itemInventoryKey);
+        handleUserData.LoadPurchasedItems(purchasedItemKey);
     }
 
     public string GetUserName() { return PlayerPrefs.GetString(userNameKey, "Adorable"); }
@@ -42,20 +40,16 @@ public class UserInventoryManager: MonoBehaviour
     public int GetToken() { return PlayerPrefs.GetInt(tokenKey, 0); }
     
     public void SetToken(int numToken) { PlayerPrefs.SetInt(tokenKey, numToken); }
-    
-    public void SetInventoryUser(InventoryItem inventoryItem) {inventoryManager.SetUserData(inventoryItems,inventoryItem, itemInventoryKey); }
-    
+
     public int GetInventoryUser(int itemId)
     {
         InventoryItem item = inventoryItems.Find(i => i.itemId == itemId);
         return item != null ? item.itemQuantity : 0;
     }
     
-    public void SetPurchasedUser(PurchasedItem purchasedItem) {purchasedItemManager.SetUserData(purchasedItems,purchasedItem, purchasedItemKey); }
+    public void SetInventoryUser(InventoryItem inventoryItem) { handleUserData.SetInventoryUserData(inventoryItems, inventoryItem, itemInventoryKey);}
 
-    public int GetPurchasedItem(string rsId)
-    {
-        PurchasedItem item = purchasedItems.Find(i => i.rsId == rsId);
-        return item != null ? item.rsQuantity : 0;
-    }
+    public int GetPurchasedItem(string rsId) { return handleUserData.GetPurchasedItemQuantity(rsId); }
+
+    public void SetPurchasedItem(string rsItem, int rsQuantity) { handleUserData.AddPurchasedItem(rsItem, rsQuantity, purchasedItemKey); }
 }

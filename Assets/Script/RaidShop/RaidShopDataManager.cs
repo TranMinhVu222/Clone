@@ -11,10 +11,10 @@ public class RaidShopDataManager : DataManager<RaidShopDataManager>
         raidShopItems = Initialize<RaidShopItem>(path);
     }
     
-    public int GetItemQuantity(string rsId)
+    public RaidShopItem GetItemQuantity(string rsId)
     {
         RaidShopItem item = raidShopItems.Find(i => i.raidshop_id == rsId);
-        return item.quantity;
+        return item;
     }
     
     [System.Serializable]

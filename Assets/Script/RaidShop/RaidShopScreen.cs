@@ -34,7 +34,7 @@ public class RaidShopScreen : Screen
                 quantity = raidShopItem.quantity,
                 rsId = raidShopItem.raidshop_id
             };
-
+            
             GameObject instantiate = Instantiate(raidShopCellPrefab, layout.transform);
             instantiate.GetComponent<RaidShopItemCell>().SetData(product);
             rsItemCellList.Add(instantiate);
@@ -56,6 +56,18 @@ public class RaidShopScreen : Screen
         foreach (var item in rsItemCellList)
         {
             item.GetComponent<RaidShopItemCell>().ChangeColorPriceText();
+        }
+    }
+
+    public void InventoryUser(int itemId, int quantity)
+    {
+        foreach (var item in rsItemCellList)
+        {
+            RaidShopItemCell raidShopItemCell = item.GetComponent<RaidShopItemCell>();
+            if (raidShopItemCell.id == itemId)
+            {
+                raidShopItemCell.inventoryText.text = "" + quantity;
+            }   
         }
     }
 

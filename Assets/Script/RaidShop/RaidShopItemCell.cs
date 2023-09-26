@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,8 +12,9 @@ public class RaidShopItemCell : MonoBehaviour
     public Text inventoryText;
     private GameObject rsScreenPrefab;
     private UserInventoryManager uimInstance = UserInventoryManager.Instance;
-    
-    private int id, price;
+
+    public int id;
+    private int price;
     private string rsId;
 
     public void SetData(RaidShopScreen.RaidShopItemInfo data)
@@ -25,7 +24,6 @@ public class RaidShopItemCell : MonoBehaviour
         rsId = data.rsId;
         
         int quanTemp = data.quantity - uimInstance.GetPurchasedItem(rsId);
-        
         nameItemText.text = data.name;
         imageItem.sprite = data.image;
         priceItemText.text = "" + data.price;
@@ -45,28 +43,22 @@ public class RaidShopItemCell : MonoBehaviour
     
     public void OnClickBuyItemBtn()
     {
-        if (uimInstance.GetToken() >= price && RaidShopDataManager.Instance.GetItemQuantity(rsId) > uimInstance.GetInventoryUser(id))
+        if (uimInstance.GetToken() >= price && uimInstance.GetPurchasedItem(rsId) < RaidShopDataManager.Instance.GetItemQuantity(rsId).quantity)
         {
             int inventoryQuantity = uimInstance.GetInventoryUser(id) + 1;
             uimInstance.SetInventoryUser(new InventoryItem(id,inventoryQuantity));
-            inventoryText.text = "" + uimInstance.GetInventoryUser(id);
-            
+
             int purchasedToken = uimInstance.GetToken() - price;
             uimInstance.SetToken(purchasedToken);
             
-            int purchasedQuantity = RaidShopDataManager.Instance.GetItemQuantity(rsId) - inventoryQuantity;
-            uimInstance.SetPurchasedUser(new PurchasedItem(rsId, purchasedQuantity));
-            quantityItem.text = purchasedQuantity + " Left";
-
+            int purchasedQuantity = uimInstance.GetPurchasedItem(rsId) + 1;
+            uimInstance.SetPurchasedItem(rsId,purchasedQuantity);
+            quantityItem.text = RaidShopDataManager.Instance.GetItemQuantity(rsId).quantity -  uimInstance.GetPurchasedItem(rsId) + " Left";
+            
             RaidShopScreen raidShopScreen = FindObjectOfType<RaidShopScreen>();
             raidShopScreen.ShowRaidToken();
             raidShopScreen.ChangeColor();
-        }
-
-        else if (RaidShopDataManager.Instance.GetItemQuantity(rsId) == uimInstance.GetInventoryUser(id))
-        {
-            RaidShopScreen raidShopScreen = FindObjectOfType<RaidShopScreen>();
-            raidShopScreen.ChangeColor();
+            raidShopScreen.InventoryUser(id,inventoryQuantity);
         }
     }
     

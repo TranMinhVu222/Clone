@@ -10,13 +10,12 @@ public class RaidShopScreen : Screen
     [SerializeField] private GridLayoutGroup layout;
 
     private List<GameObject> rsItemCellList = new List<GameObject>();
+    private UserInventoryManager uimInstance;
     private void Start()
     {
+        uimInstance = UserInventoryManager.Instance;
         ShowRaidShopItemInfo();
-        
         ShowRaidToken();
-        
-        ChangeColor();
     }
     
     void  ShowRaidShopItemInfo()
@@ -36,7 +35,12 @@ public class RaidShopScreen : Screen
             };
             
             GameObject instantiate = Instantiate(raidShopCellPrefab, layout.transform);
-            instantiate.GetComponent<RaidShopItemCell>().SetData(product);
+            var itemCell = instantiate.GetComponent<RaidShopItemCell>();
+            itemCell.SetData(product);
+            itemCell.OnShowRaidTokenEvent += ShowRaidToken;
+            itemCell.OnShowInventoryUserTextEvent += ShowInventoryUserText;
+            // itemCell.OnChangeColorPriceTextEvent += ChangeColorPriceText;
+            itemCell.Check += Check;
             rsItemCellList.Add(instantiate);
         }
     }
@@ -46,28 +50,53 @@ public class RaidShopScreen : Screen
         int token = UserInventoryManager.Instance.GetToken();
         UserInventoryManager.Instance.SetToken(token + 1000);
         ShowRaidToken();
-        ChangeColor();
+        Check();
     }
     
-    public void ShowRaidToken() => raidTokenText.text = "" + UserInventoryManager.Instance.GetToken();
+    public void ShowRaidToken() { raidTokenText.text = "" + uimInstance.GetToken(); }
     
-    public void ChangeColor()
-    {
-        foreach (var item in rsItemCellList)
-        {
-            item.GetComponent<RaidShopItemCell>().ChangeColorPriceText();
-        }
-    }
 
-    public void InventoryUser(int itemId, int quantity)
+    public void ShowInventoryUserText(int itemId, int quantity)
     {
         foreach (var item in rsItemCellList)
         {
-            RaidShopItemCell raidShopItemCell = item.GetComponent<RaidShopItemCell>();
+            var raidShopItemCell = item.GetComponent<RaidShopItemCell>();
             if (raidShopItemCell.id == itemId)
             {
                 raidShopItemCell.inventoryText.text = "" + quantity;
-            }   
+            }
+        }
+    }
+    
+    // public void ChangeColorPriceText(int itemId, int price)
+    // {
+    //     foreach (var item in rsItemCellList)
+    //     {
+    //         var raidShopItemCell = item.GetComponent<RaidShopItemCell>();
+    //         if (uimInstance.GetToken() < price)
+    //         {
+    //             raidShopItemCell.priceItemText.color = new Color(1, 0.259434f, 0.3192778f, 1);
+    //         }
+    //         else
+    //         {
+    //             raidShopItemCell.priceItemText.color = new Color(1, 1, 1, 1f);
+    //         }
+    //     }
+    // }
+
+    public void Check()
+    {
+        foreach (var item in rsItemCellList)
+        {
+            var raidShopItemCell = item.GetComponent<RaidShopItemCell>();
+            if (uimInstance.GetToken() < raidShopItemCell.price)
+            {
+                raidShopItemCell.priceItemText.color = new Color(1, 0.259434f, 0.3192778f, 1);
+            }
+            else
+            {
+                raidShopItemCell.priceItemText.color = new Color(1, 1, 1, 1f);
+            }
         }
     }
 

@@ -13,15 +13,11 @@ public class RaidShopItemCell : MonoBehaviour
     public Text inventoryText;
     private UserInventoryManager uimInstance = UserInventoryManager.Instance;
 
-    public int id;
-    public int price;
+    private int id;
+    private int price;
     private string rsId;
     
-    public event Action OnShowRaidTokenEvent;
-    public event Action OnChangeColorEvent;
-    public event Action<int, int> OnShowInventoryUserTextEvent;
-    // public event Action<int, int> OnChangeColorPriceTextEvent;
-    public event Action Check;
+    public Action<int, int> OnItemBought;
     public void SetData(RaidShopScreen.RaidShopItemInfo data)
     {
         id = data.id;
@@ -60,11 +56,10 @@ public class RaidShopItemCell : MonoBehaviour
             uimInstance.SetPurchasedItem(rsId,purchasedQuantity);
             quantityItem.text = RaidShopDataManager.Instance.GetItemQuantity(rsId).quantity -  uimInstance.GetPurchasedItem(rsId) + " Left";
             
-            OnShowRaidTokenEvent?.Invoke();
-            OnChangeColorEvent?.Invoke();
-            OnShowInventoryUserTextEvent?.Invoke(id, inventoryQuantity);
-            // OnChangeColorPriceTextEvent?.Invoke(id, price);
-            Check?.Invoke();
+            OnItemBought?.Invoke(id, inventoryQuantity);
         }
     }
+    
+    public int GetId() => id;
+    public int GetPrice() => price;
 }

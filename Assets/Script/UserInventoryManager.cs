@@ -54,7 +54,7 @@ public class UserInventoryManager: MonoBehaviour
     public void SetPurchasedItem(string rsItem, int rsQuantity) { AddPurchasedItem(rsItem, rsQuantity, purchasedItemKey); }
     
     
-    //Feature Logic
+    //Inventory
     
     private void LoadInventoryUserData(string itemKey)
     {
@@ -95,7 +95,7 @@ public class UserInventoryManager: MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    // Purchased Data
+    //Purchased Data
 
     void SavePurchasedItems(string key)
     {

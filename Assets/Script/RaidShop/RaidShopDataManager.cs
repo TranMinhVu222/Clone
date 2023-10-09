@@ -11,18 +11,27 @@ public class RaidShopDataManager : DataManager<RaidShopDataManager>
         raidShopItems = Initialize<RaidShopItem>(path);
     }
     
+    public RaidShopItem GetItemQuantity(string rsId)
+    {
+        RaidShopItem item = raidShopItems.Find(i => i.raidshop_id == rsId);
+        return item;
+    }
+    
     [System.Serializable]
     public class RaidShopItem
     {
         public int item_id;
         public int price;
         public int quantity;
+        public string raidshop_id;
+        
         public RaidShopItem() {}
-        public RaidShopItem(int itemId, int itemPrice, int itemQuantity)
+        public RaidShopItem(int itemId, int itemPrice, int itemQuantity, string rsId)
         {
             item_id = itemId;
             price = itemPrice;
             quantity = itemQuantity;
+            raidshop_id = rsId;
         }
     }
 }

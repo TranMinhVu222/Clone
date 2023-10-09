@@ -714,10 +714,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameItemText: {fileID: 3324074403813648403}
   imageItem: {fileID: 6443988778020359465}
-  priceItem: {fileID: 489454963172413389}
+  priceItemText: {fileID: 489454963172413389}
   quantityItem: {fileID: 8302488389870450707}
   chestInfoBt: {fileID: 2788447915637095398}
   countDownText: {fileID: 6710968584156194749}
+  inventoryText: {fileID: 2028639780108436534}
 --- !u!1 &6710968584156194751
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,7 +934,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9056261859939541854}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6050066687372169084}
+        m_TargetAssemblyTypeName: RaidShopItemCell, Assembly-CSharp
+        m_MethodName: OnClickBuyItemBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7539915152292564588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,13 +1174,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 20
     m_MaxSize: 23
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 32
+  m_Text: 0
 --- !u!1 &8710052069556813762
 GameObject:
   m_ObjectHideFlags: 0

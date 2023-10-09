@@ -1,47 +1,49 @@
 using System.Collections.Generic;
+using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RaidShopScreen : Screen
+public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
 {
     [SerializeField] private Text raidTokenText;
-    [SerializeField] private GameObject raidShopCellPrefab;
-    [SerializeField] private GridLayoutGroup layout;
+    // [SerializeField] private GameObject raidShopCellPrefab;
+    // [SerializeField] private GridLayoutGroup layout;
 
+    public EnhancedScroller scroller;
+    public EnhancedScrollerCellView cellViewPrefab;
+    
     private List<GameObject> rsItemCellList = new List<GameObject>();
+    private RaidShopItemInfo[] data;
+    
     private UserInventoryManager uimInstance;
     private void Start()
     {
         uimInstance = UserInventoryManager.Instance;
+        scroller.Delegate = this;
         ShowRaidShopItemInfo();
         ShowRaidToken();
         OnChangeColorPriceTextEvent();
     }
-    
+
     void  ShowRaidShopItemInfo()
     {
-        foreach (var raidShopItem in RaidShopDataManager.Instance.raidShopItems)
-        {
-            ItemDataManager.Item itemInfo = ItemDataManager.Instance.GetItem(raidShopItem.item_id);
-            
-            var product = new RaidShopItemInfo
-            {
-                id = itemInfo.id,
-                name = itemInfo.name,
-                image = itemInfo.image,
-                price = raidShopItem.price,
-                quantity = raidShopItem.quantity,
-                rsId = raidShopItem.raidshop_id
-            };
-            
-            GameObject instantiate = Instantiate(raidShopCellPrefab, layout.transform);
-            var itemCell = instantiate.GetComponent<RaidShopItemCell>();
-            
-            itemCell.SetData(product);
+        data = new RaidShopItemInfo[RaidShopDataManager.Instance.raidShopItems.Count];
 
-            itemCell.OnItemBought += HandleItemBought;
+        for (int i = 0; i < RaidShopDataManager.Instance.raidShopItems.Count; i++)
+        {
+            ItemDataManager.Item itemInfo = ItemDataManager.Instance.GetItem(RaidShopDataManager.Instance.raidShopItems[i].item_id);
+
+            RaidShopItemInfo product = new RaidShopItemInfo
+            (
+                itemInfo.id,
+                itemInfo.name,
+                itemInfo.image,
+                RaidShopDataManager.Instance.raidShopItems[i].price,
+                RaidShopDataManager.Instance.raidShopItems[i].quantity,
+                RaidShopDataManager.Instance.raidShopItems[i].raidshop_id
+            );
             
-            rsItemCellList.Add(instantiate);
+            data[i] = product;
         }
     }
 
@@ -90,6 +92,24 @@ public class RaidShopScreen : Screen
             }
         }
     }
+    
+    public int GetNumberOfCells(EnhancedScroller scroller)
+    {
+        return RaidShopDataManager.Instance.raidShopItems.Count;
+    }
+
+    public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
+    {
+        return 565.5f;
+    }
+
+    public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
+    {
+        RaidShopItemCellView cellView = scroller.GetCellView(cellViewPrefab) as RaidShopItemCell;
+        cellView.SetData(data[dataIndex]);
+        cellView.HandleItemBought = HandleItemBought;
+        return cellView;
+    }
 
     [System.Serializable]
     public class RaidShopItemInfo
@@ -100,5 +120,15 @@ public class RaidShopScreen : Screen
         public int price;
         public int quantity;
         public string rsId;
+        
+        public RaidShopItemInfo(int idRS, string rsName, Sprite rsImage, int rsPrice, int rsQuantity, string rsIds)
+        {
+            id = idRS;
+            name = rsName;
+            image = rsImage;
+            price = rsPrice;
+            quantity = rsQuantity;
+            rsId = rsIds;
+        }
     }
 }

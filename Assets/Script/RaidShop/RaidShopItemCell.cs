@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RaidShopItemCell : RaidShopItemCellView
+public class RaidShopItemCell : MonoBehaviour
 {
     private RaidShopScreen.RaidShopItemInfo raidShopItemInfo;
     
@@ -18,19 +18,12 @@ public class RaidShopItemCell : RaidShopItemCellView
     private int price;
     private string rsId;
     
-    public event Action<int, int> OnItemBought;
+    public Action<int, int> OnItemBought;
     
     private UserInventoryManager uimInstance = UserInventoryManager.Instance;
     
-    public void Initialize(RaidShopScreen screen, Action<int, int> itemBoughtHandler)
+    public void SetData(RaidShopScreen.RaidShopItemInfo data)
     {
-        OnItemBought += itemBoughtHandler;
-    }
-    
-    public override void SetData(RaidShopScreen.RaidShopItemInfo data)
-    {
-        base.SetData(data);
-
         raidShopItemInfo = data as RaidShopScreen.RaidShopItemInfo;
         
         id = raidShopItemInfo.id;
@@ -54,14 +47,7 @@ public class RaidShopItemCell : RaidShopItemCellView
 
         inventoryText.text = "" + uimInstance.GetInventoryUser(raidShopItemInfo.id);
     }
-
-    public override void SetItemBought(Action<int, int> action)
-    {
-        base.SetItemBought(action);
-        
-        OnItemBought += action;
-    }
-        
+    
     public void OnClickBuyItemBtn()
     {
         if (uimInstance.GetToken() >= price && uimInstance.GetPurchasedItem(rsId) < RaidShopDataManager.Instance.GetItemQuantity(rsId).quantity)

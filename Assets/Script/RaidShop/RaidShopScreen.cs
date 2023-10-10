@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,14 +7,14 @@ using UnityEngine.UI;
 public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
 {
     [SerializeField] private Text raidTokenText;
-    // [SerializeField] private GameObject raidShopCellPrefab;
-    // [SerializeField] private GridLayoutGroup layout;
-
+    
     public EnhancedScroller scroller;
     public EnhancedScrollerCellView cellViewPrefab;
     
-    private List<GameObject> rsItemCellList = new List<GameObject>();
     private RaidShopItemInfo[] data;
+    private List<GameObject> rsItemCellList = new List<GameObject>();
+
+    private int numberOfCellsPerRow = 2;
     
     private UserInventoryManager uimInstance;
     private void Start()
@@ -25,7 +26,7 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
         OnChangeColorPriceTextEvent();
     }
 
-    void  ShowRaidShopItemInfo()
+    void ShowRaidShopItemInfo()
     {
         data = new RaidShopItemInfo[RaidShopDataManager.Instance.raidShopItems.Count];
 
@@ -45,6 +46,7 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
             
             data[i] = product;
         }
+        scroller.ReloadData();
     }
 
     public void OnClickInfoBtn()
@@ -64,7 +66,6 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
     
     private void ShowRaidToken() { raidTokenText.text = "" + uimInstance.GetToken(); }
     
-
     private void ShowInventoryUserText(int itemId, int quantity)
     {
         foreach (var item in rsItemCellList)
@@ -95,7 +96,7 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
     
     public int GetNumberOfCells(EnhancedScroller scroller)
     {
-        return RaidShopDataManager.Instance.raidShopItems.Count;
+        return Mathf.CeilToInt((float) RaidShopDataManager.Instance.raidShopItems.Count / (float)numberOfCellsPerRow);
     }
 
     public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
@@ -105,9 +106,19 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
 
     public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
     {
-        RaidShopItemCellView cellView = scroller.GetCellView(cellViewPrefab) as RaidShopItemCell;
-        cellView.SetData(data[dataIndex]);
-        cellView.HandleItemBought = HandleItemBought;
+        RaidShopItemCellView cellView = scroller.GetCellView(cellViewPrefab) as RaidShopItemCellView;
+        
+        cellView.name = "Cell " + (dataIndex * numberOfCellsPerRow).ToString() + " to " + ((dataIndex * numberOfCellsPerRow) + numberOfCellsPerRow - 1).ToString();
+        
+        cellView.SetData(data, dataIndex * numberOfCellsPerRow);
+
+        foreach (var cell in cellView.raidShopItemCells)
+        {
+            rsItemCellList.Add(cell.gameObject);
+        }
+        
+        cellView.HandleEvent(HandleItemBought);
+       
         return cellView;
     }
 

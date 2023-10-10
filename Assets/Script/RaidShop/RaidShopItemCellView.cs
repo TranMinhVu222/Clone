@@ -1,20 +1,26 @@
 using System;
+using System.Collections.Generic;
+using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 
 public class RaidShopItemCellView: EnhancedScrollerCellView
-{ 
-        protected RaidShopScreen.RaidShopItemInfo raidShopItemInfo;
-        
-        protected Action<int, int> eventItemBought;
+{
+        public RaidShopItemCell[] raidShopItemCells;
 
-        public virtual void SetData(RaidShopScreen.RaidShopItemInfo data)
+        public void SetData(RaidShopScreen.RaidShopItemInfo[] data, int startingIndex)
         {
-                raidShopItemInfo = data;
+                for (var i = 0; i < raidShopItemCells.Length; i++)
+                {
+                        raidShopItemCells[i].SetData(startingIndex + i < data.Length ? data[startingIndex + i] : null);
+                }
         }
 
-        public virtual void SetItemBought(Action<int, int> action)
+        public void HandleEvent(Action<int, int> action)
         {
-                eventItemBought += action;
+                for (var i = 0; i < raidShopItemCells.Length; i++)
+                {
+                        raidShopItemCells[i].OnItemBought += action;
+                }
         }
 }

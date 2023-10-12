@@ -15,12 +15,4 @@ public class RaidShopItemCellView: EnhancedScrollerCellView
                         raidShopItemCells[i].SetData(startingIndex + i < data.Length ? data[startingIndex + i] : null);
                 }
         }
-
-        public void HandleEvent(Action<int, int> action)
-        {
-                for (var i = 0; i < raidShopItemCells.Length; i++)
-                {
-                        raidShopItemCells[i].OnItemBought += action;
-                }
-        }
 }

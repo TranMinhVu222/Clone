@@ -54,7 +54,6 @@ public class RaidShopItemCell : MonoBehaviour
         {
             int inventoryQuantity = uimInstance.GetInventoryUser(id) + 1;
             uimInstance.SetInventoryUser(new InventoryItem(id,inventoryQuantity));
-            Debug.Log(inventoryQuantity);
 
             int purchasedToken = uimInstance.GetToken() - price;
             uimInstance.SetToken(purchasedToken);

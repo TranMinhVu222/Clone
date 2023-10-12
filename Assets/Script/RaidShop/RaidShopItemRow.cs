@@ -4,7 +4,7 @@ using EnhancedUI;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 
-public class RaidShopItemCellView: EnhancedScrollerCellView
+public class RaidShopItemRow: EnhancedScrollerCellView
 {
         public RaidShopItemCell[] raidShopItemCells;
 

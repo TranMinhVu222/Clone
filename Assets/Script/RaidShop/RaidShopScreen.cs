@@ -110,7 +110,7 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
 
     public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
     {
-        RaidShopItemCellView cellView = scroller.GetCellView(cellViewPrefab) as RaidShopItemCellView;
+        RaidShopItemRow cellView = scroller.GetCellView(cellViewPrefab) as RaidShopItemRow;
         
         cellView.name = "Cell " + (dataIndex * numberOfCellsPerRow)+ " to " + ((dataIndex * numberOfCellsPerRow) + numberOfCellsPerRow - 1);
         

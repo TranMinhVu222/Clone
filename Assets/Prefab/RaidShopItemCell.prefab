@@ -711,8 +711,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ccc867ced391b48559363c64089a938f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  cellIdentifier: Row
+  m_EditorClassIdentifier:
   nameItemText: {fileID: 3324074403813648403}
   imageItem: {fileID: 6443988778020359465}
   priceItemText: {fileID: 489454963172413389}

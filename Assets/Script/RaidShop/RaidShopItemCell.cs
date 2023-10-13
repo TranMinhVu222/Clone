@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class RaidShopItemCell : MonoBehaviour
 {
+    private RaidShopScreen.RaidShopItemInfo raidShopItemInfo;
+    
     public Text nameItemText;
     public Image imageItem;
     public Text priceItemText;
@@ -11,35 +13,39 @@ public class RaidShopItemCell : MonoBehaviour
     public GameObject chestInfoBt;
     public Text countDownText;
     public Text inventoryText;
-    private UserInventoryManager uimInstance = UserInventoryManager.Instance;
-
+    
     private int id;
     private int price;
     private string rsId;
     
     public Action<int, int> OnItemBought;
+    
+    private UserInventoryManager uimInstance = UserInventoryManager.Instance;
+    
     public void SetData(RaidShopScreen.RaidShopItemInfo data)
     {
-        id = data.id;
-        price = data.price;
-        rsId = data.rsId;
+        raidShopItemInfo = data as RaidShopScreen.RaidShopItemInfo;
         
-        int quanTemp = data.quantity - uimInstance.GetPurchasedItem(rsId);
-        nameItemText.text = data.name;
-        imageItem.sprite = data.image;
-        priceItemText.text = "" + data.price;
+        id = raidShopItemInfo.id;
+        price = raidShopItemInfo.price;
+        rsId = raidShopItemInfo.rsId;
+        
+        int quanTemp = raidShopItemInfo.quantity - uimInstance.GetPurchasedItem(rsId);
+        nameItemText.text = raidShopItemInfo.name;
+        imageItem.sprite = raidShopItemInfo.image;
+        priceItemText.text = "" + raidShopItemInfo.price;
         quantityItem.text = quanTemp + " Left";
-        if (!data.name.Contains("Chest"))
+        if (!raidShopItemInfo.name.Contains("Chest"))
         {
             chestInfoBt.SetActive(false);
         }
 
-        if (data.image.name.StartsWith("G_"))
+        if (raidShopItemInfo.image.name.StartsWith("G_"))
         {
             countDownText.gameObject.SetActive(true);
         }
 
-        inventoryText.text = "" + uimInstance.GetInventoryUser(data.id);
+        inventoryText.text = "" + uimInstance.GetInventoryUser(raidShopItemInfo.id);
     }
     
     public void OnClickBuyItemBtn()

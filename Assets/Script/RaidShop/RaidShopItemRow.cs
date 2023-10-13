@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+using EnhancedUI;
+using EnhancedUI.EnhancedScroller;
+using UnityEngine;
+
+public class RaidShopItemRow: EnhancedScrollerCellView
+{
+        public RaidShopItemCell[] raidShopItemCells;
+
+        public void SetData(RaidShopScreen.RaidShopItemInfo[] data, int startingIndex)
+        {
+                for (var i = 0; i < raidShopItemCells.Length; i++)
+                {
+                        raidShopItemCells[i].SetData(startingIndex + i < data.Length ? data[startingIndex + i] : null);
+                }
+        }
+}

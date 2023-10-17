@@ -73,33 +73,27 @@ public class UserInventoryManager : MonoBehaviour
 
     private void SaveData<T>(string key, Dictionary<string, int> dataDict)
     {
-        ItemsDataList<T> itemDataList = new ItemsDataList<T>();
+        var itemDataList = new ItemsDataList<T>();
         itemDataList.itemsDataList = new List<T>();
-
+    
         foreach (var kvp in dataDict)
         {
-            T itemData;
+            T itemData = Activator.CreateInstance<T>();
+    
+            if (itemData is PurchasedItemsData purchasedData)
+            {
+                purchasedData.rsId = kvp.Key;
+                purchasedData.itemCount = kvp.Value;
+            }
+            else if (itemData is InventoryItemsData inventoryData)
+            {
+                inventoryData.itemId = int.Parse(kvp.Key);
+                inventoryData.itemQuantity = kvp.Value;
+            }
             
-            if (typeof(T) == typeof(PurchasedItemsData))
-            {
-                itemData = Activator.CreateInstance<T>();
-                ((PurchasedItemsData)(object)itemData).rsId = kvp.Key;
-                ((PurchasedItemsData)(object)itemData).itemCount = kvp.Value;
-            }
-            else if (typeof(T) == typeof(InventoryItemsData))
-            {
-                itemData = Activator.CreateInstance<T>();
-                ((InventoryItemsData)(object)itemData).itemId = int.Parse(kvp.Key);
-                ((InventoryItemsData)(object)itemData).itemQuantity = kvp.Value;
-            }
-            else
-            {
-                throw new ArgumentException("Error type");
-            }
-
             itemDataList.itemsDataList.Add(itemData);
         }
-
+    
         string serializedData = JsonUtility.ToJson(itemDataList);
         PlayerPrefs.SetString(key, serializedData);
         PlayerPrefs.Save();

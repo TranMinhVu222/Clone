@@ -4,14 +4,14 @@ using System.Text;
 using UnityEngine;
 using System.Linq;
 
-public class UserInventoryManager: MonoBehaviour
+public class UserInventoryManager : MonoBehaviour
 {
     private const string userNameKey = "UserName";
     private const string tokenKey = "RaidToken";
     private const string itemInventoryKey = "ItemInventory";
     private const string purchasedItemKey = "PurchasedItem";
 
-    public List<InventoryItem> inventoryItems = new List<InventoryItem>();
+    public Dictionary<string, int> inventoryItems = new Dictionary<string, int>();
     public Dictionary<string, int> purchasedItems = new Dictionary<string, int>();
 
     private static UserInventoryManager instance;
@@ -21,7 +21,7 @@ public class UserInventoryManager: MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogError("Only 1 Object allow to exist");
+            Debug.LogError("Only 1 Object allowed to exist");
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
@@ -29,139 +29,103 @@ public class UserInventoryManager: MonoBehaviour
 
     private void Start()
     {
-        LoadInventoryUserData(itemInventoryKey);
-        LoadPurchasedItems(purchasedItemKey);
+        LoadData<InventoryItemsData>(itemInventoryKey);
+        LoadData<PurchasedItemsData>(purchasedItemKey);
     }
 
     public string GetUserName() { return PlayerPrefs.GetString(userNameKey, "Adorable"); }
-    
+
     public void SetUserName(string name) { PlayerPrefs.SetString(userNameKey, name); }
-    
+
     public int GetToken() { return PlayerPrefs.GetInt(tokenKey, 0); }
-    
+
     public void SetToken(int numToken) { PlayerPrefs.SetInt(tokenKey, numToken); }
 
-    public int GetInventoryUser(int itemId)
-    {
-        InventoryItem item = inventoryItems.Find(i => i.itemId == itemId);
-        return item != null ? item.itemQuantity : 0;
-    }
-    
-    public void SetInventoryUser(InventoryItem inventoryItem) { SetInventoryUserData(inventoryItem, itemInventoryKey);}
+    public int GetInventoryUser(string itemId) { return GetDictionaryValue(inventoryItems, itemId); }
 
-    public int GetPurchasedItem(string rsId) { return GetPurchasedItemQuantity(rsId); }
+    public void SetInventoryUser(string itemId, int quantity) { SetDictionaryValue<InventoryItemsData>(inventoryItems,itemInventoryKey, itemId, quantity); }
 
-    public void SetPurchasedItem(string rsItem, int rsQuantity) { AddPurchasedItem(rsItem, rsQuantity, purchasedItemKey); }
-    
-    
-    //Inventory
-    
-    private void LoadInventoryUserData(string itemKey)
+    public int GetPurchasedItem(string rsId) { return GetDictionaryValue(purchasedItems, rsId); }
+
+    public void SetPurchasedItem(string rsItem, int rsQuantity) { SetDictionaryValue<PurchasedItemsData>(purchasedItems,purchasedItemKey, rsItem, rsQuantity); }
+
+    private void LoadData<T>(string key)
     {
-        string data = PlayerPrefs.GetString(itemKey);
-        if (!string.IsNullOrEmpty(data))
+        string serializedData = PlayerPrefs.GetString(key, "");
+        ItemsDataList<T> itemsDataList = JsonUtility.FromJson<ItemsDataList<T>>(serializedData);
+        if (itemsDataList != null)
         {
-            InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(data);
-            if (inventoryData != null)
+            foreach (var itemData in itemsDataList.itemsDataList)
             {
-                inventoryItems = inventoryData.inventory;
+                if (itemData is PurchasedItemsData)
+                {
+                    PurchasedItemsData purchasedItemData = itemData as PurchasedItemsData;
+                    purchasedItems[purchasedItemData.rsId] = purchasedItemData.itemCount;
+                }
+                else if (itemData is InventoryItemsData)
+                {
+                    InventoryItemsData inventoryItem = itemData as InventoryItemsData;
+                    inventoryItems[inventoryItem.itemId.ToString()] = inventoryItem.itemQuantity;
+                }
             }
         }
     }
 
-    private void SetInventoryUserData(InventoryItem newItem, string itemKey)
+    private void SaveData<T>(string key, Dictionary<string, int> dataDict)
     {
-        if (inventoryItems == null)
+        ItemsDataList<T> itemDataList = new ItemsDataList<T>();
+        itemDataList.itemsDataList = new List<T>();
+
+        foreach (var kvp in dataDict)
         {
-            inventoryItems = new List<InventoryItem>();
+            T itemData;
+            
+            if (typeof(T) == typeof(PurchasedItemsData))
+            {
+                itemData = Activator.CreateInstance<T>();
+                ((PurchasedItemsData)(object)itemData).rsId = kvp.Key;
+                ((PurchasedItemsData)(object)itemData).itemCount = kvp.Value;
+            }
+            else if (typeof(T) == typeof(InventoryItemsData))
+            {
+                itemData = Activator.CreateInstance<T>();
+                ((InventoryItemsData)(object)itemData).itemId = int.Parse(kvp.Key);
+                ((InventoryItemsData)(object)itemData).itemQuantity = kvp.Value;
+            }
+            else
+            {
+                throw new ArgumentException("Error type");
+            }
+
+            itemDataList.itemsDataList.Add(itemData);
         }
 
-        int existingIndex = inventoryItems.FindIndex(item => item.itemId == newItem.itemId);
-
-        if (existingIndex >= 0)
-        {
-            inventoryItems[existingIndex] = newItem;
-        }
-        else
-        {
-            inventoryItems.Add(newItem);
-        }
-
-        InventoryData inventoryData = new InventoryData();
-        inventoryData.inventory = inventoryItems;
-
-        string data = JsonUtility.ToJson(inventoryData);
-        PlayerPrefs.SetString(itemKey, data);
-        PlayerPrefs.Save();
-    }
-
-    //Purchased Data
-
-    void SavePurchasedItems(string key)
-    {
-        PurchasedItemsList purchasedItemsData = new PurchasedItemsList();
-        purchasedItemsData.purchasedItems = new List<PurchasedItemsData>();
-        
-        foreach (var kvp in purchasedItems)
-        {
-            PurchasedItemsData itemData = new PurchasedItemsData     {
-                rsId = kvp.Key,
-                itemCount = kvp.Value
-            };
-            purchasedItemsData.purchasedItems.Add(itemData);
-        }
-
-        string serializedData = JsonUtility.ToJson(purchasedItemsData);
+        string serializedData = JsonUtility.ToJson(itemDataList);
         PlayerPrefs.SetString(key, serializedData);
         PlayerPrefs.Save();
     }
 
-    private void LoadPurchasedItems(string key)
+    private int GetDictionaryValue(Dictionary<string, int> dictionary, string key)
     {
-        string serializedData = PlayerPrefs.GetString(key, "");
-        if (!string.IsNullOrEmpty(serializedData))
+        if (dictionary.ContainsKey(key))
         {
-            PurchasedItemsList purchasedItemsData = JsonUtility.FromJson<PurchasedItemsList>(serializedData);
-            if (purchasedItemsData != null)
-            {
-                purchasedItems = purchasedItemsData.purchasedItems.ToDictionary(itemData => itemData.rsId, itemData => itemData.itemCount);
-            }
-        }
-    }
-
-    private void AddPurchasedItem(string item, int quantity, string key)
-    {
-        purchasedItems[item] = quantity;
-        SavePurchasedItems(key);
-    }
-
-    private int GetPurchasedItemQuantity(string item)
-    {
-        if (purchasedItems.ContainsKey(item))
-        {
-            return purchasedItems[item];
+            return dictionary[key];
         }
         return 0;
     }
-}
 
-[Serializable]
-public class InventoryItem
-{
-    public int itemId;
-    public int itemQuantity;
-
-    public InventoryItem(int id, int quantity)
+    private void SetDictionaryValue<T>(Dictionary<string, int> dictionary, string key, string id, int quantity)
     {
-        itemId = id;
-        itemQuantity = quantity;
+        dictionary[id] = quantity;
+        SaveData<T>(key, dictionary);
     }
 }
 
 [Serializable]
-public class InventoryData
+public class InventoryItemsData
 {
-    public List<InventoryItem> inventory;
+    public int itemId;
+    public int itemQuantity;
 }
 
 [Serializable]
@@ -172,7 +136,7 @@ public class PurchasedItemsData
 }
 
 [System.Serializable]
-public class PurchasedItemsList
+public class ItemsDataList<T>
 {
-    public List<PurchasedItemsData> purchasedItems;
+    public List<T> itemsDataList;
 }

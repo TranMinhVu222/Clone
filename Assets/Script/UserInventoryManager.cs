@@ -6,12 +6,12 @@ using System.Linq;
 
 public class UserInventoryManager : MonoBehaviour
 {
-    private const string userNameKey = "UserName";
-    private const string tokenKey = "RaidToken";
-    private const string itemInventoryKey = "ItemInventory";
-    private const string purchasedItemKey = "PurchasedItem";
+    private const string userNameKey = "name";
+    private const string tokenKey = "raidtoken";
+    private const string itemInventoryKey = "inventory";
+    private const string purchasedItemKey = "purchased";
 
-    public Dictionary<string, int> inventoryItems = new Dictionary<string, int>();
+    public Dictionary<string, InventoryItemsData> inventoryItems = new Dictionary<string, InventoryItemsData>();
     public Dictionary<string, int> purchasedItems = new Dictionary<string, int>();
 
     private static UserInventoryManager instance;
@@ -29,7 +29,7 @@ public class UserInventoryManager : MonoBehaviour
 
     private void Start()
     {
-        LoadData<InventoryItemsData>(itemInventoryKey);
+        LoadData<InventoryItemDataDict>(itemInventoryKey);
         LoadData<PurchasedItemsData>(purchasedItemKey);
     }
 
@@ -41,13 +41,13 @@ public class UserInventoryManager : MonoBehaviour
 
     public void SetToken(int numToken) { PlayerPrefs.SetInt(tokenKey, numToken); }
 
-    public int GetInventoryUser(string itemId) { return GetDictionaryValue(inventoryItems, itemId); }
+    public InventoryItemsData GetInventoryUser(int itemId) { return GetITDictValue(inventoryItems, itemId.ToString()); }
 
-    public void SetInventoryUser(string itemId, int quantity) { SetDictionaryValue<InventoryItemsData>(inventoryItems,itemInventoryKey, itemId, quantity); }
+    public void SetInventoryUser(string itemId, InventoryItemsData inventoryItemsData) { SetDictionaryValue<InventoryItemDataDict,InventoryItemsData>(inventoryItems,itemInventoryKey, itemId, inventoryItemsData); }
 
-    public int GetPurchasedItem(string rsId) { return GetDictionaryValue(purchasedItems, rsId); }
+    public int GetPurchasedItem(string rsId) { return GetPIDictValue(purchasedItems, rsId); }
 
-    public void SetPurchasedItem(string rsItem, int rsQuantity) { SetDictionaryValue<PurchasedItemsData>(purchasedItems,purchasedItemKey, rsItem, rsQuantity); }
+    public void SetPurchasedItem(string rsItem, int rsQuantity) { SetDictionaryValue  <PurchasedItemsData, int>(purchasedItems,purchasedItemKey, rsItem, rsQuantity); }
 
     private void LoadData<T>(string key)
     {
@@ -62,16 +62,17 @@ public class UserInventoryManager : MonoBehaviour
                     PurchasedItemsData purchasedItemData = itemData as PurchasedItemsData;
                     purchasedItems[purchasedItemData.rsId] = purchasedItemData.itemCount;
                 }
-                else if (itemData is InventoryItemsData)
+                else if (itemData is InventoryItemDataDict)
                 {
-                    InventoryItemsData inventoryItem = itemData as InventoryItemsData;
-                    inventoryItems[inventoryItem.itemId.ToString()] = inventoryItem.itemQuantity;
+                    InventoryItemDataDict inventoryItemDataDict = itemData as InventoryItemDataDict;
+                    inventoryItems[inventoryItemDataDict.inventoryItemsData.item_id] = inventoryItemDataDict.inventoryItemsData;
+                    Debug.Log(inventoryItems[inventoryItemDataDict.inventoryItemsData.item_id].item_id + " " + inventoryItems[inventoryItemDataDict.inventoryItemsData.item_id].quantity);
                 }
             }
         }
     }
 
-    private void SaveData<T>(string key, Dictionary<string, int> dataDict)
+    private void SaveData<T,TType>(string key, Dictionary<string, TType> dataDict)
     {
         var itemDataList = new ItemsDataList<T>();
         itemDataList.itemsDataList = new List<T>();
@@ -83,15 +84,14 @@ public class UserInventoryManager : MonoBehaviour
             if (itemData is PurchasedItemsData purchasedData)
             {
                 purchasedData.rsId = kvp.Key;
-                purchasedData.itemCount = kvp.Value;
+                purchasedData.itemCount = (int)(object)kvp.Value;
             }
-            else if (itemData is InventoryItemsData inventoryData)
+            else if (itemData is InventoryItemsData)
             {
-                inventoryData.itemId = int.Parse(kvp.Key);
-                inventoryData.itemQuantity = kvp.Value;
+                itemData = (T)(object)kvp.Value;
             }
             
-            itemDataList.itemsDataList.Add(itemData);
+            itemDataList.itemsDataList.Add(itemData);   
         }
     
         string serializedData = JsonUtility.ToJson(itemDataList);
@@ -99,7 +99,16 @@ public class UserInventoryManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private int GetDictionaryValue(Dictionary<string, int> dictionary, string key)
+    private InventoryItemsData GetITDictValue(Dictionary<string, InventoryItemsData> dictionary, string key)
+    {
+        if (dictionary.ContainsKey(key))
+        {
+            return dictionary[key];
+        }
+        return new InventoryItemsData(key,0);
+    }
+
+    private int GetPIDictValue(Dictionary<string, int> dictionary, string key)
     {
         if (dictionary.ContainsKey(key))
         {
@@ -108,18 +117,25 @@ public class UserInventoryManager : MonoBehaviour
         return 0;
     }
 
-    private void SetDictionaryValue<T>(Dictionary<string, int> dictionary, string key, string id, int quantity)
+    private void SetDictionaryValue<T, TType>(Dictionary<string, TType> dictionary, string key, string id, TType value)
     {
-        dictionary[id] = quantity;
-        SaveData<T>(key, dictionary);
+        dictionary[id] = value;
+        Debug.Log(dictionary[id] + ","+dictionary.Values + "," +key+","+ id+","+ value.GetType());
+        SaveData<T, TType>(key, dictionary);
     }
 }
 
 [Serializable]
 public class InventoryItemsData
 {
-    public int itemId;
-    public int itemQuantity;
+    public string item_id;
+    public int quantity;
+
+    public InventoryItemsData(string id, int quan)
+    {
+        item_id = id;
+        quantity = quan;
+    }
 }
 
 [Serializable]
@@ -128,6 +144,14 @@ public class PurchasedItemsData
     public string rsId;
     public int itemCount;
 }
+
+[Serializable]
+public class InventoryItemDataDict
+{
+    public string id;
+    public InventoryItemsData inventoryItemsData;
+}
+
 
 [System.Serializable]
 public class ItemsDataList<T>

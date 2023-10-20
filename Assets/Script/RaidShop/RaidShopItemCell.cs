@@ -45,16 +45,15 @@ public class RaidShopItemCell : MonoBehaviour
             countDownText.gameObject.SetActive(true);
         }
 
-        inventoryText.text = "" + uimInstance.GetInventoryUser(raidShopItemInfo.id.ToString());
+        inventoryText.text = "" + uimInstance.GetInventoryUser(raidShopItemInfo.id).quantity;
     }
     
     public void OnClickBuyItemBtn()
     {
         if (uimInstance.GetToken() >= price && uimInstance.GetPurchasedItem(rsId) < RaidShopDataManager.Instance.GetItemQuantity(rsId).quantity)
         {
-            int inventoryQuantity = uimInstance.GetInventoryUser(id.ToString()) + 1;
-            uimInstance.SetInventoryUser(id.ToString(),inventoryQuantity);
-
+            int inventoryQuantity = uimInstance.GetInventoryUser(id).quantity + 1;
+            uimInstance.SetInventoryUser(id.ToString(),new InventoryItemsData(id.ToString(),inventoryQuantity)); ;
             int purchasedToken = uimInstance.GetToken() - price;
             uimInstance.SetToken(purchasedToken);
             

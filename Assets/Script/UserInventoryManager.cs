@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
-using System.Linq;
 
 public class UserInventoryManager : MonoBehaviour
 {
@@ -13,10 +11,7 @@ public class UserInventoryManager : MonoBehaviour
 
     public Dictionary<string, InventoryItemsData> inventoryItems = new Dictionary<string, InventoryItemsData>();
     public Dictionary<string, int> purchasedItems = new Dictionary<string, int>();
-
-    public ItemsDataList<InventoryItemsData> inventory;
-    public ItemsDataList<PurchasedItemsData> purchased;
-
+    
     private static UserInventoryManager instance;
     public static UserInventoryManager Instance { get => instance; }
 
@@ -32,8 +27,11 @@ public class UserInventoryManager : MonoBehaviour
 
     private void Start()
     {
-        LoadData<InventoryItemDataDict>(itemInventoryKey);
+        LoadData<InventoryItemsData>(itemInventoryKey);
         LoadData<PurchasedItemsData>(purchasedItemKey);
+
+        Debug.Log(PlayerPrefs.GetString(itemInventoryKey));
+        Debug.Log(PlayerPrefs.GetString(purchasedItemKey));
     }
 
     public string GetUserName() { return PlayerPrefs.GetString(userNameKey, "Adorable"); }
@@ -46,7 +44,7 @@ public class UserInventoryManager : MonoBehaviour
 
     public InventoryItemsData GetInventoryUser(int itemId) { return GetITDictValue(inventoryItems, itemId.ToString()); }
 
-    public void SetInventoryUser(string itemId, InventoryItemsData inventoryItemsData) { SetDictionaryValue<InventoryItemDataDict,InventoryItemsData>(inventoryItems,itemInventoryKey, itemId, inventoryItemsData); }
+    public void SetInventoryUser(string itemId, InventoryItemsData inventoryItemsData) { SetDictionaryValue<InventoryItemsData,InventoryItemsData>(inventoryItems,itemInventoryKey, itemId, inventoryItemsData); }
 
     public int GetPurchasedItem(string rsId) { return GetPIDictValue(purchasedItems, rsId); }
 
@@ -65,11 +63,10 @@ public class UserInventoryManager : MonoBehaviour
                     PurchasedItemsData purchasedItemData = itemData as PurchasedItemsData;
                     purchasedItems[purchasedItemData.rsId] = purchasedItemData.itemCount;
                 }
-                else if (itemData is InventoryItemDataDict)
+                else if (itemData is InventoryItemsData)
                 {
-                    InventoryItemDataDict inventoryItemDataDict = itemData as InventoryItemDataDict;
-                    inventoryItems[inventoryItemDataDict.inventoryItemsData.item_id] = inventoryItemDataDict.inventoryItemsData;
-                    Debug.Log(inventoryItems[inventoryItemDataDict.inventoryItemsData.item_id].item_id + " " + inventoryItems[inventoryItemDataDict.inventoryItemsData.item_id].quantity);
+                    InventoryItemsData inventoryItemDataDict = itemData as InventoryItemsData;
+                    inventoryItems[inventoryItemDataDict.item_id] = inventoryItemDataDict;
                 }
             }
         }
@@ -77,49 +74,39 @@ public class UserInventoryManager : MonoBehaviour
 
     private void SaveData<T, TType>(Dictionary<string, TType> dataDict, string key)
     {
-        ItemsDataList<InventoryItemsData> inventory = new ItemsDataList<InventoryItemsData>();
-        ItemsDataList<PurchasedItemsData> purchased = new ItemsDataList<PurchasedItemsData>();
-
+        var itemDataList = new ItemsDataList<T>();
+        itemDataList.itemsDataList = new List<T>();
+        
         foreach (var kvp in dataDict)
         {
             T itemData = Activator.CreateInstance<T>();
-            if (itemData is PurchasedItemsData)
+            if (itemData is PurchasedItemsData purchasedData)
             {
-                PurchasedItemsData purchasedData = new PurchasedItemsData(kvp.Key, (int)(object)kvp.Value);
-                purchased.itemsDataList.Add(purchasedData);
+                purchasedData.rsId = kvp.Key;
+                purchasedData.itemCount = (int)(object)kvp.Value;
             }
-            else if (itemData is InventoryItemDataDict)
+            else if (itemData is InventoryItemsData inventoryData)
             {
-                InventoryItemsData inventoryData = (InventoryItemsData)(object)kvp.Value;
-                inventory.itemsDataList.Add(inventoryData);
+                InventoryItemsData tempInventoryData = (InventoryItemsData)(object)kvp.Value;
+                
+                inventoryData.item_id = tempInventoryData.item_id;
+                inventoryData.quantity = tempInventoryData.quantity;
             }
+            itemDataList.itemsDataList.Add(itemData);
         }
-        
-        string serializedData;
-        if (typeof(T) is InventoryItemDataDict)
-        {
-            serializedData = JsonUtility.ToJson(inventory);    
-            Debug.Log(serializedData);
-            PlayerPrefs.SetString(key, serializedData);
-            PlayerPrefs.Save();
-        }
-        else if(typeof(T) is PurchasedItemsData)
-        {
-            serializedData = JsonUtility.ToJson(purchased);    
-            Debug.Log(serializedData);
-            PlayerPrefs.SetString(key, serializedData);
-            PlayerPrefs.Save();
-        }
+    
+        string serializedData = JsonUtility.ToJson(itemDataList);
+        PlayerPrefs.SetString(key, serializedData);
+        PlayerPrefs.Save();
     }
-
-
-    private InventoryItemsData GetITDictValue(Dictionary<string, InventoryItemsData> dictionary, string key)
+    
+    private InventoryItemsData GetITDictValue(Dictionary<string, InventoryItemsData> dictionary, string id)
     {
-        if (dictionary.ContainsKey(key))
+        if (dictionary.ContainsKey(id))
         {
-            return dictionary[key];
+            return dictionary[id];
         }
-        return new InventoryItemsData(key,0);
+        return new InventoryItemsData(id,0);
     }
 
     private int GetPIDictValue(Dictionary<string, int> dictionary, string key)
@@ -157,7 +144,6 @@ public class PurchasedItemsData
     public string rsId;
     public int itemCount;
     public PurchasedItemsData() { }
-
     public PurchasedItemsData(string id, int quan)
     {
         rsId = id;
@@ -165,15 +151,8 @@ public class PurchasedItemsData
     }
 }
 
+
 [Serializable]
-public class InventoryItemDataDict
-{
-    public string id;
-    public InventoryItemsData inventoryItemsData;
-}
-
-
-[System.Serializable]
 public class ItemsDataList<T>
 {
     public List<T> itemsDataList;

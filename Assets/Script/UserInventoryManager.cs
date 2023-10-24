@@ -53,20 +53,26 @@ public class UserInventoryManager : MonoBehaviour
     private void LoadData<T>(string key)
     {
         string serializedData = PlayerPrefs.GetString(key, "");
-        ItemsDataList<T> itemsDataList = JsonUtility.FromJson<ItemsDataList<T>>(serializedData);
-        if (itemsDataList != null)
+
+        if (typeof(T) == typeof(PurchasedItemsData))
         {
-            foreach (var itemData in itemsDataList.itemsDataList)
+            PurchasedItemsDataList purchasedItemsList = JsonUtility.FromJson<PurchasedItemsDataList>(serializedData);
+            if (purchasedItemsList != null)
             {
-                if (itemData is PurchasedItemsData)
+                foreach (var purchasedItem in purchasedItemsList.purchased)
                 {
-                    PurchasedItemsData purchasedItemData = itemData as PurchasedItemsData;
-                    purchasedItems[purchasedItemData.rsId] = purchasedItemData.itemCount;
+                    purchasedItems[purchasedItem.rsId] = purchasedItem.itemCount;
                 }
-                else if (itemData is InventoryItemsData)
+            }
+        }
+        else if (typeof(T) == typeof(InventoryItemsData))
+        {
+            InventoryItemsDataList inventoryItemsList = JsonUtility.FromJson<InventoryItemsDataList>(serializedData);
+            if (inventoryItemsList != null)
+            {
+                foreach (var inventoryItem in inventoryItemsList.inventory)
                 {
-                    InventoryItemsData inventoryItemDataDict = itemData as InventoryItemsData;
-                    inventoryItems[inventoryItemDataDict.item_id] = inventoryItemDataDict;
+                    inventoryItems[inventoryItem.item_id] = inventoryItem;
                 }
             }
         }
@@ -74,29 +80,35 @@ public class UserInventoryManager : MonoBehaviour
 
     private void SaveData<T, TType>(Dictionary<string, TType> dataDict, string key)
     {
-        var itemDataList = new ItemsDataList<T>();
-        itemDataList.itemsDataList = new List<T>();
-        
-        foreach (var kvp in dataDict)
+        if (typeof(T) == typeof(PurchasedItemsData))
         {
-            T itemData = Activator.CreateInstance<T>();
-            if (itemData is PurchasedItemsData purchasedData)
+            PurchasedItemsDataList purchasedItemsList = new PurchasedItemsDataList();
+            foreach (var kvp in dataDict)
             {
-                purchasedData.rsId = kvp.Key;
-                purchasedData.itemCount = (int)(object)kvp.Value;
+                PurchasedItemsData purchasedData = new PurchasedItemsData(kvp.Key,(int)(object)kvp.Value);
+                purchasedItemsList.purchased.Add(purchasedData);
             }
-            else if (itemData is InventoryItemsData inventoryData)
-            {
-                InventoryItemsData tempInventoryData = (InventoryItemsData)(object)kvp.Value;
-                
-                inventoryData.item_id = tempInventoryData.item_id;
-                inventoryData.quantity = tempInventoryData.quantity;
-            }
-            itemDataList.itemsDataList.Add(itemData);
+
+            string serializedData = JsonUtility.ToJson(purchasedItemsList);
+            Debug.Log(serializedData);
+            PlayerPrefs.SetString(key, serializedData);
         }
-    
-        string serializedData = JsonUtility.ToJson(itemDataList);
-        PlayerPrefs.SetString(key, serializedData);
+        else if (typeof(T) == typeof(InventoryItemsData))
+        {
+            InventoryItemsDataList inventoryItemsList = new InventoryItemsDataList();
+
+            foreach (var kvp in dataDict)
+            {
+                InventoryItemsData valueInventoryItem = (InventoryItemsData)(object)kvp.Value;
+                InventoryItemsData inventoryData = new InventoryItemsData(valueInventoryItem.item_id, valueInventoryItem.quantity);
+                inventoryItemsList.inventory.Add(inventoryData);
+            }
+
+            string serializedData = JsonUtility.ToJson(inventoryItemsList);
+            Debug.Log(serializedData);
+            PlayerPrefs.SetString(key, serializedData);
+        }
+
         PlayerPrefs.Save();
     }
     
@@ -151,9 +163,14 @@ public class PurchasedItemsData
     }
 }
 
+[Serializable]
+public class InventoryItemsDataList
+{
+    public List<InventoryItemsData> inventory = new List<InventoryItemsData>();
+}
 
 [Serializable]
-public class ItemsDataList<T>
+public class PurchasedItemsDataList
 {
-    public List<T> itemsDataList;
+    public List<PurchasedItemsData> purchased = new List<PurchasedItemsData>();
 }

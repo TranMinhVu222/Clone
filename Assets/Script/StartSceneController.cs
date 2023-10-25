@@ -25,5 +25,8 @@ public class StartSceneController : MonoBehaviour
         
         //Init User Inventory Manager
         Instantiate(Resources.Load<GameObject>("UserInventoryManager"));
+        
+        //Init LocalizationManager
+        Instantiate(Resources.Load<GameObject>("LocalizationManager"));
     }
 }

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <columns>
+    <NODE0 index="1"></NODE0>
+    <english index="2">english</english>
+    <french index="3">french</french>
+    <korean index="4">korean</korean>
+  </columns>
+  <records>
+    <record index="1">
+      <NODE0>season_pass</NODE0>
+      <english>Season Pass</english>
+      <french>Passe saison</french>
+      <korean>シーズンパス</korean>
+    </record>
+    <record index="2">
+      <NODE0>vanilla_league</NODE0>
+      <english>Vanilla League</english>
+      <french>Ligue Vanilla</french>
+      <korean>바닐라 리그</korean>
+    </record>
+    <record index="3">
+      <NODE0>expired</NODE0>
+      <english>Expired</english>
+      <french>Expiré</french>
+      <korean>만료</korean>
+    </record>
+    <record index="4">
+      <NODE0>loading</NODE0>
+      <english>Loading...</english>
+      <french>Chargement...</french>
+      <korean>로딩...</korean>
+    </record>
+    <record index="5">
+      <NODE0>full</NODE0>
+      <english>Full</english>
+      <french>Plein</french>
+      <korean>가득한</korean>
+    </record>
+    <record index="6">
+      <NODE0>days</NODE0>
+      <english>6 days</english>
+      <french>6 jours</french>
+      <korean>6 일자</korean>
+    </record>
+    <record index="7">
+      <NODE0>new</NODE0>
+      <english>new</english>
+      <french>nouveau</french>
+      <korean>새로운</korean>
+    </record>
+    <record index="8">
+      <NODE0>buy</NODE0>
+      <english>Buy</english>
+      <french>Acheter</french>
+      <korean>사다</korean>
+    </record>
+    <record index="9">
+      <NODE0>legendary_chest</NODE0>
+      <english>Legendary Chest</english>
+      <french>Coffre de la ligue</french>
+      <korean>리그 상자</korean>
+    </record>
+    <record index="10">
+      <NODE0>quanlity_chest</NODE0>
+      <english>Quanlity Chest</english>
+      <french>Coffre de qualité</french>
+      <korean>품질 상자</korean>
+    </record>
+    <record index="11">
+      <NODE0>red_and_chuck</NODE0>
+      <english>Red and Chuck</english>
+      <french>Rouge et Chuck</french>
+      <korean>레드와 척</korean>
+    </record>
+    <record index="12">
+      <NODE0>red_and_bomb</NODE0>
+      <english>Red and Bomb</english>
+      <french>Rouge et Bombe</french>
+      <korean>&quot;레드와 폭탄</korean>
+    </record>
+    <record index="13">
+      <NODE0>all_birds</NODE0>
+      <english>All Birds</english>
+      <french>Tous les oiseaux</french>
+      <korean>모든 새</korean>
+    </record>
+    <record index="14">
+      <NODE0>left</NODE0>
+      <english>left</english>
+      <french>gauche</french>
+      <korean>왼쪽</korean>
+    </record>
+    <record index="15">
+      <NODE0>sunshine_vendor</NODE0>
+      <english>Sunshine Vendor</english>
+      <french>Vendeur de soleil</french>
+      <korean>해마치</korean>
+    </record>
+    <record index="16">
+      <NODE0>vanilla</NODE0>
+      <english>Vanilla</english>
+      <french>Vanille</french>
+      <korean>바닐라</korean>
+    </record>
+    <record index="17">
+      <NODE0>champions_tournament</NODE0>
+      <english>Champions Tournament</english>
+      <french>Tournoi des Champions</french>
+      <korean>챔피언 토너먼트</korean>
+    </record>
+  </records>
+</data>

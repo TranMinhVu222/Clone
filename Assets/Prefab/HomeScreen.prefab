@@ -2068,7 +2068,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8303613732786630928}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2157699013834431235}
+        m_TargetAssemblyTypeName: TextManager, Assembly-CSharp
+        m_MethodName: SelectLocalized
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8303613732797232016
 GameObject:
   m_ObjectHideFlags: 0
@@ -9334,6 +9346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8303613733872921468}
   - component: {fileID: 7554004319038281516}
+  - component: {fileID: 2157699013834431235}
   m_Layer: 5
   m_Name: HomeScreen
   m_TagString: Untagged
@@ -9382,6 +9395,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifier: HomeScreen
+--- !u!114 &2157699013834431235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8303613733872921464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f64ea9eeb194f5cb9347297332a5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textElements:
+  - uiText: {fileID: 8303613734223169569}
+    key: vanilla_league
+  - uiText: {fileID: 8303613734586699232}
+    key: season_pass
+  - uiText: {fileID: 8303613733351003418}
+    key: expired
+  - uiText: {fileID: 8303613734586699232}
+    key: expired
+  - uiText: {fileID: 8303613734021633216}
+    key: expired
+  - uiText: {fileID: 8303613732662616307}
+    key: expired
+  - uiText: {fileID: 8303613734066085465}
+    key: expired
+  - uiText: {fileID: 8303613733136196177}
+    key: expired
+  - uiText: {fileID: 8303613733320094940}
+    key: champions_tournament
+  - uiText: {fileID: 8303613733820873436}
+    key: full
+  - uiText: {fileID: 8303613732840634032}
+    key: days
+  - uiText: {fileID: 8303613734630285580}
+    key: new
+  - uiText: {fileID: 8303613734630285580}
+    key: new
+  - uiText: {fileID: 8303613734630285580}
+    key: new
+  _leagueScreen: {fileID: -2932954957445398640, guid: a7bed7e191ace434492735df0c0ebf35, type: 3}
 --- !u!1 &8303613733915474610
 GameObject:
   m_ObjectHideFlags: 0
@@ -11389,9 +11444,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.99
-  m_Text: 'Vanilla
-
-    League'
+  m_Text: Vanilla League
 --- !u!114 &8303613734223169571
 MonoBehaviour:
   m_ObjectHideFlags: 0

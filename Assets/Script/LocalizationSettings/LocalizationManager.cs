@@ -6,47 +6,38 @@ public class LocalizationManager : MonoBehaviour
 {
     private Dictionary<string, Dictionary<string, string>> localizedText;
     private const string LanguagePlayerPrefsKey = "SelectedLanguage";
-    private string selectedLanguage = PlayerPrefs.GetString(LanguagePlayerPrefsKey, "en"); // Default language
-    private int countSelectLang;
-    
+
     private static LocalizationManager instance;
     public static LocalizationManager Instance { get => instance; }
     private void Awake()
     {
         if (instance != null)
         {
-            
+            Debug.LogError("Only 1 Object allowed to exist");
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        PlayerPrefs.GetString(LanguagePlayerPrefsKey, "english");
+        // CheckLocalizedAndLoadLocalizedText();
         
-        LoadLocalizedText(selectedLanguage);
-        LoadSavedLanguage();
+        LoadLocalizedText(PlayerPrefs.GetString(LanguagePlayerPrefsKey,"english"));
     }
 
-    private void CheckLocalizedAndLoadLocalizedText()
-    {
-        SystemLanguage deviceLanguage = Application.systemLanguage;
-        SetLanguage(deviceLanguage.ToString().ToLower());
-        LoadLocalizedText(deviceLanguage.ToString().ToLower());
-    }
-
-    private void SelectLocalized()
-    {
-        string[] languages = { "en", "vi", "fr" };
-        countSelectLang = (countSelectLang % languages.Length) + 1;
-        string lang = languages[countSelectLang - 1];
-        SetLanguage(lang);
-        LoadLocalizedText(lang);
-        LoadSavedLanguage();
-    }
-        
-
+    // private void CheckLocalizedAndLoadLocalizedText()
+    // {
+    //     SystemLanguage deviceLanguage = Application.systemLanguage;
+    //     string lang = deviceLanguage.ToString();
+    //     SetLanguage(lang);
+    //     LoadLocalizedText(lang);
+    //     LoadSavedLanguage();
+    // }
+    
     public void LoadLocalizedText(string lang)
     {
         localizedText = new Dictionary<string, Dictionary<string, string>>();
 
-        TextAsset textAsset = Resources.Load<TextAsset>("Localization");
+        TextAsset textAsset = Resources.Load<TextAsset>("LocalizationLang");
         if (textAsset != null)
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -73,9 +64,10 @@ public class LocalizationManager : MonoBehaviour
 
     public string GetLocalizedValue(string key)
     {
+        string selectedLanguage = PlayerPrefs.GetString(LanguagePlayerPrefsKey, "english");
         if (localizedText.ContainsKey(key) && localizedText[key].ContainsKey(selectedLanguage))
         {
-            return localizedText[key][selectedLanguage];
+            return localizedText[key][PlayerPrefs.GetString(LanguagePlayerPrefsKey,"english")];
         }
         return key; // Return the key itself if not found
     }
@@ -83,16 +75,6 @@ public class LocalizationManager : MonoBehaviour
     // Set the current language and save it to PlayerPrefs.
     public void SetLanguage(string language)
     {
-        selectedLanguage = language;
         PlayerPrefs.SetString(LanguagePlayerPrefsKey, language);
-    }
-
-    // Load ngôn ngữ đã lưu từ PlayerPrefs
-    private void LoadSavedLanguage()
-    {
-        if (PlayerPrefs.HasKey(LanguagePlayerPrefsKey))
-        {
-            selectedLanguage = PlayerPrefs.GetString(LanguagePlayerPrefsKey);
-        }
     }
 }

@@ -6,6 +6,7 @@ public class LocalizationManager : MonoBehaviour
 {
     private Dictionary<string, Dictionary<string, string>> localizedText;
     private const string LanguagePlayerPrefsKey = "SelectedLanguage";
+    public List<TextManager> textManagers = new List<TextManager>();
 
     private static LocalizationManager instance;
     public static LocalizationManager Instance { get => instance; }
@@ -61,6 +62,8 @@ public class LocalizationManager : MonoBehaviour
             Debug.LogError("Localization file not found.");
         }
     }
+
+    
 
     public string GetLocalizedValue(string key)
     {

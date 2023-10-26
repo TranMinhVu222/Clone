@@ -719,6 +719,7 @@ MonoBehaviour:
   chestInfoBt: {fileID: 2788447915637095398}
   countDownText: {fileID: 6710968584156194749}
   inventoryText: {fileID: 2028639780108436534}
+  buyText: {fileID: 7062822832334751196}
 --- !u!1 &6710968584156194751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,8 +1058,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.5355, y: -1.6}
-  m_SizeDelta: {x: 70.3504, y: 36.08}
+  m_AnchoredPosition: {x: 13.374, y: 0.00023985}
+  m_SizeDelta: {x: 74.085, y: 50.682}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5222516454860958171
 CanvasRenderer:
@@ -1093,14 +1094,14 @@ MonoBehaviour:
     m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 20
+    m_MinSize: 15
     m_MaxSize: 23
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.7
   m_Text: 3 Left
 --- !u!1 &8398047111626409803
 GameObject:

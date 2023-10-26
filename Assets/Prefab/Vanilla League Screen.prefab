@@ -796,7 +796,6 @@ GameObject:
   - component: {fileID: 1685857516946173460}
   - component: {fileID: 1685857516946173461}
   - component: {fileID: -2932954957445398640}
-  - component: {fileID: 4122578577192510942}
   m_Layer: 5
   m_Name: Vanilla League Screen
   m_TagString: Untagged
@@ -889,23 +888,8 @@ MonoBehaviour:
   - Bird
   - Elephant
   - Dog
---- !u!114 &4122578577192510942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685857516946173448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f64ea9eeb194f5cb9347297332a5c1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textElements:
-  - uiText: {fileID: 3521509242524928146}
-    key: vanilla_league
-  - uiText: {fileID: 3521509242524928146}
-    key: vanilla_league
+  leagueNameText: {fileID: 3521509242524928146}
+  daysText: {fileID: 7581330923201996550}
 --- !u!1 &1782264452165418324
 GameObject:
   m_ObjectHideFlags: 0

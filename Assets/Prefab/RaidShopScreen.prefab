@@ -2711,3 +2711,4 @@ MonoBehaviour:
   raidTokenText: {fileID: 3264256680916273204}
   scroller: {fileID: 3964791745535347085}
   cellViewPrefab: {fileID: -3889626790767218885, guid: f0ba9bbe1cc7c4cd3a4f7ab7597d511c, type: 3}
+  nameShop: {fileID: 3264256681009072359}

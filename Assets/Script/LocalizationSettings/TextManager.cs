@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class TextManager : MonoBehaviour
 {
     public List<LocalizedText> textElements = new List<LocalizedText>();
+    public List<Screen> screenList = new List<Screen>();
     private int countSelectLang;
-    private const string LanguagePlayerPrefsKey = "SelectedLanguage";
-    
+
     private void Start()
     {
         UpdateText();
@@ -16,9 +16,6 @@ public class TextManager : MonoBehaviour
 
     public void SelectLocalized()
     {
-        string selectedLanguage = PlayerPrefs.GetString(LanguagePlayerPrefsKey, "english");
-        Debug.Log("Selected Language: " + selectedLanguage);
-
         string[] languages = { "english", "french", "korean" };
         countSelectLang = (countSelectLang % languages.Length) + 1;
         string lang = languages[countSelectLang - 1];
@@ -27,6 +24,10 @@ public class TextManager : MonoBehaviour
         LocalizationManager.Instance.SetLanguage(lang);
         LocalizationManager.Instance.LoadLocalizedText(lang);
         UpdateText();
+        foreach (var screen in screenList)
+        {
+            screen.ChangeLanguageText();
+        }
     }
     
     private void UpdateText()

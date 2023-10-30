@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e952825c70a79447ad21c4c52195c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textManagers:
-  - {fileID: 2157699013834431235, guid: dedc4d02fbdf24ee9ab658889152d606, type: 3}
-  - {fileID: 4122578577192510942, guid: a7bed7e191ace434492735df0c0ebf35, type: 3}
-  - {fileID: 4122578577192510942, guid: a7bed7e191ace434492735df0c0ebf35, type: 3}
+  screenList:
+  - {fileID: 7554004319038281516, guid: dedc4d02fbdf24ee9ab658889152d606, type: 3}
+  - {fileID: 6273089607589177849, guid: 83c820c076c7e4195adf2f4ff784f228, type: 3}
+  - {fileID: -2932954957445398640, guid: a7bed7e191ace434492735df0c0ebf35, type: 3}

@@ -923,7 +923,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Expired
+  m_Text: "Expir\xE9"
 --- !u!1 &8303613732670011344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,7 +1947,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Season Pass
+  m_Text: Passe saison
 --- !u!1 &8303613732786630941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,19 +2068,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8303613732786630928}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2157699013834431235}
-        m_TargetAssemblyTypeName: TextManager, Assembly-CSharp
-        m_MethodName: SelectLocalized
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8303613732797232016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,7 +2410,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 6 days
+  m_Text: 6 jours
 --- !u!1 &8303613732867214390
 GameObject:
   m_ObjectHideFlags: 0
@@ -4684,7 +4672,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Expired
+  m_Text: "Expir\xE9"
 --- !u!1 &8303613733152658887
 GameObject:
   m_ObjectHideFlags: 0
@@ -5592,8 +5580,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: 19.939983}
-  m_SizeDelta: {x: 148.5, y: 66.6}
+  m_AnchoredPosition: {x: 0.97003, y: 19.735}
+  m_SizeDelta: {x: 140.56, y: 66.1902}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8303613733320094941
 CanvasRenderer:
@@ -5636,7 +5624,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " Champions\n Tournament"
+  m_Text: Tournoi des Champions
 --- !u!1 &8303613733344228532
 GameObject:
   m_ObjectHideFlags: 0
@@ -5791,7 +5779,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Expired
+  m_Text: "Expir\xE9"
 --- !u!1 &8303613733355591588
 GameObject:
   m_ObjectHideFlags: 0
@@ -9028,7 +9016,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Full
+  m_Text: Plein
 --- !u!1 &8303613733827247427
 GameObject:
   m_ObjectHideFlags: 0
@@ -9346,7 +9334,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8303613733872921468}
   - component: {fileID: 7554004319038281516}
-  - component: {fileID: 2157699013834431235}
   m_Layer: 5
   m_Name: HomeScreen
   m_TagString: Untagged
@@ -9395,20 +9382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifier: HomeScreen
-  daysText: {fileID: 8303613732840634032}
-  raidDaysText: {fileID: 8303613734595719347}
---- !u!114 &2157699013834431235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303613733872921464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f64ea9eeb194f5cb9347297332a5c1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   textElements:
   - uiText: {fileID: 8303613734223169569}
     key: vanilla_league
@@ -9430,20 +9403,14 @@ MonoBehaviour:
     key: champions_tournament
   - uiText: {fileID: 8303613733820873436}
     key: full
-  - uiText: {fileID: 8303613732840634032}
-    key: days
-  - uiText: {fileID: 8303613734630285580}
-    key: new
-  - uiText: {fileID: 8303613734630285580}
-    key: new
   - uiText: {fileID: 8303613734630285580}
     key: new
   - uiText: {fileID: 8303613732780604458}
     key: season_pass
-  screenList:
-  - {fileID: 6273089607589177849, guid: 83c820c076c7e4195adf2f4ff784f228, type: 3}
-  - {fileID: -2932954957445398640, guid: a7bed7e191ace434492735df0c0ebf35, type: 3}
-  - {fileID: 7554004319038281516}
+  - uiText: {fileID: 8303613733464973616}
+    key: loading
+  pigDaysText: {fileID: 8303613732840634032}
+  raidDaysText: {fileID: 8303613734595719347}
 --- !u!1 &8303613733915474610
 GameObject:
   m_ObjectHideFlags: 0
@@ -9918,7 +9885,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Expired
+  m_Text: "Expir\xE9"
 --- !u!1 &8303613734025661736
 GameObject:
   m_ObjectHideFlags: 0
@@ -10645,7 +10612,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Expired
+  m_Text: "Expir\xE9"
 --- !u!1 &8303613734082735586
 GameObject:
   m_ObjectHideFlags: 0
@@ -11451,7 +11418,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.99
-  m_Text: Vanilla League
+  m_Text: Ligue Vanilla
 --- !u!114 &8303613734223169571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13196,7 +13163,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Expired
+  m_Text: "Expir\xE9"
 --- !u!1 &8303613734587689935
 GameObject:
   m_ObjectHideFlags: 0
@@ -13425,7 +13392,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4 days
+  m_Text: 4 jours
 --- !u!1 &8303613734611155671
 GameObject:
   m_ObjectHideFlags: 0
@@ -13888,7 +13855,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NEW!
+  m_Text: nouveau
 --- !u!114 &8303613734630285582
 MonoBehaviour:
   m_ObjectHideFlags: 0

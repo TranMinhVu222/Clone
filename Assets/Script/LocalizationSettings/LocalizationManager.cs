@@ -1,12 +1,16 @@
+using System;
 using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LocalizationManager : MonoBehaviour
 {
     private Dictionary<string, Dictionary<string, string>> localizedText;
     private const string LanguagePlayerPrefsKey = "SelectedLanguage";
-    public List<TextManager> textManagers = new List<TextManager>();
+    public List<Screen> screenList = new List<Screen>();
+
+    private string lang;
 
     private static LocalizationManager instance;
     public static LocalizationManager Instance { get => instance; }
@@ -20,19 +24,18 @@ public class LocalizationManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         PlayerPrefs.GetString(LanguagePlayerPrefsKey, "english");
-        // CheckLocalizedAndLoadLocalizedText();
-        
-        LoadLocalizedText(PlayerPrefs.GetString(LanguagePlayerPrefsKey,"english"));
+        CheckLocalizedAndLoadLocalizedText();
     }
 
-    // private void CheckLocalizedAndLoadLocalizedText()
-    // {
-    //     SystemLanguage deviceLanguage = Application.systemLanguage;
-    //     string lang = deviceLanguage.ToString();
-    //     SetLanguage(lang);
-    //     LoadLocalizedText(lang);
-    //     LoadSavedLanguage();
-    // }
+    
+    //{ "english", "french", "korean" }
+    private void CheckLocalizedAndLoadLocalizedText()
+    {
+        // SystemLanguage deviceLanguage = Application.systemLanguage;
+        // lang = deviceLanguage.ToString();
+        lang = "english";
+        LoadLocalizedText(lang);
+    }
     
     public void LoadLocalizedText(string lang)
     {
@@ -56,6 +59,11 @@ public class LocalizationManager : MonoBehaviour
                     localizedText[key][lang] = value;
                 }
             }
+            
+            foreach (var screen in screenList)
+            {
+                screen.ChangeLanguageText();
+            }
         }
         else
         {
@@ -67,17 +75,17 @@ public class LocalizationManager : MonoBehaviour
 
     public string GetLocalizedValue(string key)
     {
-        string selectedLanguage = PlayerPrefs.GetString(LanguagePlayerPrefsKey, "english");
-        if (localizedText.ContainsKey(key) && localizedText[key].ContainsKey(selectedLanguage))
+        if (localizedText.ContainsKey(key) && localizedText[key].ContainsKey(lang))
         {
-            return localizedText[key][PlayerPrefs.GetString(LanguagePlayerPrefsKey,"english")];
+            return localizedText[key][lang];
         }
         return key; // Return the key itself if not found
     }
+}
 
-    // Set the current language and save it to PlayerPrefs.
-    public void SetLanguage(string language)
-    {
-        PlayerPrefs.SetString(LanguagePlayerPrefsKey, language);
-    }
+[Serializable]
+public class LocalizedText
+{
+    public Text uiText;
+    public string key;
 }

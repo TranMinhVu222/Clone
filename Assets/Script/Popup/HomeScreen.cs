@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HomeScreen : Screen
 {
-    public Text daysText;
+    public List<LocalizedText> textElements = new List<LocalizedText>();
+    
+    public Text pigDaysText;
     public Text raidDaysText;
     public void OpenScreen(UserInterface screenPrefab)
     {
@@ -17,7 +20,15 @@ public class HomeScreen : Screen
 
     public override void ChangeLanguageText()
     {
-        daysText.text = "6 " + LocalizationManager.Instance.GetLocalizedValue("days");
-        raidDaysText.text = "4 " + LocalizationManager.Instance.GetLocalizedValue("days");;
+        raidDaysText.text = "4 " + LocalizationManager.Instance.GetLocalizedValue("days");
+        pigDaysText.text = "6 " + LocalizationManager.Instance.GetLocalizedValue("days");
+
+        Debug.Log(textElements.Count);
+        
+        for (int i = 0; i < textElements.Count; i++)
+        {
+            textElements[i].uiText.text = LocalizationManager.Instance.GetLocalizedValue(textElements[i].key);
+        }
     }
 }
+

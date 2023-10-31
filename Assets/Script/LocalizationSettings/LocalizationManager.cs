@@ -31,9 +31,9 @@ public class LocalizationManager : MonoBehaviour
     //{ "english", "french", "korean" }
     private void CheckLocalizedAndLoadLocalizedText()
     {
-        // SystemLanguage deviceLanguage = Application.systemLanguage;
-        // lang = deviceLanguage.ToString();
-        lang = "english";
+        SystemLanguage deviceLanguage = Application.systemLanguage;
+        lang = deviceLanguage.ToString().ToLower();
+        Debug.Log(lang);
         LoadLocalizedText(lang);
     }
     
@@ -55,6 +55,12 @@ public class LocalizationManager : MonoBehaviour
 
                 if (record.SelectSingleNode(lang) != null)
                 {
+                    string value = record.SelectSingleNode(lang).InnerText;
+                    localizedText[key][lang] = value;
+                }
+                else
+                {
+                    lang = "english";
                     string value = record.SelectSingleNode(lang).InnerText;
                     localizedText[key][lang] = value;
                 }

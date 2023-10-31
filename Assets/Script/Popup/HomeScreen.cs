@@ -23,8 +23,6 @@ public class HomeScreen : Screen
         raidDaysText.text = "4 " + LocalizationManager.Instance.GetLocalizedValue("days");
         pigDaysText.text = "6 " + LocalizationManager.Instance.GetLocalizedValue("days");
 
-        Debug.Log(textElements.Count);
-        
         for (int i = 0; i < textElements.Count; i++)
         {
             textElements[i].uiText.text = LocalizationManager.Instance.GetLocalizedValue(textElements[i].key);

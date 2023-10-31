@@ -60,6 +60,7 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
         return cellView;
     }
 
+    // Update the league name and days text based on the selected language
     public override void ChangeLanguageText()
     {
         leagueNameText.text = LocalizationManager.Instance.GetLocalizedValue("vanilla_league");

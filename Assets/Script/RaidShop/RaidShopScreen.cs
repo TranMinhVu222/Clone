@@ -12,7 +12,7 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
     public EnhancedScrollerCellView cellViewPrefab;
 
     private RaidShopItemInfo[] data;
-    public List<GameObject> rsItemCellList = new List<GameObject>();
+    private List<GameObject> rsItemCellList = new List<GameObject>();
 
     private int numberOfCellsPerRow = 2;
     private float heightCell;
@@ -133,7 +133,9 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
     {
         return LocalizationManager.Instance.GetLocalizedValue(name.ToString().ToLower());
     }
-
+    
+    // This method is called to change the language-specific text on the RaidShopScreen.
+    // It updates the text displayed on the screen to match the selected language.
     public override void ChangeLanguageText()
     {
         nameShop.text = LocalizationManager.Instance.GetLocalizedValue("sunshine_vendor");

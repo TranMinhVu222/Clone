@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class LocalizationManager : MonoBehaviour
 {
+    // Dictionary for storing localized text for different languages
     private Dictionary<string, Dictionary<string, string>> localizedText;
-    private const string LanguagePlayerPrefsKey = "SelectedLanguage";
+    // List of Screen objects that need to update their text
     public List<Screen> screenList = new List<Screen>();
-
+    // The currently selected language
     private string lang;
 
     private static LocalizationManager instance;
@@ -22,25 +23,27 @@ public class LocalizationManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-
-        PlayerPrefs.GetString(LanguagePlayerPrefsKey, "english");
+        
+        // Check the device's system language and load the localized text
         CheckLocalizedAndLoadLocalizedText();
     }
 
     
     //{ "english", "french", "korean" }
+    // Load localized text for a specified language
     private void CheckLocalizedAndLoadLocalizedText()
     {
         SystemLanguage deviceLanguage = Application.systemLanguage;
         lang = deviceLanguage.ToString().ToLower();
-        Debug.Log(lang);
         LoadLocalizedText(lang);
     }
     
+    // Load localized text for a specified language
     public void LoadLocalizedText(string lang)
     {
         localizedText = new Dictionary<string, Dictionary<string, string>>();
-
+        
+        // Attempt to load an XML file with localized text
         TextAsset textAsset = Resources.Load<TextAsset>("LocalizationLang");
         if (textAsset != null)
         {
@@ -50,6 +53,7 @@ public class LocalizationManager : MonoBehaviour
             XmlNodeList records = xmlDoc.SelectNodes("//records/record");
             foreach (XmlNode record in records)
             {
+                // Parse the XML data and populate the localizedText dictionary
                 string key = record.SelectSingleNode("NODE0").InnerText;
                 localizedText[key] = new Dictionary<string, string>();
 
@@ -76,9 +80,8 @@ public class LocalizationManager : MonoBehaviour
             Debug.LogError("Localization file not found.");
         }
     }
-
     
-
+    // Get the localized text for a given key
     public string GetLocalizedValue(string key)
     {
         if (localizedText.ContainsKey(key) && localizedText[key].ContainsKey(lang))

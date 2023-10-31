@@ -9,13 +9,9 @@ public class StartSceneController : MonoBehaviour
     {
         //init ads Sdk, other stuff
         
-        
         //Init UI
         //1. Init PopupManager len scene
         Instantiate(Resources.Load<GameObject>("PopupManager"));
-
-        //2. PopupManager.Instance.OpenPopup(HomeScreen)
-        PopupManager.Instance.TurnOnPopup(homeScreen);  
         
         //Init Item Manager
         Instantiate(Resources.Load<GameObject>("ItemManager"));
@@ -25,5 +21,11 @@ public class StartSceneController : MonoBehaviour
         
         //Init User Inventory Manager
         Instantiate(Resources.Load<GameObject>("UserInventoryManager"));
+        
+        //Init LocalizationManager
+        Instantiate(Resources.Load<GameObject>("LocalizationManager"));
+        
+        //Init HomeScreen
+        PopupManager.Instance.TurnOnPopup(homeScreen);  
     }
 }

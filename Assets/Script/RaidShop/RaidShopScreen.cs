@@ -17,6 +17,8 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
     private int numberOfCellsPerRow = 2;
     private float heightCell;
 
+    public Text nameShop;
+    
     private UserInventoryManager uimInstance;
     private void Start()
     {
@@ -41,7 +43,7 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
             RaidShopItemInfo product = new RaidShopItemInfo
             (
                 itemInfo.id,
-                itemInfo.name,
+                ChangeLanguageNameItemText(itemInfo.name),
                 itemInfo.image,
                 RaidShopDataManager.Instance.raidShopItems[i].price,
                 RaidShopDataManager.Instance.raidShopItems[i].quantity,
@@ -107,7 +109,7 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
     {
         return heightCell;
     }
-
+    
     public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
     {
         RaidShopItemRow cellView = scroller.GetCellView(cellViewPrefab) as RaidShopItemRow;
@@ -125,6 +127,19 @@ public class RaidShopScreen : Screen, IEnhancedScrollerDelegate
         OnChangeColorPriceText();
         
         return cellView;
+    }
+    
+    private string ChangeLanguageNameItemText(string name)
+    {
+        return LocalizationManager.Instance.GetLocalizedValue(name.ToString().ToLower());
+    }
+    
+    // This method is called to change the language-specific text on the RaidShopScreen.
+    // It updates the text displayed on the screen to match the selected language.
+    public override void ChangeLanguageText()
+    {
+        nameShop.text = LocalizationManager.Instance.GetLocalizedValue("sunshine_vendor");
+        ShowRaidShopItemInfo();
     }
 
     [System.Serializable]

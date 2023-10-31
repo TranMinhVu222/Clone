@@ -5,7 +5,7 @@ public class CanvasScalerController : MonoBehaviour
 {
     private CanvasScaler canvasScaler;
     private float previousWidthOrientation, previousHeightOrientation ;
-#if UNITY_EDITOR
+
     void Start()
     {
         // Get the CanvasScaler component of the GameObject containing the Canvas
@@ -44,5 +44,4 @@ public class CanvasScalerController : MonoBehaviour
         // Reference: Match (iPhone 12 Mini) = 0.7 and Match (iPad Pro 9.7") = 1.06
         canvasScaler.matchWidthOrHeight = 1.48f - screenAspectRatio * 0.36f;
     }
-#endif    
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using EnhancedUI.EnhancedScroller;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LeagueScreen : Screen, IEnhancedScrollerDelegate
 {
@@ -15,6 +16,10 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
     [SerializeField] private string[] nameArray;
 
     private float heightPrefab;
+
+    [SerializeField] private Text leagueNameText;
+    [SerializeField] private Text daysText;
+    
 
     private void Start()
     {
@@ -53,5 +58,12 @@ public class LeagueScreen : Screen, IEnhancedScrollerDelegate
         LeagueCellView cellView = scroller.GetCellView(cellViewPrefab) as LeagueCellViewContent;
         cellView.SetData(data[dataIndex]);
         return cellView;
+    }
+
+    // Update the league name and days text based on the selected language
+    public override void ChangeLanguageText()
+    {
+        leagueNameText.text = LocalizationManager.Instance.GetLocalizedValue("vanilla_league");
+        daysText.text = "4 " + LocalizationManager.Instance.GetLocalizedValue("days");
     }
 }

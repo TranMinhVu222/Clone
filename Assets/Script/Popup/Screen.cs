@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Screen: UserInterface
 {
-    
+    public  virtual  void ChangeLanguageText() { }
 }

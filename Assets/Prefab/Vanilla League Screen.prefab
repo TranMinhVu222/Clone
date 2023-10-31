@@ -888,6 +888,8 @@ MonoBehaviour:
   - Bird
   - Elephant
   - Dog
+  leagueNameText: {fileID: 3521509242524928146}
+  daysText: {fileID: 7581330923201996550}
 --- !u!1 &1782264452165418324
 GameObject:
   m_ObjectHideFlags: 0

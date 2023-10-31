@@ -13,7 +13,8 @@ public class RaidShopItemCell : MonoBehaviour
     public GameObject chestInfoBt;
     public Text countDownText;
     public Text inventoryText;
-    
+    public Text buyText;
+
     private int id;
     private int price;
     private string rsId;
@@ -34,8 +35,8 @@ public class RaidShopItemCell : MonoBehaviour
         nameItemText.text = raidShopItemInfo.name;
         imageItem.sprite = raidShopItemInfo.image;
         priceItemText.text = "" + raidShopItemInfo.price;
-        quantityItem.text = quanTemp + " Left";
-        if (!raidShopItemInfo.name.Contains("Chest"))
+        quantityItem.text = quanTemp + " " + LocalizationManager.Instance.GetLocalizedValue("left");
+        if (id < 2)
         {
             chestInfoBt.SetActive(false);
         }
@@ -43,8 +44,9 @@ public class RaidShopItemCell : MonoBehaviour
         if (raidShopItemInfo.image.name.StartsWith("G_"))
         {
             countDownText.gameObject.SetActive(true);
+            countDownText.text = "15 " +  LocalizationManager.Instance.GetLocalizedValue("minutes");
         }
-
+        buyText.text = LocalizationManager.Instance.GetLocalizedValue("buy");
         inventoryText.text = "" + uimInstance.GetInventoryUser(raidShopItemInfo.id).quantity;
     }
     
@@ -59,7 +61,8 @@ public class RaidShopItemCell : MonoBehaviour
             
             int purchasedQuantity = uimInstance.GetPurchasedItem(rsId) + 1;
             uimInstance.SetPurchasedItem(rsId,purchasedQuantity);
-            quantityItem.text = RaidShopDataManager.Instance.GetItemQuantity(rsId).quantity -  uimInstance.GetPurchasedItem(rsId) + " Left";
+            quantityItem.text = RaidShopDataManager.Instance.GetItemQuantity(rsId).quantity -  uimInstance.GetPurchasedItem(rsId) 
+                                + " " + LocalizationManager.Instance.GetLocalizedValue("left");
             
             OnItemBought?.Invoke(id, inventoryQuantity);
         }

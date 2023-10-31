@@ -29,9 +29,6 @@ public class UserInventoryManager : MonoBehaviour
     {
         LoadData<InventoryItemsData>(itemInventoryKey);
         LoadData<PurchasedItemsData>(purchasedItemKey);
-
-        Debug.Log(PlayerPrefs.GetString(itemInventoryKey));
-        Debug.Log(PlayerPrefs.GetString(purchasedItemKey));
     }
 
     public string GetUserName() { return PlayerPrefs.GetString(userNameKey, "Adorable"); }
@@ -90,7 +87,6 @@ public class UserInventoryManager : MonoBehaviour
             }
 
             string serializedData = JsonUtility.ToJson(purchasedItemsList);
-            Debug.Log(serializedData);
             PlayerPrefs.SetString(key, serializedData);
         }
         else if (typeof(T) == typeof(InventoryItemsData))
@@ -105,7 +101,6 @@ public class UserInventoryManager : MonoBehaviour
             }
 
             string serializedData = JsonUtility.ToJson(inventoryItemsList);
-            Debug.Log(serializedData);
             PlayerPrefs.SetString(key, serializedData);
         }
 

@@ -61,7 +61,8 @@ public class RaidShopItemCell : MonoBehaviour
             
             int purchasedQuantity = uimInstance.GetPurchasedItem(rsId) + 1;
             uimInstance.SetPurchasedItem(rsId,purchasedQuantity);
-            quantityItem.text = RaidShopDataManager.Instance.GetItemQuantity(rsId).quantity -  uimInstance.GetPurchasedItem(rsId) + LocalizationManager.Instance.GetLocalizedValue("left");
+            quantityItem.text = RaidShopDataManager.Instance.GetItemQuantity(rsId).quantity -  uimInstance.GetPurchasedItem(rsId) 
+                                + " " + LocalizationManager.Instance.GetLocalizedValue("left");
             
             OnItemBought?.Invoke(id, inventoryQuantity);
         }

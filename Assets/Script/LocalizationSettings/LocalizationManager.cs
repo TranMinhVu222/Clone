@@ -29,7 +29,6 @@ public class LocalizationManager : MonoBehaviour
     }
 
     
-    //{ "english", "french", "korean" }
     // Load localized text for a specified language
     private void CheckLocalizedAndLoadLocalizedText()
     {
@@ -44,7 +43,7 @@ public class LocalizationManager : MonoBehaviour
         localizedText = new Dictionary<string, Dictionary<string, string>>();
         
         // Attempt to load an XML file with localized text
-        TextAsset textAsset = Resources.Load<TextAsset>("LocalizationLang");
+        TextAsset textAsset = (TextAsset)Resources.Load("LocalizationLang", typeof(TextAsset));
         if (textAsset != null)
         {
             XmlDocument xmlDoc = new XmlDocument();
